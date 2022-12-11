@@ -1,0 +1,26 @@
+/******************************************** 
+ *  home.css                                *
+ *                                          *
+ *  Capstone Project:  "Context Textiles"   *
+ *  Author: Amanda Dreesen                  *
+ *          Kansas State University         *
+ *          College of Engineering          *
+ *          Computer Science                *
+ ********************************************/
+
+
+body {
+    margin: 0 auto 0 auto;
+}
+
+@media (max-width: 1050px){
+
+}
+
+@media (max-width: 850px){
+
+}
+
+@media (max-width: 550px){
+    
+}
