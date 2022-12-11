@@ -24,7 +24,7 @@ body {
 }
 
 .side-navi li:hover .icon{
-    
+    animation-duration: 3s;
 }
 
 @media (max-width: 1050px){
