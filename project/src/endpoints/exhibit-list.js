@@ -1,5 +1,5 @@
 /******************************************** 
- *  gallery-list.js                         *
+ *  exhibit-list.js                         *
  *                                          *
  *  Capstone Project:  "Context Textiles"   *
  *  Author: Amanda Dreesen                  *
