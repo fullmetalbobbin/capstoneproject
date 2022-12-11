@@ -1,0 +1,71 @@
+ASSETS 
+
+* All photographs within capstone/project/static/assets/artifacts have been supplied 
+  by the curator of the K-State Textile Museum, Marla Day, for use in the Context Textiles
+  'conTEXTiles' project. They are meant to be used for educational purposes.
+  [The Context Textiles project has been self-funded by author Amanda Dreesen as a 
+  senior capstone project at Kansas State University.
+  The project is not intended to be used for monetary gain.]
+
+Image = logo-draft.png
+Created by author Amanda Dreesen using Procreate. For capstone use only.
+
+Image = pexels-agnese-lunecka-6561508.png	
+License = pexels.com  Free Use. Attribution is not required. (But appreciated.)
+Contributing photographer = Agnese Lunecka
+
+Image = pexels-castorly-stock-3614132.png
+License = pexels.com  Free Use. Attribution is not required. (But appreciated.)
+Contributing photographer = Castorly Stock
+
+Image = pexels-eva-bronzini-6485437.png
+License = pexels.com  Free Use. Attribution is not required. (But appreciated.)
+Contributing photographer = Eva Bronzini
+
+Image = pexels-karina-zhukovskaya-7260273.png
+License = pexels.com  Free Use. Attribution is not required. (But appreciated.)
+Contributing photographer = Karina Zhukovskaya
+
+Image = pexels-monstera-7794364.png
+License = pexels.com  Free Use. Attribution is not required. (But appreciated.)
+Contributing photographer = Monstera
+
+Image = pexels-monstera-7794411.png
+License = pexels.com  Free Use. Attribution is not required. (But appreciated.)
+Contributing photographer = Monstera
+
+Image = pexels-ron-lach-7778042.png
+License = pexels.com  Free Use. Attribution is not required. (But appreciated.)
+Contributing photographer = Ron Lach
+
+Image = pexels-skyler-ewing-4597808.png
+License = pexels.com  Free Use. Attribution is not required. (But appreciated.)
+Contributing photographer = Skyler Ewing
+
+Image = icons8-button-64.png
+License = icon8s.com  Free us. Editing by author Amanda Dreesen with icon8s.com editing tools.
+[ <a target="_blank" href="https://icons8.com/icon/yM4hDCDf4mCL/button">Button</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> ]
+
+Image = icons8-button2-64.png
+License = icon8s.com  Free us. Editing by author Amanda Dreesen with icon8s.com editing tools.
+[ <a target="_blank" href="https://icons8.com/icon/pjqB7PyNki4t/button">Button</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> ]
+
+Image = icons8-button3-64.png
+License = icon8s.com  Free us. Editing by author Amanda Dreesen with icon8s.com editing tools.
+[ <a target="_blank" href="https://icons8.com/icon/859fePZ7DkId/button">Button</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> ]
+
+Image = icons8-button4-64.png
+License = icon8s.com  Free us. Editing by author Amanda Dreesen with icon8s.com editing tools.
+<a target="_blank" href="https://icons8.com/icon/859fePZ7DkId/button">Button</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+Image = icons8-button5-64.png
+License = icon8s.com  Free us. Editing by author Amanda Dreesen with icon8s.com editing tools.
+<a target="_blank" href="https://icons8.com/icon/pjqB7PyNki4t/button">Button</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+Image = icons8-button6-64.png
+License = icon8s.com  Free us. Editing by author Amanda Dreesen with icon8s.com editing tools.
+<a target="_blank" href="https://icons8.com/icon/859fePZ7DkId/button">Button</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+Image = icons8-button7-64.png
+License = icon8s.com  Free us. Editing by author Amanda Dreesen with icon8s.com editing tools.
+<a target="_blank" href="https://icons8.com/icon/859fePZ7DkId/button">Button</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
