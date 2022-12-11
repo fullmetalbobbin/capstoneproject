@@ -4,7 +4,8 @@
   "description": "Final Attempt",
   "main": "server.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,18 @@
   },
   "homepage": "https://github.com/fullmetalbobbin/capstoneproject#readme",
   "dependencies": {
-    "node": "^19.2.0"
+    "bcrypt": "^5.1.0",
+    "better-sqlite3": "^8.0.1",
+    "body-parser": "^1.20.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "nanoid": "^4.0.0",
+    "node": "^19.2.0",
+    "qrcode": "^1.5.1",
+    "sanitize-html": "^2.7.3"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0"
   }
 }
