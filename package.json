@@ -1,0 +1,22 @@
+{
+  "name": "capstoneproject",
+  "version": "1.0.0",
+  "description": "Final Attempt",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fullmetalbobbin/capstoneproject.git"
+  },
+  "author": "Amanda Dreesen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fullmetalbobbin/capstoneproject/issues"
+  },
+  "homepage": "https://github.com/fullmetalbobbin/capstoneproject#readme",
+  "dependencies": {
+    "node": "^19.2.0"
+  }
+}
