@@ -20,7 +20,10 @@ const templates = require('../templates');
 
 /** @function userCreate
  * 
- * TODO - COMMENT
+ * Recieves input for user creation, sanitizes it, and checks that all fields contained input
+ * Checks input handle and email against User table in the database to prevent repeats
+ * Checks password fields match - if true password is encrypted
+ * If successful with all the above, input is added to the Users table
  * 
  * @param {*} req : request object
  * @param {*} res : response object
@@ -61,7 +64,15 @@ function userCreate(req, res) {
 }// close userCreate
 
 
-
+/** @function createFail
+ * 
+ * Helper function called when creating a user is NOT successful
+ * Returns error message and redirect
+ * 
+ * @param {*} req : request object
+ * @param {*} res : response object
+ * @param {*} err : error message
+ **/
 function createFail(req, res, err) {
 
     var errorMessage = err;
@@ -69,14 +80,20 @@ function createFail(req, res, err) {
         errorMessage = "Uh-oh! An error occured processing your request. Please try again. "
     }// close if
 
-    // TODO - ATTACH LAYOUTS
+    var navigationSide = templates['navigation-side.html']({
+        user: req.session.user
+    });
+
+    var html = templates['layout-sign-up.html']({
+        error: errorMessage,
+        navi: navigationSide
+    });
 
     res.setHeader("Content-Type", "text/html");
     res.setHeader("Content-Length", html.length);
     res.end(html);
 
 }// close createFail
-
 
 
 /** @function createSuccess
@@ -93,7 +110,6 @@ function createSuccess(req, res, currentUserID) {
     sessionCreate(req, res);
 
 }// close createSuccess
-
 
 
 // EXPORT

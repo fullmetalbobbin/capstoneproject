@@ -34,14 +34,16 @@ function userList(req, res) {
     var firstName = allUsers.UserFirstName;
     var lastName = allUsers.UserLastName;
     var role = allUsers.UserRole;
+    var errorMessage = "";
 
     var navigationSide = templates['navigation-side.html']({
-        userAdmin: req.session.UserHandle,
+        userAdmin: req.session.UserID,
         roleAdmin: req.session.UserRole,
         handleAdmin: req.session.UserHandle
     });
 
-    var html = templates['layout-manage-users.html']({
+    var html = templates['layout-manage-all-users.html']({
+        error: errorMessage,
         navi: navigationSide,
         users: allUsers
     });
