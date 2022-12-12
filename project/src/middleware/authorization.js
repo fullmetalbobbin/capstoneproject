@@ -29,11 +29,12 @@ const serveError = require('./serve-error');
  * @param {*} req : request object
  * @param {*} res : response object
  * @param {*} next : callback to indicate request can be fulfilled
- * @returns next
+ * @returns   next  OR  error & redirect
  **/
 function authorization(req, res, next) { 
 
     var currSession = req.currSession;
+
     if (!req.currSession.user) { 
         return res.WriteHead(302, { Location: "/login" }).end();
     }// close if
