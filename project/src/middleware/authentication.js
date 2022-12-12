@@ -17,6 +17,19 @@ const serveError = require('./serve-error');
 
 /** @function authentication
  * 
+ * Middleware authenticator to protect sensitive data
+ *  - Checks for correct header information to be processed
+ *  - Seperates header information for processing
+ *  - Decrypts the credentials
+ *  - Translates the decrypted credentials into a string format
+ *  - Assigns credential elements to correspending variables
+ *  - Matches the user handle to the users table from the database
+ *      - If the use handle does not exist - error and redirect
+ *  - Compares the input against the recorded credentials
+ *      - Serves error if occurs
+ *      - Allows next in route if matched
+ *      - Serves error and redirects if not matched
+ * 
  * @param {*} req : request object
  * @param {*} res : response object
  * @param {*} next : callback to indicate request can be fulfilled
@@ -28,13 +41,13 @@ function authentication(req, res, next) {
         res.writeHead(401, { 'WWW-Authenticate': 'Basic realm=Creating posts' }).end();
     }// close if
     else { 
-        var credentialsEncrypted = req.headers['authorization'].split(' ')[1];
-        var credentialsDecrypted = new Buffer.from(credentialsEncrypted, "base64");
-        var credentialsTranslated = buffer.toString("utf-8");
+        var credentialsInput = req.headers['authorization'].split(' ')[1];
+        var credentialsEncrypted = new Buffer.from(credentialsInput, "base64");
+        var credentialsTranslated = credentialsEncrypted.toString("utf-8");
         var credentialsToAuthenticate = credentialsTranslated.split(':');
         var userHandle = credentialsToAuthenticate[0];
         var userPassword = credentialsToAuthenticate[1];
-        var user = database.prepare("SELECT * FROM Users WHERE UserHandle = ?").get(UserHandle);
+        var user = database.prepare("SELECT * FROM Users WHERE UserHandle = ?").get(userHandle);
 
         if (!user) { 
             return res.WriteHead(403, { Location: "/new-user" }).end();
