@@ -15,7 +15,17 @@ const sanitize = require('sanitize-html');
 const serveError = require('./serve-error');
 const templates = require('../templates');
 
-
+/** @function userUpdate
+ * 
+ * Updates database information in the Users table
+ *  - Parses and prepares user information
+ *  - Sanitizes input
+ *  - Updates changes to table entries
+ * 
+ * @param {*} req : the request object
+ * @param {*} res : the response object
+ * @returns 
+ **/
 function userUpdate(req, res) {
 
     const currentUserID = parseInt(req.params.UserID, 10);
@@ -32,7 +42,7 @@ function userUpdate(req, res) {
     if (email == '') email = currentUser.email;
     if (firstName == '') firstName = currentUser.firstName;
     if (lastName == '') lastName = currentUser.lastName;
-    if (role == 'A' || role == 'a' || role == 'Y' || role == 'y') {
+    if (role == 1 || role == '1' || role == 'A' || role == 'a' || role == 'Y' || role == 'y') {
         role = 1;
     }// close if
     else {

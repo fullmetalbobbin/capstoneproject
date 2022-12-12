@@ -11,7 +11,7 @@
 
 /** @function serveError
  * 
- * 
+ * Reports error and error origin to console and gives writeHead reponse
  * 
  * @param {*} req : request object
  * @param {*} res : response object
