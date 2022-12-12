@@ -7,3 +7,16 @@
  *          College of Engineering          *
  *          Computer Science                *
  ********************************************/
+
+// TODO:ALL
+
+// IMPORT REQUIRED RESOURCES
+
+
+function serveSignUp(req, res) {
+
+}// close serveSignUp
+
+
+// EXPORT
+module.exports = serveSignUp;

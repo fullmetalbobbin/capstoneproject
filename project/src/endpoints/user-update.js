@@ -15,6 +15,7 @@ const sanitize = require('sanitize-html');
 const serveError = require('./serve-error');
 const templates = require('../templates');
 
+
 /** @function userUpdate
  * 
  * Updates database information in the Users table
@@ -48,7 +49,6 @@ function userUpdate(req, res) {
     else {
         role = 0;
     }// close else
-
 
     var update = database.prepare("UPDATE users SET UserHandle = ?, UserEmail = ?, UserFirstName = ?, UserLastName = ?, Role = ? WHERE UserID = ? ").run(handle, email, firstName, lastName, role, currentUserID);
 

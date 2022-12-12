@@ -13,7 +13,7 @@
 const Database = require('better-sqlite3');
 
 //var database = new Database('../db/capstoneDB.sqlite3');
-
+TODO
 
 // EXPORT
-//module.exports = new atabase('db/capstoneDB.sqlite3');
+module.exports = new Database('../db/capstoneDB.db');

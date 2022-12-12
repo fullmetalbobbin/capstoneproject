@@ -7,3 +7,16 @@
  *          College of Engineering          *
  *          Computer Science                *
  ********************************************/
+
+// TODO:ALL
+
+// IMPORT REQUIRED RESOURCES
+
+
+function artifactCreate(req, res) { 
+
+}// close artifactCreate
+
+
+// EXPORT
+module.exports = artifactCreate;

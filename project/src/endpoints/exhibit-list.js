@@ -7,3 +7,16 @@
  *          College of Engineering          *
  *          Computer Science                *
  ********************************************/
+
+// TODO:ALL
+
+// IMPORT REQUIRED RESOURCES
+
+
+function exhibitList(req, res) {
+
+}// close exhibitList
+
+
+// EXPORT
+module.exports = exhibitList;

@@ -22,8 +22,8 @@ const templates = require('../templates');
  * 
  * TODO - COMMENT
  * 
- * @param {*} req 
- * @param {*} res 
+ * @param {*} req : request object
+ * @param {*} res : response object
  * @returns 
  **/
 function userCreate(req, res) {
@@ -79,6 +79,15 @@ function createFail(req, res, err) {
 
 
 
+/** @function createSuccess
+ * 
+ * Helper function called when creating a user is successful
+ * Creates a session for the user - login
+ * 
+ * @param {*} req : request object
+ * @param {*} res : reponse object
+ * @param {*} currentUserID : user for whom to create session 
+ **/
 function createSuccess(req, res, currentUserID) {
 
     sessionCreate(req, res);

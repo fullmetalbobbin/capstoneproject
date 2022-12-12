@@ -37,7 +37,7 @@ function sessionCreate(req, res) {
     var cleanHandle = sanitize(handle);
     var cleanPassword = sanitize(password);
 
-    //FIX ME FIX ME FIX ME FIX ME FIX ME
+    //FIX ME FIX ME FIX ME FIX ME FIX ME //TODO
     // Compare input to database
     // Success creates session
     // Failure redirects back to login with message
@@ -56,7 +56,7 @@ function sessionCreate(req, res) {
 
 
 function loginDenied(req, res) {
-
+TODO
 
 }//close loginDenied
 
