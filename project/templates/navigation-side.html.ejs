@@ -16,11 +16,13 @@
             <div class="menu-text">Home</div>
         </li>
         
+        <% if (user.role == 1) { %>
         <li>
             <div class="menu-icon"><i class="fa-duotone fa-user-shield"></i></div>
             <div class="menu-text">Admin</div>
         </li> 
-        
+       <% } %>
+
         <li>
             <div class="menu-icon"><i class="fa-duotone fa-magnifying-glass"></i></div>
             <div class="menu-text">Search</div>
