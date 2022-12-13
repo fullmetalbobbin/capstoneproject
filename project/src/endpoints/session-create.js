@@ -15,6 +15,7 @@ const encryption = require('bcrypt');
 const sanitize = require('sanitize-html');
 const sessions = require('../sessions');
 const templates = require('../templates');
+const serveError = require('../middleware/serve-error');
 
 
 /** @function sessionCreate
@@ -23,6 +24,12 @@ const templates = require('../templates');
  *  - Retreives user handle input and user password input from request object
  *  - Checks for missing input from request object: empty field(s)
  *  - Sanitizes user input
+ *  - Checks cleaned handle against Users table in database
+ *      - If the handle is not found in the table login is denied (calls helper function)
+ *  - Checks cleaned password against encrypted password (for specified user) from Users table
+ *      - If an error occurs the specified error is returned
+ *      - If a successful match is made login is accepted (calls helper function)
+ *      - Otherwise login is denied (calls helper function)
  * 
  * @param {*} req : request object
  * @param {*} res : response object
@@ -37,30 +44,67 @@ function sessionCreate(req, res) {
     var cleanHandle = sanitize(handle);
     var cleanPassword = sanitize(password);
 
-    //FIX ME FIX ME FIX ME FIX ME FIX ME //TODO
-    // Compare input to database
-    // Success creates session
-    // Failure redirects back to login with message
-
-    var user = database.prepare("SELECT * FROM users WHERE handle = ?").get(handle);
+    var user = database.prepare("SELECT * FROM users WHERE handle = ?").get(cleanHandle);
 
     if (!user) {
-        return
-    }
-
-    encryption.compare();
-
-
+        return loginDenied(req, res, "Email/Password not found.");
+    }// close if
+    
+    encryption.compare(cleanPassword, user.EncryptedPassword, (error, match) => {
+        if (error) { 
+            return serveError(req, res, 500, error);
+        }// close if
+        if (match) {
+            loginAccepted(req, res, user);
+        }// close if
+        else { 
+            return loginDenied(req, res, "Email/Password not found.");
+        }// close else
+    });
 
 }//close sessionCreate
 
 
-function loginDenied(req, res) {
-TODO
+/** @function loginDenied
+ * 
+ * Helper function for a login denial 
+ *  - Assigns an error message if one is specified
+ *  - Supplies the appropriate html layout (redirects to login)
+ *  - Serves html
+ * 
+ * @param {*} req : request object
+ * @param {*} res : response object
+ * @param {*} error : error message to display
+ **/
+function loginDenied(req, res, error) {
+
+    if (!error) { 
+        error = "An error has occured while processing the request.";
+    }
+
+    var error = "";
+
+    var html = templates["layout-sign-in.html"]({
+        error: error
+    });
+
+    res.setHeader("Content-Type", "text/html");
+    res.setHeader("Content-Length", html.length);
+    res.end(html);
 
 }//close loginDenied
 
 
+/** @ function loginAccepted
+ * 
+ * Helper function for login acceptance (success!)
+ *  - Creates a new session for the user with a nanoID (unique string identification generator)
+ *  - Sets headers with session information
+ * 
+ * @param {*} req : request object
+ * @param {*} res : request response
+ * @param {*} user : specified user
+ **/
 function loginAccepted(req, res, user) {
 
     var sessionNanoid = sessions.create(user);
