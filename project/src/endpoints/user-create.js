@@ -40,20 +40,20 @@ function userCreate(req, res) {
 
     if (!handle || !email || !firstName || !lastName || !passwordInital || !passwordConfirm) return serveError(req, res, 422, "All fields must be filled.");
 
-    var handleTaken = database.prepare("SELECT * FROM users WHERE UserHandle = ?").get(handle);
-    var emailTaken = database.prepare("SELECT * FROM users WHERE UserEmail = ?").get(email);
+    var handleTaken = database.prepare("SELECT * FROM Users WHERE UserHandle = ?").get(handle);
+    var emailTaken = database.prepare("SELECT * FROM Users WHERE UserEmail = ?").get(email);
     if (handleTaken) return fail(req, res, `Sorry! "${handle}" is already taken.`);
     if (emailTaken) return fail(req, res, `Whoops! "${email}" is already registered.`);
 
     if (passwordInitial !== passwordConfirm) return createFail(req, res, "Password entries must match.");
 
     encryption.hash(passwordConfirm, 10, (err, encrypt) => {
-        var userData = database.prepare("INSERT INTO users (UserHandle, UserEmail, UserFirstName, UserLastName, EncryptedPassword) VALUES (?, ?, ?, ?, ?);").run(handle, email, firstName, lastName, encrypt);
+        var userData = database.prepare("INSERT INTO Users (UserHandle, UserEmail, UserFirstName, UserLastName, EncryptedPassword) VALUES (?, ?, ?, ?, ?);").run(handle, email, firstName, lastName, encrypt);
         if (err) {
             return serveError(req, res, 500, err);
         }// close if
         if (userData.changes === 1) {
-            var user = database.prepare("SELECT * FROM users WHERE handle = ?").get(handle);
+            var user = database.prepare("SELECT * FROM Users WHERE UserHandle = ?").get(handle);
             createSuccess(req, res, user);
         }// close if
         else {

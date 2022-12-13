@@ -7,6 +7,7 @@
  *          College of Engineering          *
  *          Computer Science                *
  ********************************************/
+//TODO: Double-check needed vars
 
 
 // IMPORT REQUIRED RESOURCES
@@ -34,6 +35,7 @@ function userList(req, res) {
     var firstName = allUsers.UserFirstName;
     var lastName = allUsers.UserLastName;
     var role = allUsers.UserRole;
+
     var errorMessage = "";
 
     var navigationSide = templates['navigation-side.html']({

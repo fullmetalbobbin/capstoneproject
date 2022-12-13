@@ -21,7 +21,7 @@ const templates = require('../templates');
  * Updates database information in the Users table
  *  - Parses and prepares user information
  *  - Sanitizes input
- *  - Updates changes to table entries
+ *  - Updates changes to table entries or gives error
  * 
  * @param {*} req : the request object
  * @param {*} res : the response object
@@ -31,7 +31,7 @@ function userUpdate(req, res) {
 
     const currentUserID = parseInt(req.params.UserID, 10);
 
-    var currentUser = database.prepare("SELECT * FROM users WHERE UserID = ?").get(currentUserID);
+    var currentUser = database.prepare("SELECT * FROM Users WHERE UserID = ?").get(currentUserID);
 
     var handle = sanitize(req.body.handle);
     var email = sanitize(req.body.email);
@@ -50,7 +50,7 @@ function userUpdate(req, res) {
         role = 0;
     }// close else
 
-    var update = database.prepare("UPDATE users SET UserHandle = ?, UserEmail = ?, UserFirstName = ?, UserLastName = ?, Role = ? WHERE UserID = ? ").run(handle, email, firstName, lastName, role, currentUserID);
+    var update = database.prepare("UPDATE Users SET UserHandle = ?, UserEmail = ?, UserFirstName = ?, UserLastName = ?, Role = ? WHERE UserID = ? ").run(handle, email, firstName, lastName, role, currentUserID);
 
     if (update.changes !== 1) return serveError(req, res, 500, "Unable to update database");
 

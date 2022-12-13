@@ -27,8 +27,8 @@ const templates = require('../templates');
  **/
 function userEdit(req, res) { 
 
-    const id = parseInt(req.params.UserID, 10);
-    var userToEdit = database.prepare("SELECT * FROM Users WHERE UserID = ?").get(id);
+    const userID = parseInt(req.params.UserID, 10);
+    var userToEdit = database.prepare("SELECT * FROM Users WHERE UserID = ?").get(userID);
     var errorMessage = ";"
 
     var navigationSide = templates['navigation-side.html']({
