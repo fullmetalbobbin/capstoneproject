@@ -11,6 +11,8 @@
 
 
 // IMPORT REQUIRED RESOURCES
+const authentication = require('../middleware/authentication');
+const authorization = require('../middleware/authorization');
 const database = require('../database');
 const sanitize = require('sanitize-html');
 const serveError = require('./serve-error');

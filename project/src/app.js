@@ -7,7 +7,7 @@
  *          College of Engineering          *
  *          Computer Science                *
  ********************************************/
-
+// TODO - FINISH 
 
 // IMPORT REQUIRED RESOURCES
 //const cors = require('cors');
@@ -30,6 +30,8 @@ var qrEdit = require('./endpoints/qr-edit');
 var qrUpdate = require('./endpoints/qr-update');
 var qrList = require('./endpoints/qr-list');
 var serveAdminPage = require('./endpoints/serve-admin-page');
+var serveArtifact = require('./endpoints/serve-artifact');
+var serveExhibit = require('./endpoints/serve-exhibit');
 var serveGallery = require('./endpoints/serve-gallery');
 var serveHomepage = require('./endpoints/serve-homepage');
 var serveSignIn = require('./endpoints/serve-sign-in');
@@ -45,6 +47,7 @@ var userUpdate = require('./endpoints/user-udate');
 var authenticationInternal = require('./middleware/authentication');
 var authorizationInternal = require('./middleware/authorization');
 var parseData = require('./middleware/parse-data');
+var serveError = require('./middleware/serve-error');
 var seesionLoad = require('./middleware/session-load');
 
 //const { create } = require('browser-sync');
@@ -57,20 +60,23 @@ app.use(morgan('dev'));
 
 app.use(seesionLoad);
 
-app.get('/', serveHomepage);
-
-
 //app.get(); 
 //app.post();
 //app.use(parseBody.json());
 
 //get and post gallery things here?
 
+//serve
+app.get('/', serveHomepage);
+app.get('/gallery', serveGallery);
+app.get('/exhibits', serveExhibit);
+app.get('/artifacts', serveArtifact);
 
 app.get('/login', serveSignIn);
 app.get('/new-account', serveSignUp);
 
-//serve
+app.get('/manager', authorizationInternal, serveAdminPage);
+
 
 // ADMIN ONLY - ARTIFACT CREATE/EDIT/UPDATE
 app.get('/artifacts', authorizationInternal, artifactList);
@@ -94,6 +100,9 @@ app.get('/qr-codes/new-qr-code', authorizationInternal, qrCodeCreate)
 app.get('/users', authorizationInternal, userList);
 app.get('/users/:userID', authorizationInternal, userEdit);
 app.post('/users/:userID', authorizationInternal, parseBody, userUpdate);
+
+// ADMIN ONLY - MANAGER/ADMIN PAGE
+
 
 
 // ANY USER - USER CREATE & SESSION CREATE

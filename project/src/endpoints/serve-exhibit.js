@@ -1,5 +1,5 @@
 /******************************************** 
- *  serve-homepage.js                       *
+ *  serve-exhibit.js                        *
  *                                          *
  *  Capstone Project:  "Context Textiles"   *
  *  Author: Amanda Dreesen                  *
@@ -7,7 +7,7 @@
  *          College of Engineering          *
  *          Computer Science                *
  ********************************************/
-
+//TODO Double check
 
 // IMPORT REQUIRED RESOURCES
 const database = require('../database');
@@ -15,9 +15,9 @@ const templates = require('../templates');
 const serveError = require('../middleware/serve-error');
 
 
-/** @function serveHomepage
+/** @function serveExhibit
  * 
- * Serves the template layout for the homepage with the necessary information
+ * Serves the template layout for viewing an exhibit with the necessary information
  *  - Checks for registered user to supply handle or supplies a blank
  *  - Checks role for admin authorization for redundancy
  *  - Supplies the navigation sidebar with the user information (user, handle, and role)
@@ -27,13 +27,13 @@ const serveError = require('../middleware/serve-error');
  * @param {*} req : request object
  * @param {*} res : response object
  **/
-function serveHomepage(req, res) {
+function serveExhibit(req, res) {
 
     var handle = req.session.user;
     if (handle !== undefined) {
         handle = req.session.user.UserHandle;
     }// close if
-    else { 
+    else {
         handle = "";
     }// close else
 
@@ -41,7 +41,7 @@ function serveHomepage(req, res) {
     if (role == 1) {
         role = 1;
     }// close if
-    else { 
+    else {
         role = 0;
     }// close else
 
@@ -54,7 +54,7 @@ function serveHomepage(req, res) {
         role: role
     });
 
-    var html = templates['layout-homepage.html']({
+    var html = templates['layout-view-exhibit.html']({
         navi: navigationSide,
         error: error
     });
@@ -63,8 +63,8 @@ function serveHomepage(req, res) {
     res.setHeader("Content-Length", html.length);
     res.end(html);
 
-}// close serveHomepage
+}// close serveExhibit
 
 
 // EXPORT
-module.exports = serveHomepage;
+module.exports = serveExhibit;

@@ -19,6 +19,7 @@
  * @param {*} err : error
  **/
 function serveError(req, res, stat, err) { 
+    
     console.error(err);
     console.trace();
     console.error(`Error ${req.method} at ${req.url}`);
