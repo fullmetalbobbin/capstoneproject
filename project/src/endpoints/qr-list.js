@@ -8,7 +8,8 @@
  *          Computer Science                *
  ********************************************/
 
-//TODO
+//TODO - Unnecessary?
+
 // IMPORT REQUIRED RESOURCES
 const database = require('../database');
 const QR = require('qrcode');

@@ -8,7 +8,9 @@
  *          Computer Science                *
  ********************************************/
 
-//TODO
+//TODO - should this be included in artifact-create.js and exhibit.js instead?
+
+
 // IMPORT REQUIRED RESOURCES
 const database = require('../database');
 const QR = require('qrcode');
