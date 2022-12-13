@@ -12,8 +12,11 @@
 // IMPORT REQUIRED RESOURCES
 const Database = require('better-sqlite3');
 
-//var database = new Database('../db/capstoneDB.sqlite3');
-TODO
+
+/************************************************************************
+ * Creates connection to the database for access throughout the project *
+ ************************************************************************/
+
 
 // EXPORT
 module.exports = new Database('../db/capstoneDB.db');

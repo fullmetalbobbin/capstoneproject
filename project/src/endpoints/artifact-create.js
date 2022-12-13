@@ -11,6 +11,10 @@
 // TODO:ALL
 
 // IMPORT REQUIRED RESOURCES
+const database = require('../database');
+const sanitize = require('sanitize-html');
+const serveError = require('./serve-error');
+const templates = require('../templates');
 
 
 function artifactCreate(req, res) { 
