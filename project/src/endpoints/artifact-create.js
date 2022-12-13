@@ -46,7 +46,7 @@ function artifactCreate(req, res) {
     if (!display) display = 0;
         
     var nameTaken = database.prepare("SELECT * FROM Artifacts WHERE ArtifactName = ?").get(name);
-    if (nameTaken) return serveError(req, res, `Artifacts must be given a unique name. An artifact called "${name}" already exisits.`);
+    if (nameTaken) return serveError(req, res, `Artifacts must be given a unique name. An artifact called "${name}" already exists.`);
 
     var artifactData = database.prepare("INSERT INTO Artifacts (ArtifactName, ArtifactDescription, PathToQRAsset, PathToPhotoAsset, IsOnPhysicalDisplay) VALUES (?, ?, ?, ?, ?)").run(name, describe, pathQR, pathPhoto, display);
 

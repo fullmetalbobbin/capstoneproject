@@ -50,7 +50,7 @@ function artifactUpdate(req, res) {
         display = 0;
     }// close else
 
-    var update = database.prepare("UPDATE Artifacts SET ArtifactName = ?, ArtifactDescription = ?, PathToQRAsset = ?, PathToPhotoAsset = ?, IsOnPhysicalDisplay = ? WHERE ArtifactID = ?").run(currentArtifactID);
+    var update = database.prepare("UPDATE Artifacts SET ArtifactName = ?, ArtifactDescription = ?, PathToQRAsset = ?, PathToPhotoAsset = ?, IsOnPhysicalDisplay = ? WHERE ArtifactID = ?").run(name, describe, pathQR, pathPhoto, display, currentArtifactID);
 
     if (update.changes !== 1) return serveError(req, res, 500, "Unable to update database");
         

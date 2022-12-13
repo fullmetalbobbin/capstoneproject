@@ -7,13 +7,53 @@
  *          College of Engineering          *
  *          Computer Science                *
  ********************************************/
+// TODO:Keywords
 
-// TODO:ALL
 
 // IMPORT REQUIRED RESOURCES
+const authentication = require('../middleware/authentication');
+const authorization = require('../middleware/authorization');
+const database = require('../database');
+const serveError = require('../middleware/serve-error');
+const templates = require('../templates');
 
 
+/** @function exhibitEdit
+ * 
+ * Retrieves the information for a particular exhibit from the Exhibits table in the database
+ * Serves the html containing data for editing
+ * 
+ * @param {*} req : request object
+ * @param {*} res : response object
+ **/
 function exhibitEdit(req, res) {
+
+    const exhibitID = parseInt(req.params.ExhibitID, 10);
+    var exhibitToEdit = database.prepare("SELECT * FROM Exhibits WHERE ExhibitID = ?").get(exhibitID);
+
+    var errorMessage = "";
+
+    var navigationSide = templates['navigation-side.html']({
+        userAdmin: req.session.UserID,
+        roleAdmin: req.session.UserRole,
+        handleAdmin: req.session.UserHandle
+    });
+
+    var html = templates['layout-manage-single-exhibit.html']({
+        error: errorMessage,
+        navi: navigationSide,
+        id: exhibitToEdit.ExhibitID,
+        name: exhibitToEdit.ExhibitName,
+        describe: exhibitToEdit.ExhibitDescription,
+        pathQR: exhibitToEdit.PathToQRAsset,
+        pathPhoto: exhibitToEdit.PathToPhotoAsset,
+        current: exhibitToEdit.IsCurrentExhibit,
+        travel: exhibitToEdit.IsTravelingExhibit
+    });
+
+    res.setHeader('Content-Type', "text/html");
+    res.setHeader('Content-Length', html.length);
+    res.end(html);
 
 }// close exhibitEdit
 
