@@ -13,7 +13,7 @@
 const database = require('../database');
 const encryption = require('bcrypt');
 const sanitize = require('sanitize-html');
-const serveError = require('./middleware/serve-error');
+const serveError = require('../middleware/serve-error');
 const sessionCreate = require('./session-create');
 const templates = require('../templates');
 

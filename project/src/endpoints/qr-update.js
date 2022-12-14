@@ -14,7 +14,7 @@
 const database = require('../database');
 const QR = require('qrcode');
 const sanitize = require('sanitize-html');
-const serveError = require('./middleware/serve-error');
+const serveError = require('../middleware/serve-error');
 const templates = require('../templates');
 
 
