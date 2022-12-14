@@ -22,6 +22,7 @@ app.listen(port, () => {
     console.log(`Starting port: ${port}`);
 });
 
+
 app.get('/status', (req, res) => {
     res.send({
         message: 'Is this thing on?'

@@ -34,7 +34,7 @@ function serveHomepage(req, res) {
         handle = req.session.user.UserHandle;
     }// close if
     else { 
-        handle = "";
+        handle = " ";
     }// close else
 
     var role = req.session.user;
