@@ -92,7 +92,7 @@ app.post('/exhibits/:exhibittID', authorizationInternal, parseBody, exhibitUpdat
 
 // ADMIN ONLY - QR CODE  TODO - FIX QR CODE STUFF
 //app.get('/qr-codes', authorizationInternal, qrCodeList);
-app.get('/qr-codes/new-qr-code', authorizationInternal, qrCodeCreate)
+app.get('/qr-codes/new-qr-code', authorizationInternal, qrCreate)
 //app.get('/qr-codes/:artifactID', authorizationInternal, artifactEdit);
 //app.post('/qr-codes/:artifactID', authorizationInternal, parseBody, artifactUpdate);
 
