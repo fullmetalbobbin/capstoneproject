@@ -39,9 +39,9 @@ var serveSignUp = require('./endpoints/serve-sign-up');
 var sessionCreate = require('./endpoints/session-create');
 var sessionDestroy = require('./endpoints/session-destroy');
 var userCreate = require('./endpoints/user-create');
-var userEdit = require(',/endpoints/user-edit');
+var userEdit = require('./endpoints/user-edit');
 var userList = require('./endpoints/user-list');
-var userUpdate = require('./endpoints/user-udate');
+var userUpdate = require('./endpoints/user-update');
 
 // MIDDLEWARE
 var authenticationInternal = require('./middleware/authentication');

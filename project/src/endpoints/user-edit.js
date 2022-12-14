@@ -56,4 +56,4 @@ function userEdit(req, res) {
 
 
 // EXPORT
-modules.exports = userEdit;
+module.exports = userEdit;
