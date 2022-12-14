@@ -12,7 +12,7 @@
 // IMPORT REQUIRED RESOURCES
 const database = require('../database');
 const encryption = require('bcrypt');
-const serveError = require('./serve-error');
+const serveError = require('./middleware/serve-error');
 
 
 /** @function authentication

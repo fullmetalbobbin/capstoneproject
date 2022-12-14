@@ -9,7 +9,7 @@
  ********************************************/
 
 // IMPORT REQUIRED RESOURCES
-const serveError = require('./serve-error');
+const serveError = require('./middleware/serve-error');
 
 
 /** @function authorization
