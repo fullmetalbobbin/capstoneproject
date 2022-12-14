@@ -9,9 +9,11 @@
  ********************************************/
 
 
+//import nanoid from nanoid;
 // IMPORT REQUIRED RESOURCES
 const db = require('./database');
-const nanoid = require('nanoid');
+//const nanoid = require('nanoid');
+const nanoid = import('nanoid');
 
 
 // Initialized constant variables for time calculations
