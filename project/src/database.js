@@ -19,4 +19,4 @@ const Database = require('better-sqlite3');
 
 
 // EXPORT
-module.exports = new Database('../db/capstoneDB.db');
+module.exports = new Database('../db/capstoneDB.sqlite3');

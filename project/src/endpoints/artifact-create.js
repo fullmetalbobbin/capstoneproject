@@ -58,6 +58,11 @@ function artifactCreate(req, res) {
     var newArtifact = database.prepare("SELECT * FROM Artifacts WHERE ArtifactName = ?").get(name);
 
     res.writeHead(302, { "Location": `/artifacts/${newArtifact.ArtifactName}` }).end(); //TODO - check ArtifactName vs id
+    // maybe use id instead
+    //otherwise encode
+    //they do have both
+    //slugs and then id  (only really needs id)
+
 
 }// close artifactCreate
 
