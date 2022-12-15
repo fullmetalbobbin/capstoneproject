@@ -11,7 +11,66 @@
     <body>
         <h1>create artifact</h1>
         <%- navi %>
-        <div id="main-container"></div>
+        <div id="main-container">
+            <form id="new-artifact-form" method="POST">
+
+                <div>
+                <label for="name">Artifact&nbsp;Title:</label>
+                <input type="text" name="name" placeholder="Give the artifact a name"/>
+                </div>
+
+                    <div style="padding: 15px;"></div>
+
+                <div>
+                <label for="describe">Artifact&nbsp;Description:</label>
+                <input type="text" name="describe" placeholder="Describe the artifact"/>
+                </div>
+
+                    <div style="padding: 15px;"></div>  
+
+                <div>
+                <label for="pathQR">QR&nbsp;Code:</label>
+                <input type="text" name="pathQR" placeholder="Path to QR code asset"/>
+                </div>
+
+                    <div style="padding: 15px;"></div>
+
+                <div>
+                <label for="pathPhoto">Photo:</label>
+                <input type="text" name="pathPhoto" placeholder="Path to photo asset"/>
+                </div>
+
+                    <div style="padding: 15px;"></div>
+
+                <div>
+                <label for="passswordInitial">On&nbsp;Displa:y</label>
+                <input type="radio" name="display" value="1" id="displayYES"> 
+                <label for="displayYES">Yes</label>
+                <input type="radio" name="display" value="0" id:="displayNO"> 
+                <label for="displayNO">No</label>
+                </div>
+
+                    <div style="padding: 15px;"></div>
+
+                <div>
+                    <label>[Future&nbsp;Work:&nbsp;Keywords]</label>
+                </div>
+
+                    <div style="padding: 15px;"></div>
+
+                <div>
+                <input type="submit" value="Submit"/>
+                </div>
+
+                    <div style="padding: 15px;"></div>
+
+                <div>
+                    <label for="error" style="display:inline-flex; flex-direction:row; align-content: center;"><%= error %></label></span>                   
+                </div>
+
+            </form>
+
+        </div>
         <link rel="stylesheet" href="site.css" type="text/css"/>
         <script src="site.js"></script>
 

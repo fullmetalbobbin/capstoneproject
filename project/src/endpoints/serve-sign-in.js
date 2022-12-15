@@ -42,6 +42,7 @@ function serveSignIn(req, res) {
         handle: handle,
         role: role
     });
+    console.log(handle);
 
     var html = templates['layout-sign-in.html']({
         navi: navigationSide,

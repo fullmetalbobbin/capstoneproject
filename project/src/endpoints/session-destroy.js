@@ -34,6 +34,7 @@ function sessionDestroy(req, res) {
         sessions.remove(currentCookie[1]);
     }//close if
 
+    /*
     if(req.session.user) {
         var handle = req.session.user.UserHandle; 
         var role = req.session.user.UserRole;      
@@ -53,14 +54,14 @@ function sessionDestroy(req, res) {
     var html = templates['layout-homepage.html']({
         navi: navigationSide,
         error: error
-    });
+    });*/
 
 
     res.setHeader("Set-Cookie", `SID=deleted; Secure; HTTPOnly; expires=Thu, 01 Jan 1970 00:00:00 GMT`);
     res.setHeader("Location", "/");
-    res.setHeader("Content-Type", "text/html");
-    res.setHeader("Content-Length", html.length);
-    res.end(html);
+    //res.setHeader("Content-Type", "text/html");
+    ///res.setHeader("Content-Length", html.length);
+    res.end();
 
 }//close sessionDestroy
 

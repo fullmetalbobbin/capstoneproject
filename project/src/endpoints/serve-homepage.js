@@ -28,12 +28,13 @@ const serveError = require('../middleware/serve-error');
  * @param {*} res : response object
  **/
 function serveHomepage(req, res) {
-   
+
     if(req.session.user)
     {
         var handle = req.session.user.UserHandle;
+        console.log(handle);
 
-        if(user.session.user.Role == 1) {
+        if(req.session.user.UserRole == 1) {
             var role = 1;
         }// close if
         else {

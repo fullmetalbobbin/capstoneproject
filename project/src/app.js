@@ -83,20 +83,20 @@ app.get('/manager', authorizationInternal, serveAdminPage);
 
 
 // ADMIN ONLY - ARTIFACT CREATE/EDIT/UPDATE
-app.get('/artifacts', authorizationInternal, artifactList);
-app.get('/artifacts/new-artifact', authorizationInternal, artifactCreate)
+app.get('/artifacts', artifactList);
+app.get('/artifacts/new-artifact', artifactCreate);
 app.get('/artifacts/:artifactID', authorizationInternal, artifactEdit);
 app.post('/artifacts/:artifactID', authorizationInternal, parseData, artifactUpdate);
 
 //  ADMIN ONLY - EXHIBIT CREATE/EDIT/UPDATE
 app.get('/exhibits', authorizationInternal, exhibitList);
-app.get('/exhibits/new-exhibit', authorizationInternal, exhibitCreate)
+app.get('/exhibits/new-exhibit', authorizationInternal, exhibitCreate);
 app.get('/exhibits/:exhibitID', authorizationInternal, exhibitEdit);
 app.post('/exhibits/:exhibittID', authorizationInternal, parseData, exhibitUpdate);
 
 // ADMIN ONLY - QR CODE  TODO - FIX QR CODE STUFF
 //app.get('/qr-codes', authorizationInternal, qrCodeList);
-app.get('/qr-codes/new-qr-code', authorizationInternal, qrCreate)
+app.get('/qr-codes/new-qr-code', authorizationInternal, qrCreate);
 //app.get('/qr-codes/:artifactID', authorizationInternal, artifactEdit);
 //app.post('/qr-codes/:artifactID', authorizationInternal, parseBody, artifactUpdate);
 
