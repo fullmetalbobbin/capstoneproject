@@ -59,7 +59,7 @@ function exhibitCreate(req, res) {
 
     var newExhibit = database.prepare("SELECT * FROM Exhibits WHERE ExhibitName = ?").get(name);
 
-    res.writeHead(302, { "Location": `/exhibits/${newExhibit.ExhibitName}` }).end(); //TODO - check ExhibitName vs id
+    res.writeHead(302, { "Location": `/exhibits/${newExhibit.ExhibitID}` }).end(); //TODO - check ExhibitName vs id
 
 }// close exhibitCreate
 
