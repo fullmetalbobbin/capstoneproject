@@ -39,7 +39,9 @@ function sessionCreate(req, res) {
     var handle = req.body.handle;
     var password = req.body.password;
 
-    if (!handle || !password) { return (res, req, "Please fill each field.") }
+    if (!handle || !password) { 
+        return (res, req, "Please fill each field."); 
+    }//close if
 
     var cleanHandle = sanitize(handle);
     var cleanPassword = sanitize(password);
@@ -142,8 +144,6 @@ function loginAccepted(req, res, user) {
    
     res.setHeader("Set-Cookie", `SID=${sessionuuid}; Secure; HTTPOnly`);
     res.setHeader("Location", "/");
-    res.setHeader("Content-Type", "text/html");
-    res.setHeader("Content-Length", html.length);
     res.end(html);
 
 }//close loginAccepted

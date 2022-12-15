@@ -12,9 +12,20 @@
     </head>
 
     <body>
-        <h1>view artifact</h1>
+        
         <%- navi %>
-        <div id="main-container"></div>
+        <div id="main-container">
+            <h1>view artifact</h1>
+            <ul>              
+            <% artifacts.forEach((artifact) => { %>
+                <li>
+                    <a href="/artifacts/<%= artifact.ArtifactID %>">
+                        <img src="../static/assets/icons/logo-draft.png">
+                    </a>
+                </li>
+            <% }); %>
+        </ul>
+        </div>
         <link rel="stylesheet" href="site.css" type="text/css"/>
         <script src="site.js"></script>
 
