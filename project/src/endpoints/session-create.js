@@ -44,7 +44,7 @@ function sessionCreate(req, res) {
     var cleanHandle = sanitize(handle);
     var cleanPassword = sanitize(password);
 
-    var user = database.prepare("SELECT * FROM users WHERE handle = ?").get(cleanHandle);
+    var user = database.prepare("SELECT * FROM Users WHERE UserHandle = ?").get(cleanHandle);
 
     if (!user) {
         return loginDenied(req, res, "Email/Password not found.");

@@ -86,13 +86,13 @@ app.get('/manager', authorizationInternal, serveAdminPage);
 app.get('/artifacts', authorizationInternal, artifactList);
 app.get('/artifacts/new-artifact', authorizationInternal, artifactCreate)
 app.get('/artifacts/:artifactID', authorizationInternal, artifactEdit);
-app.post('/artifacts/:artifactID', authorizationInternal, parseBody, artifactUpdate);
+app.post('/artifacts/:artifactID', authorizationInternal, parseData, artifactUpdate);
 
 //  ADMIN ONLY - EXHIBIT CREATE/EDIT/UPDATE
 app.get('/exhibits', authorizationInternal, exhibitList);
 app.get('/exhibits/new-exhibit', authorizationInternal, exhibitCreate)
 app.get('/exhibits/:exhibitID', authorizationInternal, exhibitEdit);
-app.post('/exhibits/:exhibittID', authorizationInternal, parseBody, exhibitUpdate);
+app.post('/exhibits/:exhibittID', authorizationInternal, parseData, exhibitUpdate);
 
 // ADMIN ONLY - QR CODE  TODO - FIX QR CODE STUFF
 //app.get('/qr-codes', authorizationInternal, qrCodeList);
@@ -103,15 +103,15 @@ app.get('/qr-codes/new-qr-code', authorizationInternal, qrCreate)
 // ADMIN ONLY - USER EDIT/UPDATE
 app.get('/users', authorizationInternal, userList);
 app.get('/users/:userID', authorizationInternal, userEdit);
-app.post('/users/:userID', authorizationInternal, parseBody, userUpdate);
+app.post('/users/:userID', authorizationInternal, parseData, userUpdate);
 
 // ADMIN ONLY - MANAGER/ADMIN PAGE
 
 
 
 // ANY USER - USER CREATE & SESSION CREATE
-app.post('/new-user', parseBody, userCreate);
-app.post('/login', parseBody, sessionCreate); //TODO parseBody vs parseData
+app.post('/new-account', parseData, userCreate);
+app.post('/login', parseData, sessionCreate);
 
 
 // LOGOUT DESTROYS SESSION

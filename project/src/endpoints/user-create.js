@@ -42,8 +42,8 @@ function userCreate(req, res) {
 
     var handleTaken = database.prepare("SELECT * FROM Users WHERE UserHandle = ?").get(handle);
     var emailTaken = database.prepare("SELECT * FROM Users WHERE UserEmail = ?").get(email);
-    if (handleTaken) return fail(req, res, `Sorry! "${handle}" is already taken.`);
-    if (emailTaken) return fail(req, res, `Whoops! "${email}" is already registered.`);
+    if (handleTaken) return createFail(req, res, `Sorry! "${handle}" is already taken.`);
+    if (emailTaken) return createFail(req, res, `Whoops! "${email}" is already registered.`);
 
     if (passwordInitial !== passwordConfirm) return createFail(req, res, "Password entries must match.");
 
@@ -80,8 +80,18 @@ function createFail(req, res, err) {
         errorMessage = "Uh-oh! An error occured processing your request. Please try again. "
     }// close if
 
+    if(req.session.user) {
+        var handle = req.session.user.UserHandle; 
+        var role = req.session.user.UserRole;      
+    }// close
+    else {
+        var handle = "Guest"
+        var role = 0;
+    }// close else
+
     var navigationSide = templates['navigation-side.html']({
-        user: req.session.user
+        handle: handle,
+        role: role
     });
 
     var html = templates['layout-sign-up.html']({

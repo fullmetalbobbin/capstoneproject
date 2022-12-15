@@ -13,7 +13,10 @@
 // IMPORT REQUIRED RESOURCES
 const db = require('./database');
 //const nanoid = require('nanoid');
-const nanoid = import('nanoid');
+//const nanoid = import('nanoid');
+//const { nanoid } = require("nanoid");
+//const { nanoid } = import("nanoid");
+const nanoid = nanoid();
 
 
 // Initialized constant variables for time calculations
@@ -71,12 +74,12 @@ function sessionCreate(user) {
     sessionsTracking[sessionNanoid] = {
         timestamp: Date.now(),
         user: {
-            id: user.id,
-            handle: user.handle,
-            email: user.email,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            role: user.role
+            id: user.UserID,
+            handle: user.UserHandle,
+            email: user.Email,
+            firstName: user.UserFirstName,
+            lastName: user.UserLastName,
+            role: user.UserRole
         },
         data: {}
     }
