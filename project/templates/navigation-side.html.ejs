@@ -6,8 +6,8 @@
         <div style="padding: 5px;"></div>
         <% if(handle == "Guest") { %> 
         <li>
-            <a class="login-link" href="login" aria-current="page">
-            <div class="menu-icon"><i class="fa-duotone fa-right-to-bracket" aria-hidden="true"></i></div>
+            <a href="/login">
+            <div class="menu-icon"><i class="fa-duotone fa-right-to-bracket fa-xl"></i></div>
             <div class="menu-text">Login</div>
             </a>
         </li>
@@ -16,8 +16,8 @@
         <div style="padding: 5px;"></div>
         <% if(handle == "Guest") { %> 
         <li>
-            <a class="new-account" href="new-account" aria-current="page">
-            <div class="menu-icon"><i class="fa-duotone fa-user-plus"></i></div>
+            <a href="/new-account">
+            <div class="menu-icon"><i class="fa-duotone fa-user-plus fa-xl"></i></div>
             <div class="menu-text">Create an Account</div>
             </a>
         </li>        
@@ -26,7 +26,7 @@
         <div style="padding: 5px;"></div>
         <% if(handle !== "Guest") { %> 
         <li>
-            <div class="menu-icon"><i class="fa-duotone fa-circle-user"></i></div>
+            <div class="menu-icon"><i class="fa-duotone fa-circle-user fa-xl"></i></div>
             <div class="menu-text"><%= handle %></div>
         </li>
         <% } %>
@@ -34,8 +34,8 @@
         <div style="padding: 5px;"></div>
         
         <li>
-            <a href="" aria-current="page">
-            <div class="menu-icon"><i class="fa-duotone fa-house"></i></div>
+            <a href="/">
+            <div class="menu-icon"><i class="fa-duotone fa-house fa-xl"></i></div>
             <div class="menu-text">Home</div>
             </a>
         </li>    
@@ -43,8 +43,8 @@
         <div style="padding: 5px;"></div>
         <% if(role == 1){ %>
             <li>               
-                <a href="manager" aria-current="page">
-                <div class="menu-icon"><i class="fa-duotone fa-user-shield"></i></div>
+                <a href="/manager">
+                <div class="menu-icon"><i class="fa-duotone fa-user-shield fa-xl"></i></div>
                 <div class="menu-text">Admin</div>
                 </a>
             </li> 
@@ -53,23 +53,24 @@
         <div style="padding: 5px;"></div>
         <li>
             <a >
-            <div class="menu-icon"><i class="fa-duotone fa-magnifying-glass"></i></div>
+            <div class="menu-icon"><i class="fa-duotone fa-magnifying-glass fa-xl"></i></div>
             <div class="menu-text">Search</div>
             </a>                           
         </li>
 
+
         <div style="padding: 5px;"></div>
         <li>
-            <a href="gallery" aria-current="page">
-            <div class="menu-icon"><i class="fa-duotone fa-images"></i></div>
+            <a href="/gallery">
+            <div class="menu-icon"><i class="fa-duotone fa-image fa-xl"></i></div>
             <div class="menu-text">Galleries</div>
             </a>
         </li>
 
         <div style="padding: 5px;"></div>
         <li>
-            <a href="favorites" aria-current="page">
-            <div class="menu-icon"><i class="fa-solid fa-heart"></i></div>
+            <a href="/favorites">
+            <div class="menu-icon"><i class="fa-duotone fa-heart fa-xl"></i></div>
             <div class="menu-text">Favorites</div>
             </a>
         </li>
@@ -78,7 +79,7 @@
         <div style="padding: 5px;"></div>
         <li>
             <a href="/logout">
-            <div class="menu-icon"><i class="fa-duotone fa-right-from-bracket"></i></div>
+            <div class="menu-icon"><i class="fa-duotone fa-right-from-bracket fa-xl"></i></div>
             <div class="menu-text">Logout</div>
             </a>
         </li>
