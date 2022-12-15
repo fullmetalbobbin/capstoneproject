@@ -48,7 +48,7 @@ function userCreate(req, res) {
     if (passwordInitial !== passwordConfirm) return createFail(req, res, "Password entries must match.");
 
     encryption.hash(passwordConfirm, 10, (err, encrypt) => {
-        var userData = database.prepare("INSERT INTO Users (UserHandle, UserEmail, UserFirstName, UserLastName, EncryptedPassword) VALUES (?, ?, ?, ?, ?);").run(handle, email, firstName, lastName, encrypt);
+        var userData = database.prepare("INSERT INTO Users (UserHandle, UserEmail, UserFirstName, UserLastName, EncryptedPassword, UserRole) VALUES (?, ?, ?, ?, ?, ?);").run(handle, email, firstName, lastName, encrypt, 0);
         if (err) {
             return serveError(req, res, 500, err);
         }// close if
