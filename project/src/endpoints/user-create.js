@@ -35,10 +35,10 @@ function userCreate(req, res) {
     var email = sanitize(req.body.email);
     var firstName = sanitize(req.body.firstName);
     var lastName = sanitize(req.body.lastName);
-    var passwordInitial = sanitize(req.body.passwordInital);
+    var passwordInitial = sanitize(req.body.passwordInitial);
     var passwordConfirm = sanitize(req.body.passwordConfirm);
 
-    if (!handle || !email || !firstName || !lastName || !passwordInital || !passwordConfirm) return serveError(req, res, 422, "All fields must be filled.");
+    if (!handle || !email || !firstName || !lastName || !passwordInitial || !passwordConfirm) return serveError(req, res, 422, "All fields must be filled.");
 
     var handleTaken = database.prepare("SELECT * FROM Users WHERE UserHandle = ?").get(handle);
     var emailTaken = database.prepare("SELECT * FROM Users WHERE UserEmail = ?").get(email);

@@ -4,14 +4,60 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>New User</title>
+        <style>
+            ul {list-style-type: none;}
+        </style>
         <link href="site.css" rel="stylesheet" type="text/css" />
         <link rel="icon" href="../static/assets/icons/icons8-button7-64.png" type="image/png" />
     </head>
 
     <body>
-        <h1>sign up</h1>
         <%- navi %>
-        <div class="main-container" id="new-account-container" ></div>
+        <div class="main-container" id="new-account-container" >
+            <form id="new-account-form" method="POST">
+
+                <label for="handle">Username:</label>
+                <div style="padding: 5px;"></div>
+                <input type="text" name="handle" placeholder="Pick a cool username."/>
+
+                <div style="padding: 15px;"></div>
+
+                <label for="email">Email:</label>
+                <div style="padding: 5px;"></div>
+                <input type="text" name="handle" placeholder="Email address goes here."/>
+
+                <div style="padding: 15px;"></div>
+
+                <label for="firstName">First Name:</label>
+                <div style="padding: 5px;"></div>
+                <input type="text" name="firstName" placeholder="First name, please."/>
+                
+                <div style="padding: 15px;"></div>
+
+                <label for="passswordInitial">Password:</label>
+                <div style="padding: 5px;"></div>
+                <input type="password" name="passwordInitial" placeholder="Pick a strong password."/>
+                
+                <div style="padding: 15px;"></div>
+
+                <label for="passswordConfirm">Confirm Password:</label>
+                <div style="padding: 5px;"></div>
+                <input type="password" name="passwordConfirm" placeholder="Passwords must match."/>
+                
+                <div style="padding: 20px;"></div>
+
+                <input type="submit" value="Submit"/>
+
+                <div style="padding: 20px;"></div>
+
+                <div class="error-message">
+                    <%= error %>
+                </div>
+
+            </form>
+
+        </div>
+
         <link rel="stylesheet" href="site.css" type="text/css"/>
         <script src="site.js"></script>
 

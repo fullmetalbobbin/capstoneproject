@@ -3,6 +3,9 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Login</title>
+        <style>
+            ul {list-style-type: none;}
+        </style>
         <link href="site.css" rel="stylesheet" type="text/css" />
         <link rel="icon" href="../static/assets/icons/icons8-button7-64.png" type="image/png" />
     </head>
@@ -10,23 +13,23 @@
     <body>
         <%- navi %>
         <div class="main-container" id="login-container" >        
-            <form id="login-form" method="post">
+            <form id="login-form" method="POST">
 
                 <label for="handle">Username:</label>
-                <div padding="40px"></div>
-                <input type="text" name="handle" placeholder="Write your username here."/>
+                <div style="padding: 5px;"></div>
+                <input type="text" name="handle" placeholder="Username here."/>
 
-                <div padding="20px"></div>
+                <div style="padding: 15px;"></div>
 
                 <label for="passsword">Password:</label>
-                <div padding="20px"></div>
-                <input type="password" name="password" placeholder="Write your password here." cols="75"/>
+                <div style="padding: 5px;"></div>
+                <input type="password" name="password" placeholder="Password here." cols="75"/>
                 
-                <div padding="40px"></div>
+                <div style="padding: 20px;"></div>
 
                 <input type="submit" value="Login"/>
 
-                <div padding="40px"></div>
+                <div style="padding: 20px;"></div>
 
                 <div class="error-message">
                     <%= error %>

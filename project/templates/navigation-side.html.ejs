@@ -2,26 +2,28 @@
 <section class="navi-container">
 <nav class="side-navi">
     <ul class="side-menu fa">
-        
+
+        <div style="padding: 5px;"></div>
         <% if(handle == "Guest") { %> 
         <li>
-            <a class="login-link" href="login">
+            <a class="login-link" href="login" aria-current="page">
             <div class="menu-icon"><i class="fa-duotone fa-right-to-bracket" aria-hidden="true"></i></div>
             <div class="menu-text">Login</div>
             </a>
         </li>
         <% } %>
 
+        <div style="padding: 5px;"></div>
         <% if(handle == "Guest") { %> 
         <li>
-            <a class="new-account" href="new-account">
+            <a class="new-account" href="new-account" aria-current="page">
             <div class="menu-icon"><i class="fa-duotone fa-user-plus"></i></div>
             <div class="menu-text">Create an Account</div>
             </a>
-        </li>
-        <p></p>
+        </li>        
         <% } %>
 
+        <div style="padding: 5px;"></div>
         <% if(handle == "Guest") { %> 
         <li>
             <div class="menu-icon"><i class="fa-duotone fa-circle-user"></i></div>
@@ -29,44 +31,50 @@
         </li>
         <% } %>
 
-        <p></p>
+        <div style="padding: 5px;"></div>
+        
         <li>
-            <a href=" ">
+            <a href="/" aria-current="page">
             <div class="menu-icon"><i class="fa-duotone fa-house"></i></div>
             <div class="menu-text">Home</div>
             </a>
-        </li>                
-        <p></p>
-        <% if(role == 0){ %>
+        </li>    
+
+        <div style="padding: 5px;"></div>
+        <% if(role == 1){ %>
             <li>               
-                <a href="manager">
+                <a href="manager" aria-current="page">
                 <div class="menu-icon"><i class="fa-duotone fa-user-shield"></i></div>
                 <div class="menu-text">Admin</div>
                 </a>
             </li> 
         <% } %>
-            <p></p>
+
+        <div style="padding: 5px;"></div>
         <li>
             <a >
             <div class="menu-icon"><i class="fa-duotone fa-magnifying-glass"></i></div>
             <div class="menu-text">Search</div>
             </a>                           
         </li>
-        <p></p>
+
+        <div style="padding: 5px;"></div>
         <li>
-            <a href="gallery">
+            <a href="gallery" aria-current="page">
             <div class="menu-icon"><i class="fa-duotone fa-images"></i></div>
             <div class="menu-text">Galleries</div>
             </a>
         </li>
-        <p></p>
+
+        <div style="padding: 5px;"></div>
         <li>
-            <a href="favorites">
+            <a href="favorites" aria-current="page">
             <div class="menu-icon"><i class="fa-solid fa-heart"></i></div>
             <div class="menu-text">Favorites</div>
             </a>
         </li>
-        <p></p>
+
+        <div style="padding: 5px;"></div>
         <li>
             <a href="/logout">
             <div class="menu-icon"><i class="fa-duotone fa-right-from-bracket"></i></div>
