@@ -11,6 +11,7 @@
 // IMPORT REQUIRED RESOURCES
 require('./src/database');
 require('./src/templates');
+    
 
 const http = require('http');
 const app = require('./src/app');

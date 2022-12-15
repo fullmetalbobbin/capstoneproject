@@ -16,7 +16,10 @@ const db = require('./database');
 //const nanoid = import('nanoid');
 //const { nanoid } = require("nanoid");
 //const { nanoid } = import("nanoid");
-const nanoid = nanoid();
+//const nanoid = nanoid();
+//var { nanoid }= require("nanoid");
+//import {nanoid} from 'nanoid';
+//var { nanoid } = import ("nanoid");
 
 
 // Initialized constant variables for time calculations
@@ -43,11 +46,15 @@ setInterval(sessionExpire, SESSION_CLEANING_INTERVAL);
  **/
 function nanoidGenerate() {
 
-    var currentNano;
+    var currentNano = nanoid();
 
-    do {
+    while(sessionsTracking[currentNano]){
         currentNano = nanoid();
-    } while (sessionsTracking[currentNano]);
+    }
+
+    //do {
+    //    currentNano = nanoid()
+    //} while (sessionsTracking[currentNano]);
 
     return currentNano;
 
