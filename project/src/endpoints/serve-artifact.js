@@ -30,23 +30,15 @@ const serveError = require('../middleware/serve-error');
  **/
 function serveArtifact (req, res) {
 
-    var handle = req.session.user;
-    if (handle !== undefined) {
-        handle = req.session.user.UserHandle;
-    }// close if
+    if(req.session.user) {
+        var handle = req.session.user.UserHandle; 
+        var role = req.session.user.Role;      
+    }// close
     else {
-        handle = "";
+        var handle = "Guest"
+        var role = 0;
     }// close else
-
-    var role = req.session.user;
-    if (role == 1) {
-        role = 1;
-    }// close if
-    else {
-        role = 0;
-    }// close else
-
-
+    
     var error = "";
 
     var navigationSide = templates['navigation-side.html']({

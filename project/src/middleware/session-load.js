@@ -30,13 +30,13 @@ function sessionLoad(req, res, next) {
     var currentCookie = /SID=([^;\s]+)/.exec(req.headers.cookie);
 
     if (!currentCookie) {
-        req.sessionsTracking = {};
+        req.session = {};
         next();
         return;
     }//close if
     else {
         var currentSession = sessions.get(currentCookie[1]);
-        req.sessionsTracking = currentSession;
+        req.session = currentSession;
         next();
     }//close else
 

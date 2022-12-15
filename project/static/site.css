@@ -11,28 +11,70 @@
 
 body {
     margin: 0 auto 0 auto;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+a {
+    color: inherit;
 }
 
 .body-homepage {
     background-image: url("./assets/backgrounds/pexels-agnese-lunecka-6561508.png");
-    opacity: 0.5;
+    opacity: .9;
     background-size: cover;
-    background-attachment: fixed;
+    background-attachment:local;
 }
 
-.side-navi {
-    display:flex;
-    align-items: center;
-    width:50px;
-
-}
-.side-navi:hover{
-    width:200px;
+.navi-container {
+    background-color: rgb(134, 133, 131);
+    width: 60px;
+    height: 200%;
+    font-family: 'Times New Roman', Times, serif;  
 }
 
-.side-navi li:hover .icon{
-    animation-duration: 3s;
+
+.navi-container .menu-text {
+    font-family: 'Times New Roman', Times, serif;
+    opacity: 1;
+    visibility: hidden;
+    padding: 1, auto, 1, auto;
 }
+
+.navi-container:hover{
+    transition: width 0.3s ease-in-out; 
+    width: 200px;
+    cursor: pointer;
+}
+
+.navi-container:hover .menu-text {
+    visibility: visible;
+}
+
+.navi-container .icon {
+    size:200px;
+    font-style: normal;
+    align-items:flex-start;
+    align-content: flex-start;
+}
+
+.login:hover {
+    font-weight: 400;
+}
+
+.new-account:hover {
+    font-size: 400;
+}
+
+.side-nav {
+    display: flex;
+    padding: 20px;
+}
+
+.navi-container .div{
+    padding: 2px, auto, 2px, auto;
+}
+
+
 
 @media (max-width: 1050px){
 

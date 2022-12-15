@@ -204,7 +204,7 @@ function sessionHasExpired(sessionNanoid) {
 }//close sessionHasExpired
 
 
-/** @sessionRemove
+/** @function sessionRemove
  * 
  * Removes the session
  *  - Given the particular session's unique identifier

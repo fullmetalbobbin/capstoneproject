@@ -15,7 +15,7 @@ require('./src/templates');
 const http = require('http');
 const app = require('./src/app');
 
-const port = 8082;
+const port = 8081;
 
 // Console log message for debugging purposes
 app.listen(port, () => {

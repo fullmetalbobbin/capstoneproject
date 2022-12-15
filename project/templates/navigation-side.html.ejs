@@ -1,47 +1,72 @@
-<script src="https://kit.fontawesome.com/af2df2eec8.js" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/af2df2eec8.js" crossorigin="anonymous"></script>
+<div class="navi-container">
 <nav class="side-navi">
     <ul class="side-menu fa">
         
+        <% if(handle == "Guest") { %> 
         <li>
+            <a class="login-link" href="login">
             <div class="menu-icon"><i class="fa-duotone fa-right-to-bracket"></i></div>
             <div class="menu-text">Login</div>
+            </a>
+            <p>or</p>
+            <a class="new-account" href="new-account">
+            <div class="menu-icon"><i class="fa-duotone fa-user-plus"></i></div>
+            <div class="menu-text">Create an Account</div>
+            </a>
+
         </li>
+        <p></p>
+        <% } %>
 
-
+        <% if(!handle == "Guest") { %> 
         <li>
             <div class="menu-icon"><i class="fa-duotone fa-circle-user"></i></div>
-            <div class="menu-text">UserHandleHere</div>
+            <div class="menu-text"><%= handle %></div>
         </li>
+        <% } %>
 
-
+        <p></p>
         <li>
+            <a href=" ">
             <div class="menu-icon"><i class="fa-duotone fa-house"></i></div>
             <div class="menu-text">Home</div>
-        </li>
-        
-
-            <li>
+            </a>
+        </li>                
+        <p></p>
+        <% if(role == 0){ %>
+            <li>               
+                <a href="manager">
                 <div class="menu-icon"><i class="fa-duotone fa-user-shield"></i></div>
                 <div class="menu-text">Admin</div>
+                </a>
             </li> 
-
-
+        <% } %>
+            <p></p>
         <li>
             <div class="menu-icon"><i class="fa-duotone fa-magnifying-glass"></i></div>
             <div class="menu-text">Search</div>
         </li>
+        <p></p>
         <li>
+            <a href="gallery">
             <div class="menu-icon"><i class="fa-duotone fa-images"></i></div>
             <div class="menu-text">Galleries</div>
+            </a>
         </li>
+        <p></p>
         <li>
+            <a href="favorites"></a>
             <div class="menu-icon"><i class="fa-solid fa-heart"></i></div>
             <div class="menu-text">Favorites</div>
         </li>
+        <p></p>
         <li>
+            <a href="/logout">
             <div class="menu-icon"><i class="fa-duotone fa-right-from-bracket"></i></div>
             <div class="menu-text">Logout</div>
+            </a>
         </li>
     </ul>
 </nav>
-</script>
+</div>

@@ -32,6 +32,7 @@ var qrList = require('./endpoints/qr-list');
 var serveAdminPage = require('./endpoints/serve-admin-page');
 var serveArtifact = require('./endpoints/serve-artifact');
 var serveExhibit = require('./endpoints/serve-exhibit');
+var serveFavorites = require('./endpoints/serve-favorites');
 var serveGallery = require('./endpoints/serve-gallery');
 var serveHomepage = require('./endpoints/serve-homepage');
 var serveSignIn = require('./endpoints/serve-sign-in');
@@ -56,6 +57,8 @@ var seesionLoad = require('./middleware/session-load');
 // EXPRESS APPLICATION
 var app = express();
 
+//app.set("view engine","ejs");
+
 app.use(morgan('dev'));
 
 app.use(seesionLoad);
@@ -71,6 +74,7 @@ app.get('/', serveHomepage);
 app.get('/gallery', serveGallery);
 app.get('/exhibits', serveExhibit);
 app.get('/artifacts', serveArtifact);
+app.get('/favorites', serveFavorites);
 
 app.get('/login', serveSignIn);
 app.get('/new-account', serveSignUp);

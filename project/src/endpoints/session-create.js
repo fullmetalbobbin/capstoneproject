@@ -95,7 +95,7 @@ function loginDenied(req, res, error) {
 }//close loginDenied
 
 
-/** @ function loginAccepted
+/** @function loginAccepted
  * 
  * Helper function for login acceptance (success!)
  *  - Creates a new session for the user with a nanoID (unique string identification generator)

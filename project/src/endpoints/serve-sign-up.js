@@ -27,10 +27,20 @@ const serveError = require('../middleware/serve-error');
  **/
 function serveSignUp(req, res) {
 
-    var error = "";
+    if(req.session.user) {
+        var handle = req.session.user.UserHandle; 
+        var role = req.session.user.Role;      
+    }// close
+    else {
+        var handle = "Guest"
+        var role = 0;
+    }// close else
 
+    var error = "";
+  
     var navigationSide = templates['navigation-side.html']({
-        user: req.session.user
+        handle: handle,
+        role: role
     });
 
     var html = templates['layout-sign-up.html']({

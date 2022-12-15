@@ -1,13 +1,13 @@
 /******************************************** 
- *  serve-exhibit.js                        *
- *                                          *
+ *  serve-favorites.js                      *
  *  Capstone Project:  "Context Textiles"   *
  *  Author: Amanda Dreesen                  *
  *          Kansas State University         *
  *          College of Engineering          *
  *          Computer Science                *
  ********************************************/
-//TODO Double check
+// TODO: Double check
+
 
 // IMPORT REQUIRED RESOURCES
 const database = require('../database');
@@ -15,9 +15,9 @@ const templates = require('../templates');
 const serveError = require('../middleware/serve-error');
 
 
-/** @function serveExhibit
+/** @function serveFavorites
  * 
- * Serves the template layout for viewing an exhibit with the necessary information
+ * Serves the template layout for the gallery with the necessary information
  *  - Checks for registered user to supply handle or supplies a blank
  *  - Checks role for admin authorization for redundancy
  *  - Supplies the navigation sidebar with the user information (user, handle, and role)
@@ -27,7 +27,7 @@ const serveError = require('../middleware/serve-error');
  * @param {*} req : request object
  * @param {*} res : response object
  **/
-function serveExhibit(req, res) {
+function serveFavorites(req, res) {
 
     if(req.session.user) {
         var handle = req.session.user.UserHandle; 
@@ -46,7 +46,7 @@ function serveExhibit(req, res) {
         role: role
     });
 
-    var html = templates['layout-view-exhibit.html']({
+    var html = templates['layout-view-favorites.html']({
         navi: navigationSide,
         error: error
     });
@@ -55,8 +55,7 @@ function serveExhibit(req, res) {
     res.setHeader("Content-Length", html.length);
     res.end(html);
 
-}// close serveExhibit
-
+}// close serveFavorites
 
 // EXPORT
-module.exports = serveExhibit;
+module.exports = serveFavorites;

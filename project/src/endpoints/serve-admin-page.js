@@ -34,31 +34,28 @@ const serveError = require('../middleware/serve-error');
  **/
 function serveAdminPage(req, res) {
 
-    var handle = req.session.user;
-    if (handle !== undefined) {
-        handle = req.session.user.UserHandle;
+    if(req.session.user) {
+        var handle = req.session.user.UserHandle; 
+        if(req.session.user.Role == 1){
+            var role = 1;       
+        }// close if
+        else {
+            var role = 0;
+        }// close else
     }// close if
     else {
-        handle = "";
-    }// close else
-
-    var role = req.session.user;
-    if (role == 1) {
-        role = 1;
-    }// close if
-    else {
-        role = 0;
+        var handle = "Guest"
+        var role = 0;
     }// close else
 
     var error = "";
 
     var navigationSide = templates['navigation-side.html']({
-        user: req.session.user,
         handle: handle,
         role: role
     });
 
-    if (role == 1) {
+    if (role == 0) {
         var html = templates['layout-manager.html']({
             navi: navigationSide,
             error: error
