@@ -8,9 +8,32 @@
     </head>
 
     <body>
-        <h2>Login</h2>
         <%- navi %>
-        <div id="main-container"></div>
+        <div class="main-container" id="login-container" >        
+            <form id="login-form" method="post">
+
+                <label for="handle">Username:</label>
+                <div padding="40px"></div>
+                <input type="text" name="handle" placeholder="Write your username here."/>
+
+                <div padding="20px"></div>
+
+                <label for="passsword">Password:</label>
+                <div padding="20px"></div>
+                <input type="password" name="password" placeholder="Write your password here." cols="75"/>
+                
+                <div padding="40px"></div>
+
+                <input type="submit" value="Login"/>
+
+                <div padding="40px"></div>
+
+                <div class="error-message">
+                    <%= error %>
+                </div>
+
+            </form>
+        </div>
         <link rel="stylesheet" href="site.css" type="text/css"/>
         <script src="site.js"></script>
 
