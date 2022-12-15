@@ -119,7 +119,7 @@ function loginDenied(req, res, error) {
 function loginAccepted(req, res, user) {
 
     var sessionuuid = sessions.create(user);
-
+/*
     if(req.session.user) {
         var handle = req.session.user.UserHandle; 
         var role = req.session.user.UserRole;      
@@ -136,15 +136,15 @@ function loginAccepted(req, res, user) {
         role: role
     });
 
-    var html = templates['layout-homepage.html']({
+    var html = templates['layout-view-gallery.html']({
         navi: navigationSide,
         error: error
-    });
-
+    }); */
    
     res.setHeader("Set-Cookie", `SID=${sessionuuid}; Secure; HTTPOnly`);
-    res.setHeader("Location", "/");
-    res.end(html);
+    res.statusCode = 302;
+    res.setHeader("Location", "/gallery");
+    res.end();
 
 }//close loginAccepted
 

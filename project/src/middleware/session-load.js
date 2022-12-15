@@ -30,13 +30,16 @@ function sessionLoad(req, res, next) {
     var currentCookie = /SID=([^;\s]+)/.exec(req.headers.cookie);
 
     if (!currentCookie) {
+        console.log("cookie not found");
         req.session = {};
         next();
         return;
     }//close if
     else {
+        console.log("cookie found");
         var currentSession = sessions.retrieve(currentCookie[1]);
         req.session = currentSession;
+        console.log(currentSession);
         next();
     }//close else
 

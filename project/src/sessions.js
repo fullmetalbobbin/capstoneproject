@@ -111,7 +111,7 @@ function sessionCreate(user) {
  **/
 function sessionRetrieve(sessionuuid) {
 
-    if (sessionsTracking[sessionuuid && !sessionHasExpired[sessionuuid]]) {
+    if (sessionsTracking[sessionuuid] && !sessionHasExpired[sessionuuid]) {
         sessionTimestampRefresh(sessionuuid);
         return JSON.parse(JSON.stringify(sessionsTracking[sessionuuid]));
     }//close if
