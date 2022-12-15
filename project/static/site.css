@@ -82,6 +82,14 @@ a {
     opacity: 1;
 }
 
+#new-account-form .div {
+    padding: 10px;
+    display:inline-flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: flex-start;
+}
+
 /*
 .side-nav {
     display: flex;
