@@ -82,9 +82,18 @@ function loginDenied(req, res, error) {
         error = "An error has occured while processing the request.";
     }
 
+    var handle = "Guest";
+    var role = 0;
+
     var error = "";
 
-    var html = templates["layout-sign-in.html"]({
+    var navigationSide = templates['navigation-side.html']({
+        handle: handle,
+        role: role
+    });
+
+    var html = templates['layout-sign-in.html']({
+        navi: navigationSide,
         error: error
     });
 
@@ -107,10 +116,35 @@ function loginDenied(req, res, error) {
  **/
 function loginAccepted(req, res, user) {
 
-    var sessionNanoid = sessions.create(user);
-    res.setHeader("Set-Cookie", `SID=${sessionNanoid}; Secure; HTTPOnly`);
+    var sessionuuid = sessions.create(user);
+
+    if(req.session.user) {
+        var handle = req.session.user.UserHandle; 
+        var role = req.session.user.UserRole;      
+    }// close
+    else {
+        var handle = "Guest"
+        var role = 0;
+    }// close else
+
+    var error = "";
+  
+    var navigationSide = templates['navigation-side.html']({
+        handle: handle,
+        role: role
+    });
+
+    var html = templates['layout-homepage.html']({
+        navi: navigationSide,
+        error: error
+    });
+
+   
+    res.setHeader("Set-Cookie", `SID=${sessionuuid}; Secure; HTTPOnly`);
     res.setHeader("Location", "/");
-    res.end();
+    res.setHeader("Content-Type", "text/html");
+    res.setHeader("Content-Length", html.length);
+    res.end(html);
 
 }//close loginAccepted
 

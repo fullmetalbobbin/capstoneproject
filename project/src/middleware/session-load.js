@@ -35,7 +35,7 @@ function sessionLoad(req, res, next) {
         return;
     }//close if
     else {
-        var currentSession = sessions.get(currentCookie[1]);
+        var currentSession = sessions.retrieve(currentCookie[1]);
         req.session = currentSession;
         next();
     }//close else

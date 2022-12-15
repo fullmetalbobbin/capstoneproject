@@ -20,6 +20,7 @@ const db = require('./database');
 //var { nanoid }= require("nanoid");
 //import {nanoid} from 'nanoid';
 //var { nanoid } = import ("nanoid");
+const { v4 : uuidv4 } = require('uuid');
 
 
 // Initialized constant variables for time calculations
@@ -44,17 +45,17 @@ setInterval(sessionExpire, SESSION_CLEANING_INTERVAL);
  * 
  * @returns {string}: nanoid
  **/
-function nanoidGenerate() {
+function uuidGenerate() {
 
-    var currentNano = nanoid();
+    //var currentNano;
 
-    while(sessionsTracking[currentNano]){
-        currentNano = nanoid();
-    }
+    //while(sessionsTracking[currentNano]){
+     //   currentNano = nanoid();
+    //}
 
-    //do {
-    //    currentNano = nanoid()
-    //} while (sessionsTracking[currentNano]);
+    do {
+        var currentNano = uuidv4();
+    } while (sessionsTracking[currentNano]);
 
     return currentNano;
 
@@ -76,9 +77,9 @@ function nanoidGenerate() {
  **/
 function sessionCreate(user) {
 
-    var sessionNanoid = nanoidGenerate();
+    var sessionuuid = uuidGenerate();
 
-    sessionsTracking[sessionNanoid] = {
+    sessionsTracking[sessionuuid] = {
         timestamp: Date.now(),
         user: {
             id: user.UserID,
@@ -91,7 +92,7 @@ function sessionCreate(user) {
         data: {}
     }
 
-    return sessionNanoid;
+    return sessionuuid;
 
 }//close sessionCreate
 
@@ -105,17 +106,17 @@ function sessionCreate(user) {
  *  If above executes successfully, returns the particular session
  *  If above does not execute successfully, returns a null value 
  * 
- * @param {*} sessionNanoid : unique identifier of particular session
+ * @param {*} sessionuuid : unique identifier of particular session
  * @returns {oject || null} : particular session object or null
  **/
-function sessionRetrieve(sessionNanoid) {
+function sessionRetrieve(sessionuuid) {
 
-    if (sessionsTracking[sessionNanoid && !sessionHasExpired[sessionNanoid]]) {
-        sessionTimestampRefresh(sessionNanoid);
-        return JSON.parse(JSON.stringify(sessionsTracking[sessionNanoid]));
+    if (sessionsTracking[sessionuuid && !sessionHasExpired[sessionuuid]]) {
+        sessionTimestampRefresh(sessionuuid);
+        return JSON.parse(JSON.stringify(sessionsTracking[sessionuuid]));
     }//close if
     else {
-        return NULL;
+        return false;
     }//close else
 
 }//close session Retrieve
@@ -131,15 +132,15 @@ function sessionRetrieve(sessionNanoid) {
  *  If above executes sucessfully, returns true
  *  If above does not execute successfully, return false
  * 
- * @param {*} sessionNanoid : unique identifier of particular session 
+ * @param {*} sessionuuid : unique identifier of particular session 
  * @param {*} data : data to attach to particlar session
  * @returns {boolean} [true] if update is successful   [false] if update is not successful
  **/
-function sessionUpdate(sessionNanoid, data) {
+function sessionUpdate(sessionuuid, data) {
 
-    if (sessionsTracking[sessionNanoid && !sessionHasExpired[sessionNanoid]]) {
-        sessionTimestampRefresh(sessionNanoid);
-        sessionsTracking[sessionNanoid].data = data;
+    if (sessionsTracking[sessionNanoid && !sessionHasExpired[sessionuuid]]) {
+        sessionTimestampRefresh(sessionuuid);
+        sessionsTracking[sessionuuid].data = data;
         return true;
     }//close if
     else {
@@ -159,9 +160,9 @@ function sessionUpdate(sessionNanoid, data) {
  * 
  * @param {*} sessionNanoid : unique identifier of particular session
  **/
-function sessionTimestampRefresh(sessionNanoid) {
+function sessionTimestampRefresh(sessionuuid) {
 
-    sessionsTracking[sessionNanoid].timestamp = Date.now();
+    sessionsTracking[sessionuuid].timestamp = Date.now();
 
 }//close sessionTimestampRefresh
 
@@ -175,8 +176,8 @@ function sessionTimestampRefresh(sessionNanoid) {
  **/
 function sessionExpire() {
 
-    for (const sessionNanoid in sessionsTracking) {
-        sessionHasExpired(sessionNanoid);
+    for (const sessionuuid in sessionsTracking) {
+        sessionHasExpired(sessionuuid);
     }//close foreach
 
 }//close sessionExpire
@@ -192,19 +193,19 @@ function sessionExpire() {
  *       - If greater than the allowed inactivity limit, the session is considered expired [true]
  *  - Else the session has not expired [false]
  * 
- * @param {*} sessionNanoid : unique identifier of particular session
+ * @param {*} sessionuuid : unique identifier of particular session
  * @returns {boolean} : [true] if session has expired    [false] if session has not expired
  */
-function sessionHasExpired(sessionNanoid) {
+function sessionHasExpired(sessionuuid) {
 
-    if (!sessionsTracking[sessionNanoid]) {
+    if (!sessionsTracking[sessionuuid]) {
         return true;
     }//close if
 
-    var timedOut = (Date.now() - sessionsTracking[sessionNanoid].timestamp) > SESSION_INACTIVITY_LIMIT;
+    var timedOut = (Date.now() - sessionsTracking[sessionuuid].timestamp) > SESSION_INACTIVITY_LIMIT;
 
     if (timedOut) {
-        sessionRemove(sessionNanoid);
+        sessionRemove(sessionuuid);
         return true;
     }//close if
     else {
@@ -222,11 +223,11 @@ function sessionHasExpired(sessionNanoid) {
  *  - Deletes particular session
  *  - (This will also free up the identifier[nanoid] for future use)
  * 
- * @param {*} sessionNanoid : unique identifier for particular session
+ * @param {*} sessionuuid : unique identifier for particular session
  **/
-function sessionRemove(sessionNanoid) {
+function sessionRemove(sessionuuid) {
 
-    delete sessionsTracking[sessionNanoid];
+    delete sessionsTracking[sessionuuid];
 
 }//close sessionRemove
 

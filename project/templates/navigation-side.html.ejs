@@ -24,7 +24,7 @@
         <% } %>
 
         <div style="padding: 5px;"></div>
-        <% if(handle == "Guest") { %> 
+        <% if(handle !== "Guest") { %> 
         <li>
             <div class="menu-icon"><i class="fa-duotone fa-circle-user"></i></div>
             <div class="menu-text"><%= handle %></div>
@@ -34,7 +34,7 @@
         <div style="padding: 5px;"></div>
         
         <li>
-            <a href="/" aria-current="page">
+            <a href="" aria-current="page">
             <div class="menu-icon"><i class="fa-duotone fa-house"></i></div>
             <div class="menu-text">Home</div>
             </a>
@@ -74,6 +74,7 @@
             </a>
         </li>
 
+        <% if(handle !== "Guest") { %> 
         <div style="padding: 5px;"></div>
         <li>
             <a href="/logout">
@@ -81,6 +82,8 @@
             <div class="menu-text">Logout</div>
             </a>
         </li>
+        <% } %>
+
     </ul>
 </nav>
 </div>

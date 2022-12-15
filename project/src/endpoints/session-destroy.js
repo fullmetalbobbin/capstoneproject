@@ -11,6 +11,7 @@
 
 // IMPORT REQUIRED RESOURCES
 const sessions = require('../sessions');
+const templates = require('../templates');
 
 
 /** @function sessionDestroy
@@ -30,12 +31,36 @@ function sessionDestroy(req, res) {
     var currentCookie = /SID=([^;\s]+)/.exec(req.headers.cookie);
 
     if (currentCookie) {
-        sessionsTracking.remove(currentCookie[1]);
+        sessions.remove(currentCookie[1]);
     }//close if
 
-    req.setHeader("Set-Cookie", `SID=deleted; Secure; HTTPOnly; expires=Thu, 01 Jan 1970 00:00:00 GMT`);
-    req.setHeader("Location", "/");
-    req.end();
+    if(req.session.user) {
+        var handle = req.session.user.UserHandle; 
+        var role = req.session.user.UserRole;      
+    }// close
+    else {
+        var handle = "Guest"
+        var role = 0;
+    }// close else
+
+    var error = "";
+  
+    var navigationSide = templates['navigation-side.html']({
+        handle: handle,
+        role: role
+    });
+
+    var html = templates['layout-homepage.html']({
+        navi: navigationSide,
+        error: error
+    });
+
+
+    res.setHeader("Set-Cookie", `SID=deleted; Secure; HTTPOnly; expires=Thu, 01 Jan 1970 00:00:00 GMT`);
+    res.setHeader("Location", "/");
+    res.setHeader("Content-Type", "text/html");
+    res.setHeader("Content-Length", html.length);
+    res.end(html);
 
 }//close sessionDestroy
 
