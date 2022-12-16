@@ -1,13 +1,12 @@
-<script src="https://kit.fontawesome.com/af2df2eec8.js" crossorigin="anonymous"></script>
 <section class="navi-container">
 <nav class="side-navi">
-    <ul class="side-menu fa">
+    <ul class="side-menu">
 
         <div style="padding: 5px;"></div>
         <% if(handle == "Guest") { %> 
         <li>
             <a href="/login">
-            <div class="menu-icon"><i class="fa-duotone fa-right-to-bracket fa-xl"></i></div>
+            <div class="menu-icon"><icon rel="icon" href="../static/assets/icons/48x48_baseline_login_black_48dp.png" type="image/png"></div>
             <div class="menu-text">Login</div>
             </a>
         </li>
@@ -17,7 +16,7 @@
         <% if(handle == "Guest") { %> 
         <li>
             <a href="/new-account">
-            <div class="menu-icon"><i class="fa-duotone fa-user-plus fa-xl"></i></div>
+            <div class="menu-icon"></div>
             <div class="menu-text">Create an Account</div>
             </a>
         </li>        
@@ -26,25 +25,24 @@
         <div style="padding: 5px;"></div>
         <% if(handle !== "Guest") { %> 
         <li>
-            <div class="menu-icon"><i class="fa-duotone fa-circle-user fa-xl"></i></div>
-            <div class="menu-text"><% handle %></div>
+            <div class="menu-icon"></i></div>
+            <div class="menu-text"><%= handle %></div>
         </li>
         <% } %>
 
-        <div style="padding: 5px;"></div>
-        
+        <div style="padding: 5px;"></div>       
         <li>
             <a href="/">
-            <div class="menu-icon"><i class="fa-duotone fa-house fa-xl"></i></div>
+            <div class="menu-icon"></div>
             <div class="menu-text">Home</div>
             </a>
         </li>    
 
         <div style="padding: 5px;"></div>
-        <% if(role == 1){ %>
+        <% if(role === 1){ %>
             <li>               
                 <a href="/manager">
-                <div class="menu-icon"><i class="fa-duotone fa-user-shield fa-xl"></i></div>
+                <div class="menu-icon"></div>
                 <div class="menu-text">Admin</div>
                 </a>
             </li> 
@@ -53,16 +51,15 @@
         <div style="padding: 5px;"></div>
         <li>
             <a >
-            <div class="menu-icon"><i class="fa-duotone fa-magnifying-glass fa-xl"></i></div>
+            <div class="menu-icon"></div>
             <div class="menu-text">Search</div>
             </a>                           
         </li>
 
-
         <div style="padding: 5px;"></div>
         <li>
             <a href="/gallery">
-            <div class="menu-icon"><i class="fa-duotone fa-image fa-xl"></i></div>
+            <div class="menu-icon"></div>
             <div class="menu-text">Galleries</div>
             </a>
         </li>
@@ -70,7 +67,7 @@
         <div style="padding: 5px;"></div>
         <li>
             <a href="/favorites">
-            <div class="menu-icon"><i class="fa-duotone fa-heart fa-xl"></i></div>
+            <div class="menu-icon"></div>
             <div class="menu-text">Favorites</div>
             </a>
         </li>
@@ -79,7 +76,7 @@
         <div style="padding: 5px;"></div>
         <li>
             <a href="/logout">
-            <div class="menu-icon"><i class="fa-duotone fa-right-from-bracket fa-xl"></i></div>
+            <div class="menu-icon"></div>
             <div class="menu-text">Logout</div>
             </a>
         </li>
