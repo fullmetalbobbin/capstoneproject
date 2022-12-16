@@ -57,7 +57,7 @@ var seesionLoad = require('./middleware/session-load');
 // EXPRESS APPLICATION
 var app = express();
 
-//app.set("view engine","ejs");
+app.set('view engine','ejs');
 
 app.use(morgan('dev'));
 

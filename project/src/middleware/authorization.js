@@ -33,16 +33,16 @@ const serveError = require('./serve-error');
  **/
 function authorization(req, res, next) { 
 
-    var currSession = req.currSession;
+    var session = req.session;
 
-    if (!req.currSession.user) { 
+    if (!req.session.user) { 
         return res.WriteHead(302, { Location: "/login" }).end();
     }// close if
-    if (req.currSession.user.role == 1) {
+    if (req.session.user.role == 1) {
         next();
     }// close if
     else { 
-        serveError(req, res, 403, '${req.currSession.user.handle} is not authorized to access this route.');
+        serveError(req, res, 403, '${req.session.user.handle} is not authorized to access this route.');
     }// close else
 
 }// close authorization

@@ -19,7 +19,7 @@
         <li>
             <a class="navi-attribute" href="/new-account">
                 <img class="navi-icon" src="../assets/icons/48x48_baseline_person_add_black_48dp.png" type="image/png" />
-            <div class="menu-text">  Create an Account</div>
+            <div class="menu-text">Create an Account</div>
             </a>
         </li>        
         <% } %>
@@ -30,7 +30,7 @@
         <li>
             <a class="navi-attribute" >
             <img class="navi-icon" src="../assets/icons/48x48_baseline_account_circle_black_48dp.png" type="image/png" />
-            <div class="menu-text">  <%= handle %></div>
+            <div class="menu-text"><% handle %></div>
             </a>
         </li>
         <% } %>
@@ -39,17 +39,17 @@
         <li>
             <a class="navi-attribute" href="/">
                 <img class="navi-icon" src="../assets/icons/48x48_baseline_home_black_48dp.png" type="image/png" />
-            <div class="menu-text">  Home</div>
+            <div class="menu-text" type="text/plain">Home</div>
             </a>
         </li>    
 
         
-        <% if(role == '1'){ %>
+        <% if(role == 1){ %>
             <div style="padding: 5px;"></div>
             <li>               
                 <a class="navi-attribute" href="/manager">
                     <img class="navi-icon" src="../assets/icons/48x48_baseline_verified_user_black_48dp.png" type="image/png" />
-                <div class="menu-text">   Admin</div>
+                <div class="menu-text">Admin</div>
                 </a>
             </li> 
         <% } %>
@@ -58,7 +58,7 @@
         <li>
             <a class="navi-attribute" >
                 <img class="navi-icon" src="../assets/icons/48x48_baseline_search_black_48dp.png" type="image/png" />
-            <div class="menu-text">  Search</div>
+            <div class="menu-text">Search</div>
             </a>                           
         </li>
 

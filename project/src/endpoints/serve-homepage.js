@@ -29,12 +29,19 @@ const serveError = require('../middleware/serve-error');
  **/
 function serveHomepage(req, res) {
 
-    if(req.session.user)
-    {
-        var handle = req.session.user.UserHandle;
-        console.log(handle);
+    console.log("should give user?"+req.session.user);
 
-        if(req.session.user.UserRole == 1) {
+    if(req.session.user)
+    {   
+        console.log("should give results from req session user handle");
+        console.log(req.session.user.handle);
+        
+        var handle = req.session.user.handle;
+
+        console.log("should give the var handle"+handle);
+
+
+        if(req.session.user.role == 1) {
             var role = 1;
         }// close if
         else {
@@ -46,10 +53,11 @@ function serveHomepage(req, res) {
     }// close if
     else {
         //assign the other things
-        console.log(handle);
+        console.log("Should say guest under here");
         var handle = "Guest";
         var role = 0;
         console.log(handle);
+        console.log("should say what the role is:" + role);
 
         //give other html [guests will not have favorites either]
 
@@ -79,7 +87,7 @@ function serveHomepage(req, res) {
     //if case for user or no user?
 
     var navigationSide = templates['navigation-side.html']({
-        // user: req.session.user,  //TODO - reinstate when favorites is implemented  and refactor template routes
+        user: req.session.user,  //TODO - reinstate when favorites is implemented  and refactor template routes
         handle: handle,
         role: role
     });
