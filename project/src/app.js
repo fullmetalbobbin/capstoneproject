@@ -110,12 +110,12 @@ app.post('/users/:userID', authorizationInternal, parseData, userUpdate);
 
 
 // ANY USER - USER CREATE & SESSION CREATE
-app.post('/new-account', parseData, userCreate);
-app.post('/login', parseData, sessionCreate);
+app.post("/new-account", parseData, userCreate);
+app.post("/login", parseData, sessionCreate);
 
 
 // LOGOUT DESTROYS SESSION
-app.get('/logout', sessionDestroy);
+app.get("/logout", sessionDestroy);
 
 app.use(express.static('static'));
 
