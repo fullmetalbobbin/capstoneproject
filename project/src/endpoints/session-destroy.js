@@ -58,6 +58,7 @@ function sessionDestroy(req, res) {
 
 
     res.setHeader("Set-Cookie", `SID=deleted; Secure; HTTPOnly; expires=Thu, 01 Jan 1970 00:00:00 GMT`);
+    res.statusCode=302;
     res.setHeader("Location", "/");
     //res.setHeader("Content-Type", "text/html");
     ///res.setHeader("Content-Length", html.length);

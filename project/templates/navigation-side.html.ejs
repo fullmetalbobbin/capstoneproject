@@ -2,72 +2,78 @@
 <nav class="side-navi">
     <ul class="side-menu">
 
-        <div style="padding: 5px;"></div>
+        
         <% if(handle == "Guest") { %> 
-        <li>
-            <a href="/login">
-            <div class="menu-icon"><icon rel="icon" href="../static/assets/icons/48x48_baseline_login_black_48dp.png" type="image/png"></div>
-            <div class="menu-text">Login</div>
+        <div style="padding: 5px;"></div>
+        
+            <a class="navi-attribute" href="/login">
+                <img class="navi-icon" src="../assets/icons/48x48_baseline_login_black_48dp.png" type="image/png" />
+                <div class="menu-text">  Login</div>
             </a>
         </li>
         <% } %>
 
-        <div style="padding: 5px;"></div>
+        
         <% if(handle == "Guest") { %> 
+        <div style="padding: 5px;"></div>
         <li>
-            <a href="/new-account">
-            <div class="menu-icon"></div>
-            <div class="menu-text">Create an Account</div>
+            <a class="navi-attribute" href="/new-account">
+                <img class="navi-icon" src="../assets/icons/48x48_baseline_person_add_black_48dp.png" type="image/png" />
+            <div class="menu-text">  Create an Account</div>
             </a>
         </li>        
         <% } %>
 
-        <div style="padding: 5px;"></div>
+        
         <% if(handle !== "Guest") { %> 
+        <div style="padding: 5px;"></div>
         <li>
-            <div class="menu-icon"></i></div>
-            <div class="menu-text"><%= handle %></div>
+            <a class="navi-attribute" >
+            <img class="navi-icon" src="../assets/icons/48x48_baseline_account_circle_black_48dp.png" type="image/png" />
+            <div class="menu-text">  <%= handle %></div>
+            </a>
         </li>
         <% } %>
 
         <div style="padding: 5px;"></div>       
         <li>
-            <a href="/">
-            <div class="menu-icon"></div>
-            <div class="menu-text">Home</div>
+            <a class="navi-attribute" href="/">
+                <img class="navi-icon" src="../assets/icons/48x48_baseline_home_black_48dp.png" type="image/png" />
+            <div class="menu-text">  Home</div>
             </a>
         </li>    
 
-        <div style="padding: 5px;"></div>
-        <% if(role == 1){ %>
+        
+        <% if(role == '1'){ %>
+            <div style="padding: 5px;"></div>
             <li>               
-                <a href="/manager">
-                <div class="menu-icon"></div>
-                <div class="menu-text">Admin</div>
+                <a class="navi-attribute" href="/manager">
+                    <img class="navi-icon" src="../assets/icons/48x48_baseline_verified_user_black_48dp.png" type="image/png" />
+                <div class="menu-text">   Admin</div>
                 </a>
             </li> 
         <% } %>
 
         <div style="padding: 5px;"></div>
         <li>
-            <a >
-            <div class="menu-icon"></div>
-            <div class="menu-text">Search</div>
+            <a class="navi-attribute" >
+                <img class="navi-icon" src="../assets/icons/48x48_baseline_search_black_48dp.png" type="image/png" />
+            <div class="menu-text">  Search</div>
             </a>                           
         </li>
 
         <div style="padding: 5px;"></div>
         <li>
-            <a href="/gallery">
-            <div class="menu-icon"></div>
+            <a class="navi-attribute" href="/gallery">
+                <img class="navi-icon" src="../assets/icons/48x48_baseline_web_stories_black_48dp.png" type="image/png" />
             <div class="menu-text">Galleries</div>
             </a>
         </li>
 
         <div style="padding: 5px;"></div>
         <li>
-            <a href="/favorites">
-            <div class="menu-icon"></div>
+            <a class="navi-attribute" href="/favorites">
+                <img class="navi-icon" src="../assets/icons/48x48_baseline_favorite_black_48dp.png" type="image/png" />
             <div class="menu-text">Favorites</div>
             </a>
         </li>
@@ -75,8 +81,8 @@
         <% if(handle !== "Guest") { %> 
         <div style="padding: 5px;"></div>
         <li>
-            <a href="/logout">
-            <div class="menu-icon"></div>
+            <a class="navi-attribute" href="/logout">
+                <img class="navi-icon" src="../assets/icons/48x48_baseline_logout_black_48dp.png" type="image/png" />
             <div class="menu-text">Logout</div>
             </a>
         </li>

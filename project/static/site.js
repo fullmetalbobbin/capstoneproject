@@ -8,4 +8,19 @@
  *          Computer Science                *
  ********************************************/
 
-TODO
+//TODO
+
+function displayGallery(data){
+
+    var displa
+
+}
+
+function displayExhibits(data){
+
+}
+
+function displayArtifacts(data){
+
+}
+
