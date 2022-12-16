@@ -30,8 +30,8 @@ const serveError = require('../middleware/serve-error');
 function serveFavorites(req, res) {
 
     if(req.session.user) {
-        var handle = req.session.user.UserHandle; 
-        var role = req.session.user.UserRole;      
+        var handle = req.session.user.handle; 
+        var role = req.session.user.role;      
     }// close
     else {
         var handle = "Guest"
@@ -41,7 +41,7 @@ function serveFavorites(req, res) {
     var error = "";
 
     var navigationSide = templates['navigation-side.html']({
-        //user: req.session.user,
+        user: req.session.user,
         handle: handle,
         role: role
     });

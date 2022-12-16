@@ -28,8 +28,8 @@ const serveError = require('../middleware/serve-error');
 function serveSignIn(req, res) {
 
     if(req.session.user) {
-        var handle = req.session.user.UserHandle; 
-        var role = req.session.user.UserRole;      
+        var handle = req.session.user.handle; 
+        var role = req.session.user.role;      
     }// close
     else {
         var handle = "Guest"

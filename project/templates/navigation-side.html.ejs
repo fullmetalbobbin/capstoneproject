@@ -5,10 +5,10 @@
         
         <% if(handle == "Guest") { %> 
         <div style="padding: 5px;"></div>
-        
+        <li>
             <a class="navi-attribute" href="/login">
                 <img class="navi-icon" src="../assets/icons/48x48_baseline_login_black_48dp.png" type="image/png" />
-                <div class="menu-text">  Login</div>
+                <div class="menu-text">Login</div>
             </a>
         </li>
         <% } %>
@@ -30,7 +30,7 @@
         <li>
             <a class="navi-attribute" >
             <img class="navi-icon" src="../assets/icons/48x48_baseline_account_circle_black_48dp.png" type="image/png" />
-            <div class="menu-text"><% handle %></div>
+            <div class="menu-text"><%- handle %></div>
             </a>
         </li>
         <% } %>
@@ -82,8 +82,9 @@
         <div style="padding: 5px;"></div>
         <li>
             <a class="navi-attribute" href="/logout">
-                <img class="navi-icon" src="../assets/icons/48x48_baseline_logout_black_48dp.png" type="image/png" />
+                <img class="navi-icon" src="../assets/icons/48x48_baseline_logout_black_48dp.png" type="image/png" />               
             <div class="menu-text">Logout</div>
+            
             </a>
         </li>
         <% } %>

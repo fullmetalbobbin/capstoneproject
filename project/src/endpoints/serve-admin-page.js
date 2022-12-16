@@ -35,8 +35,8 @@ const serveError = require('../middleware/serve-error');
 function serveAdminPage(req, res) {
 
     if(req.session.user) {
-        var handle = req.session.user.UserHandle; 
-        if(req.session.user.UserRole == 1){
+        var handle = req.session.user.handle; 
+        if(req.session.user.role == 1){
             var role = 1;       
         }// close if
         else {
@@ -51,6 +51,7 @@ function serveAdminPage(req, res) {
     var error = "";
 
     var navigationSide = templates['navigation-side.html']({
+        user: req.session.user,
         handle: handle,
         role: role
     });
