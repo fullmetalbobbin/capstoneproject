@@ -17,15 +17,16 @@ body {
     background-image: url("./assets/backgrounds/pexels-agnese-lunecka-6561508.png");
     background-size: cover;
     background-attachment:local;
-    background-blend-mode:exclusion;
-}
+    opacity: .9;
 
+}
 
 
 a {
-    color: inherit;
+    color: black;
     text-decoration: none;
 }
+
 .ul {
     padding: 20px;
     list-style-type: none;

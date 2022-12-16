@@ -32,7 +32,7 @@ function serveGallery(req, res) {
 
     if(req.session.user) {
         var handle = req.session.user.UserHandle; 
-        var role = req.session.user.Role;      
+        var role = req.session.user.UserRole;      
     }// close
     else {
         var handle = "Guest"

@@ -46,8 +46,10 @@ function serveHomepage(req, res) {
     }// close if
     else {
         //assign the other things
+        console.log(handle);
         var handle = "Guest";
         var role = 0;
+        console.log(handle);
 
         //give other html [guests will not have favorites either]
 

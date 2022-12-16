@@ -41,7 +41,7 @@ function serveExhibit(req, res) {
     var error = "";
 
     var navigationSide = templates['navigation-side.html']({
-        user: req.session.user,
+        //user: req.session.user,
         handle: handle,
         role: role
     });

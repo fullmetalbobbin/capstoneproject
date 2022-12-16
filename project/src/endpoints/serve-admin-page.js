@@ -36,7 +36,7 @@ function serveAdminPage(req, res) {
 
     if(req.session.user) {
         var handle = req.session.user.UserHandle; 
-        if(req.session.user.Role == 1){
+        if(req.session.user.UserRole == 1){
             var role = 1;       
         }// close if
         else {
@@ -55,7 +55,7 @@ function serveAdminPage(req, res) {
         role: role
     });
 
-    if (role == 0) {
+    if (role == 1) {
         var html = templates['layout-manager.html']({
             navi: navigationSide,
             error: error
