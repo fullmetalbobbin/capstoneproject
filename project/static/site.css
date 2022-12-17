@@ -14,12 +14,10 @@ body {
     font-family: 'Times New Roman', Times, serif !important;
     font-size: x-large;
     background-image: url("./assets/backgrounds/pexels-agnese-lunecka-6561508.png");
-    background-color: rgba(255,255,255,0);
-    background-blend-mode: lighten;
     background-size: cover;
     background-attachment:local;
-
 }
+
 
 
 a {
@@ -32,8 +30,8 @@ a {
 }
 
 .navi-container {
-    background-color: rgb(134, 133, 131);
-    opacity: .9;
+    background-color: rgba(134, 133, 131, 0.723);
+    opacity: .85;
     width: 25%;
     height: 100vh;
     display: grid ;   
@@ -41,11 +39,9 @@ a {
 }
 
 .navi-container .menu-text {
-
     visibility: hidden;
     width: 200px;
     text-decoration: none;
-    opacity:0;
     transition:visibility 0.3s linear,opacity 0.3s linear;
     transition: width 0.5s ease; 
 }
@@ -61,12 +57,7 @@ a {
     opacity: 1;
 }
 
-#new-account-form .div {
-    display:inline-flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: flex-start;
-}
+
 
 
 .side-nav {
@@ -85,15 +76,19 @@ a {
 
 
 #login-container {
-    margin-top: 50px;
-    margin-left: 50px;
-    text-align: center;
+    margin-top: 10%;
+    margin-left: 5px;
+    display:inline-flex;
+    flex-direction: row;
+    justify-content: flex-start;
 }
 
 #new-account-container {
-    margin-top: 50px;
-    margin-left: 50px;
-    text-align: center; 
+    margin-top: 10%;
+    margin-left: 10px;
+    display:inline-flex;
+    flex-direction: row;
+    justify-content: flex-start; 
 }
 
 .navi-attribute {
@@ -126,6 +121,7 @@ a {
 
 
 #page {
+    background-color: rgba(227, 223, 216, 0.612);
     display: grid;
     width: 100%;
     height: 100%;
@@ -139,6 +135,7 @@ a {
 
 #page > nav {
     grid-area: navi;
+    opacity: .95;
 }
 
 #page > header {
