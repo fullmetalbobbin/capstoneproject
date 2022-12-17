@@ -41,9 +41,9 @@ function userList(req, res) {
     var errorMessage = "";
 
     var navigationSide = templates['navigation-side.html']({
-        userAdmin: req.session.UserID,
-        roleAdmin: req.session.UserRole,
-        handleAdmin: req.session.UserHandle
+        user: req.session.user,
+        role: req.session.role,
+        handle: req.session.handle
     });
 
     var html = templates['layout-manage-all-users.html']({

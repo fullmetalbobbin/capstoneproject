@@ -38,6 +38,8 @@ var serveExhibit = require('./endpoints/serve-exhibit');
 var serveFavorites = require('./endpoints/serve-favorites');
 var serveGallery = require('./endpoints/serve-gallery');
 var serveHomepage = require('./endpoints/serve-homepage');
+var serveNewArtifact = require('./endpoints/serve-new-artifact');
+var serveNewExhibit = require('./endpoints/serve-new-exhibit');
 var serveSearch = require('./endpoints/serve-search');
 var serveSignIn = require('./endpoints/serve-sign-in');
 var serveSignUp = require('./endpoints/serve-sign-up');
@@ -89,16 +91,19 @@ app.get('/manager', authorizationInternal, serveAdminPage);
 
 // ADMIN ONLY - ARTIFACT CREATE/EDIT/UPDATE
 app.get('/artifacts/list', authorizationInternal, artifactList);
-app.get('/artifacts/new-artifact', authorizationInternal, artifactCreate);
+app.get('/artifacts/new-artifact', authorizationInternal, serveNewArtifact);
+app.post('/artifacts/new-artifact', authorizationInternal, parseData, artifactCreate);
 app.get('/artifacts/:artifactID/edit', authorizationInternal, artifactEdit);
 app.post('/artifacts/:artifactID/edit', authorizationInternal, parseData, artifactUpdate);
 
 //  ADMIN ONLY - EXHIBIT CREATE/EDIT/UPDATE
 app.get('/exhibits/list', authorizationInternal, exhibitList);
-app.get('/exhibits/new-exhibit', authorizationInternal, exhibitCreate);
+app.get('/exhibits/new-exhibit', authorizationInternal, serveNewExhibit);
+app.post('/exhibits/new-exhibit', authorizationInternal, parseData, exhibitCreate);
 app.get('/exhibits/:exhibitID/edit', authorizationInternal, exhibitEdit);
 app.post('/exhibits/:exhibittID/edit', authorizationInternal, parseData, exhibitUpdate);
 
+//  ADMIN ONLY - GALLERY EDIT/UPDATE
 app.get('/gallery/list', authorizationInternal, galleryList);
 app.get('/gallery/:exhibitID/edit', authorizationInternal, galleryEdit);
 app.post('/gallery/:exhibitID/edit', authorizationInternal, parseData, galleryUpdate);
