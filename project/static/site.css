@@ -1,5 +1,5 @@
 /******************************************** 
- *  home.css                                *
+ *  site.css                                *
  *                                          *
  *  Capstone Project:  "Context Textiles"   *
  *  Author: Amanda Dreesen                  *
@@ -19,7 +19,6 @@ body {
 }
 
 
-
 a {
     color: black;
     text-decoration: none;
@@ -27,6 +26,14 @@ a {
 
 .ul {
     list-style-type: none;
+}
+
+#navi-logo {
+    margin-top: 8%;
+    margin-left: 6%;
+    opacity: 1;
+    max-width: 70px;
+    max-width: 70px;
 }
 
 .navi-container {
@@ -44,10 +51,11 @@ a {
     cursor: pointer;
 }
 
-.navi-container .navi-icon {
+.navi-container:hover #navi-icon {
     opacity: 1;
     transition-duration: 1.0s;
 }
+
 
 .navi-container:hover .navi-icon {
     opacity: 1;

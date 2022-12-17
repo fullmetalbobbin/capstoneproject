@@ -43,7 +43,7 @@ function galleryEdit(req, res) {
         handle: req.session.handle
     });
 
-    var html = templates['layout-manage-single-exhibit.html']({
+    var html = templates['layout-manage-gallery.html']({
         error: errorMessage,
         navi: navigationSide,
         id: galleryDisplayExhibit.ExhibitID,
@@ -53,7 +53,7 @@ function galleryEdit(req, res) {
         //pathPhoto: exhibitToEdit.PathToPhotoAsset,
         //current: exhibitToEdit.IsCurrentExhibit,
         //travel: exhibitToEdit.IsTravelingExhibit
-        //display: galleryDisplayExhibit.IsDisplayedInGallery
+        display: galleryDisplayExhibit.IsDisplayedInGallery
     });
 
     res.setHeader('Content-Type', "text/html");

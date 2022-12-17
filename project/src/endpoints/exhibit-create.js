@@ -42,7 +42,7 @@ function exhibitCreate(req, res) {
     var pathPhoto = sanitize(req.body.pathPhoto);
     var current = sanitize(req.body.current);
     var travel = sanitize(req.body.travel);
-    //var gallery = sanitize(req.body.gallery);
+    var gallery = sanitize(req.body.gallery);
 
     if (!name) return serveError(req, res, 422, "Exhibits must be given a name.");
     if (!describe) describe = "No description provided.";
@@ -50,16 +50,14 @@ function exhibitCreate(req, res) {
     if (!pathPhoto) pathPhoto = "No path to exhibit photo provided.";
     if (!current) current = 0;
     if (!travel) travel = 0;
-    //if (!gallery) gallery = 0;
-
-    //will need to insert IsDisplayedInGallery column and INSERT
+    if (!gallery) gallery = 0;
 
     var nameTaken = database.prepare("SELECT * FROM Exhibits WHERE ExhibitName = ?").get(name);
     if (nameTaken) return serveError(req, res, `Exhibits must be given a unique name. An exhibit called "${name}" already exists.`);
 
-    var exhibitData = database.prepare("INSERT INTO Exhibits (ExhibitName, ExhibitDescription, PathToQRAsset, PathToPhotoAsset, IsCurrentExhibit, IsTravelingExhibit) VALUES (?, ?, ?, ?, ?, ?)").run(name, describe, pathQR, pathPhoto, current, travel);
+    var exhibitData = database.prepare("INSERT INTO Exhibits (ExhibitName, ExhibitDescription, PathToQRAsset, PathToPhotoAsset, IsCurrentExhibit, IsTravelingExhibit, IsDisplayedInGallery) VALUES (?, ?, ?, ?, ?, ?, ?)").run(name, describe, pathQR, pathPhoto, current, travel, gallery);
 
-    if (ExhibitData.changes !== 1) return serveError(req, res, 500, "Unable to update database");
+    if (exhibitData.changes !== 1) return serveError(req, res, 500, "Unable to update database");
 
     var newExhibit = database.prepare("SELECT * FROM Exhibits WHERE ExhibitName = ?").get(name);
 

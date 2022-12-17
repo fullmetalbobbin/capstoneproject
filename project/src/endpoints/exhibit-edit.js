@@ -48,8 +48,8 @@ function exhibitEdit(req, res) {
         pathQR: exhibitToEdit.PathToQRAsset,
         pathPhoto: exhibitToEdit.PathToPhotoAsset,
         current: exhibitToEdit.IsCurrentExhibit,
-        travel: exhibitToEdit.IsTravelingExhibit //,
-        //gallery: exhibitToEdit.IsDisplayedInGallery
+        travel: exhibitToEdit.IsTravelingExhibit,
+        gallery: exhibitToEdit.IsDisplayedInGallery
     });
 
     res.setHeader('Content-Type', "text/html");

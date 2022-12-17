@@ -38,8 +38,7 @@ function galleryList(req, res) {
     var pathPhoto = allExhibitsForGallery.PathToPhotoAsset;
     var current = allExhibitsForGallery.IsCurrentExhibit;
     var travel = allExhibitsForGallery.IsTravelingExhibit;
-    //var gallery = allExhibitsForGallery.IsDisplayedInGallery;
-    //need to add a column if it is included in gallery or not
+    var gallery = allExhibitsForGallery.IsDisplayedInGallery;
 
     var errorMessage = "";
 

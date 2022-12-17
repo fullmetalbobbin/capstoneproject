@@ -8,7 +8,7 @@
             ul {list-style-type: none;}
         </style>
         <link href="site.css" rel="stylesheet" type="text/css" />
-        <link rel="icon" href="../static/assets/icons/icons8-button7-64.png" type="image/png" />
+        <link rel="icon" href="../assets/buttons/icons8-button7-64.png" type="image/png" />
     </head>
 
     <body>
@@ -16,7 +16,87 @@
         <section id="page">       
             <nav><%- navi %></nav>
             <header>Create Exhibit</header>
-            <main> Manage single artifact</main>
+            <main> 
+                <div class="main-container" id="new-exhibit-container">
+                    <form id="new-exhibit-form" method="POST">
+        
+                        <div>
+                        <label for="name">Exhibit&nbsp;Title:</label>
+                        <input type="text" name="name" placeholder="Give the exhibit a name"/>
+                        </div>
+        
+                            <div style="padding: 15px;"></div>
+        
+                        <div>
+                        <label for="describe">Ehibitt&nbsp;Description:</label>
+                        <input type="text" name="describe" placeholder="Describe the exhibit"/>
+                        </div>
+        
+                            <div style="padding: 15px;"></div>  
+        
+                        <div>
+                        <label for="pathQR">QR&nbsp;Code:</label>
+                        <button>Generate QR Code Here? Or...</button>
+                        <input type="text" name="pathQR" placeholder="Path to QR code asset"/>
+                        </div>
+        
+                            <div style="padding: 15px;"></div>
+        
+                        <div>
+                        <label for="pathPhoto">Photo:</label>
+                        <input type="text" name="pathPhoto" placeholder="Path to photo asset"/>
+                        </div>
+        
+                            <div style="padding: 15px;"></div>
+        
+                        <div>
+                        <label for="current">Is this the current exhibit?</label>
+                        <input type="radio" name="current" value="1" id="currentYES"> 
+                        <label for="currentYES">Yes</label>
+                        <input type="radio" name="current" value="0" id:="currentNO"> 
+                        <label for="currentNO">No</label>
+                        </div>
+        
+                            <div style="padding: 15px;"></div>
+
+                        <div>
+                            <label for="travel">Is this exhibit currently traveling?</label>
+                            <input type="radio" name="travel" value="1" id="travelYES"> 
+                            <label for="travelYES">Yes</label>
+                            <input type="radio" name="travel" value="0" id:="travelNO"> 
+                            <label for="travelNO">No</label>
+                        </div>
+            
+                                <div style="padding: 15px;"></div>
+
+                        <div>
+                            <label for="gallery">Display in digital gallery?</label>
+                            <input type="radio" name="gallery" value="1" id="galleryYES"> 
+                            <label for="galleryYES">Yes</label>
+                            <input type="radio" name="gallery" value="0" id:="galleryNO"> 
+                            <label for="galleryNO">No</label>
+                        </div>
+            
+                                <div style="padding: 15px;"></div>
+        
+                        <div>[FutureWorkKeywords]</div>
+        
+                            <div style="padding: 15px;"></div>
+        
+                        <div>
+                        <input type="submit" value="Submit"/>
+                        </div>
+        
+                            <div style="padding: 15px;"></div>
+        
+                        <div>
+                            <label for="error" style="display:inline-flex; flex-direction:row; align-content: center;"><%= error %></label></span>                   
+                        </div>
+        
+                    </form>
+                </div>
+               
+            </main>
         </section>
 
         <link rel="stylesheet" href="site.css" type="text/css"/>

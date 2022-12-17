@@ -91,7 +91,7 @@ app.get('/manager', authorizationInternal, serveAdminPage);
 
 // ADMIN ONLY - ARTIFACT CREATE/EDIT/UPDATE
 app.get('/new-artifact', authorizationInternal, serveNewArtifact);
-app.get('/artifacts/list', authorizationInternal, artifactList);
+app.get('/artifacts-list', authorizationInternal, artifactList);
 app.get('/artifacts/:artifactID/edit', authorizationInternal, artifactEdit);
 app.post('/artifacts/:artifactID/edit', authorizationInternal, parseData, artifactUpdate);
 
@@ -102,7 +102,7 @@ app.get('/exhibits/:exhibitID/edit', authorizationInternal, exhibitEdit);
 app.post('/exhibits/:exhibittID/edit', authorizationInternal, parseData, exhibitUpdate);
 
 //  ADMIN ONLY - GALLERY EDIT/UPDATE
-app.get('/gallery/list', authorizationInternal, galleryList);
+app.get('/gallery-list', authorizationInternal, galleryList);
 app.get('/gallery/:exhibitID/edit', authorizationInternal, galleryEdit);
 app.post('/gallery/:exhibitID/edit', authorizationInternal, parseData, galleryUpdate);
 
@@ -113,7 +113,7 @@ app.get('/qr-codes/new-qr-code', authorizationInternal, qrCreate);
 //app.post('/qr-codes/:artifactID', authorizationInternal, parseBody, artifactUpdate);
 
 // ADMIN ONLY - USER EDIT/UPDATE
-app.get('/users/list', authorizationInternal, userList);
+app.get('/users-list', authorizationInternal, userList);
 app.get('/users/:userID', authorizationInternal, userEdit);
 app.post('/users/:userID', authorizationInternal, parseData, userUpdate);
 
