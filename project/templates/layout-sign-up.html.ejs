@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>New User</title>
@@ -12,69 +11,76 @@
     </head>
 
     <body>
-        <%- navi %>
-        <div class="main-container" id="new-account-container" >
-            <form id="new-account-form" method="POST">
 
-                <div>
-                <label for="handle">Username:</label>
-                <input type="text" name="handle" placeholder="Pick a cool username."/>
-                </div>
+        <section id="page">  
 
-                    <div style="padding: 15px;"></div>
+            <nav><%- navi %></nav>
 
-                <div>
-                <label for="email">Email:</label>
-                <input type="text" name="email" placeholder="Email address here."/>
-                </div>
+            <header>Login</header>
 
-                    <div style="padding: 15px;"></div>  
-
-                <div>
-                <label for="firstName">First&nbsp;Name:</label>
-                <input type="text" name="firstName" placeholder="First name, please."/>
-                </div>
-
-                    <div style="padding: 15px;"></div>
-
-                <div>
-                <label for="lastName">Last&nbsp;Name: </label>
-                <input type="text" name="lastName" placeholder="And the last name too."/>
-                </div>
-
-                    <div style="padding: 15px;"></div>
-
-                <div>
-                <label for="passswordInitial">Password:</label>
-                <input type="password" name="passwordInitial" placeholder="Pick a strong password."/>
-                </div>
-
-                    <div style="padding: 15px;"></div>
-
-                <div>
-                <label for="passswordConfirm">Confirm&nbsp;Password:</label>
-                <input type="password" name="passwordConfirm" placeholder="Passwords must match."/>
-                </div>
-
-                    <div style="padding: 15px;"></div>
-
-                <div>
-                <input type="submit" value="Submit"/>
-                </div>
-
-                    <div style="padding: 15px;"></div>
-
-                <div>
-                    <label for="error" style="display:inline-flex; flex-direction:row; align-content: center;"><%= error %></label></span>                   
-                </div>
-
-            </form>
-
-        </div>
+            <main>        
+                <div class="main-container" id="new-account-container" >
+                <form id="new-account-form" method="POST">
+    
+                    <div>
+                    <label for="handle">Username:</label>
+                    <input type="text" name="handle" placeholder="Pick a cool username."/>
+                    </div>
+    
+                        <div style="padding: 15px;"></div>
+    
+                    <div>
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" placeholder="Email address here."/>
+                    </div>
+    
+                        <div style="padding: 15px;"></div>  
+    
+                    <div>
+                    <label for="firstName">First&nbsp;Name:</label>
+                    <input type="text" name="firstName" placeholder="First name, please."/>
+                    </div>
+    
+                        <div style="padding: 15px;"></div>
+    
+                    <div>
+                    <label for="lastName">Last&nbsp;Name: </label>
+                    <input type="text" name="lastName" placeholder="And the last name too."/>
+                    </div>
+    
+                        <div style="padding: 15px;"></div>
+    
+                    <div>
+                    <label for="passswordInitial">Password:</label>
+                    <input type="password" name="passwordInitial" placeholder="Pick a strong password."/>
+                    </div>
+    
+                        <div style="padding: 15px;"></div>
+    
+                    <div>
+                    <label for="passswordConfirm">Confirm&nbsp;Password:</label>
+                    <input type="password" name="passwordConfirm" placeholder="Passwords must match."/>
+                    </div>
+    
+                        <div style="padding: 15px;"></div>
+    
+                    <div>
+                    <input type="submit" value="Submit"/>
+                    </div>
+    
+                        <div style="padding: 15px;"></div>
+    
+                    <div>
+                        <label for="error" style="display:inline-flex; flex-direction:row; align-content: center;"><%= error %></label></span>                   
+                    </div>
+                    
+                </form>
+            </div>
+            </main>
+        </section>
 
         <link rel="stylesheet" href="site.css" type="text/css"/>
         <script src="site.js"></script>
 
     </body>
-
 </html>

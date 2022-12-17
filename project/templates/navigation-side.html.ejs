@@ -1,8 +1,7 @@
-<section class="navi-container">
+<div class="navi-container">
 <nav class="side-navi">
     <ul class="side-menu">
-
-        
+       
         <% if(handle == "Guest") { %> 
         <div style="padding: 5px;"></div>
         <li>
@@ -12,25 +11,23 @@
             </a>
         </li>
         <% } %>
-
-        
+       
         <% if(handle == "Guest") { %> 
         <div style="padding: 5px;"></div>
         <li>
             <a class="navi-attribute" href="/new-account">
                 <img class="navi-icon" src="../assets/icons/48x48_baseline_person_add_black_48dp.png" type="image/png" />
-            <div class="menu-text">Create an Account</div>
+                <div class="menu-text">Create an Account</div>
             </a>
         </li>        
         <% } %>
-
-        
+       
         <% if(handle !== "Guest") { %> 
         <div style="padding: 5px;"></div>
         <li>
             <a class="navi-attribute" >
-            <img class="navi-icon" src="../assets/icons/48x48_baseline_account_circle_black_48dp.png" type="image/png" />
-            <div class="menu-text"><%- handle %></div>
+                <img class="navi-icon" src="../assets/icons/48x48_baseline_account_circle_black_48dp.png" type="image/png" />
+                <div class="menu-text"><%- handle %></div>
             </a>
         </li>
         <% } %>
@@ -39,17 +36,16 @@
         <li>
             <a class="navi-attribute" href="/">
                 <img class="navi-icon" src="../assets/icons/48x48_baseline_home_black_48dp.png" type="image/png" />
-            <div class="menu-text" type="text/plain">Home</div>
+                <div class="menu-text" type="text/plain">Home</div>
             </a>
         </li>    
-
-        
+       
         <% if(role == 1){ %>
             <div style="padding: 5px;"></div>
             <li>               
                 <a class="navi-attribute" href="/manager">
                     <img class="navi-icon" src="../assets/icons/48x48_baseline_verified_user_black_48dp.png" type="image/png" />
-                <div class="menu-text">Admin</div>
+                    <div class="menu-text">Admin</div>
                 </a>
             </li> 
         <% } %>
@@ -58,7 +54,7 @@
         <li>
             <a class="navi-attribute" >
                 <img class="navi-icon" src="../assets/icons/48x48_baseline_search_black_48dp.png" type="image/png" />
-            <div class="menu-text">Search</div>
+                <div class="menu-text">Search</div>
             </a>                           
         </li>
 
@@ -66,7 +62,7 @@
         <li>
             <a class="navi-attribute" href="/gallery">
                 <img class="navi-icon" src="../assets/icons/48x48_baseline_web_stories_black_48dp.png" type="image/png" />
-            <div class="menu-text">Galleries</div>
+                <div class="menu-text">Galleries</div>
             </a>
         </li>
 
@@ -74,7 +70,7 @@
         <li>
             <a class="navi-attribute" href="/favorites">
                 <img class="navi-icon" src="../assets/icons/48x48_baseline_favorite_black_48dp.png" type="image/png" />
-            <div class="menu-text">Favorites</div>
+                <div class="menu-text">Favorites</div>
             </a>
         </li>
 
@@ -83,12 +79,11 @@
         <li>
             <a class="navi-attribute" href="/logout">
                 <img class="navi-icon" src="../assets/icons/48x48_baseline_logout_black_48dp.png" type="image/png" />               
-            <div class="menu-text">Logout</div>
-            
+                <div class="menu-text">Logout</div>          
             </a>
         </li>
         <% } %>
-
+        
     </ul>
 </nav>
 </div>
