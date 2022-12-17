@@ -90,16 +90,14 @@ app.get('/manager', authorizationInternal, serveAdminPage);
 
 
 // ADMIN ONLY - ARTIFACT CREATE/EDIT/UPDATE
+app.get('/new-artifact', authorizationInternal, serveNewArtifact);
 app.get('/artifacts/list', authorizationInternal, artifactList);
-app.get('/artifacts/new-artifact', authorizationInternal, serveNewArtifact);
-app.post('/artifacts/new-artifact', authorizationInternal, parseData, artifactCreate);
 app.get('/artifacts/:artifactID/edit', authorizationInternal, artifactEdit);
 app.post('/artifacts/:artifactID/edit', authorizationInternal, parseData, artifactUpdate);
 
 //  ADMIN ONLY - EXHIBIT CREATE/EDIT/UPDATE
+app.get('/new-exhibit', authorizationInternal, serveNewExhibit);
 app.get('/exhibits/list', authorizationInternal, exhibitList);
-app.get('/exhibits/new-exhibit', authorizationInternal, serveNewExhibit);
-app.post('/exhibits/new-exhibit', authorizationInternal, parseData, exhibitCreate);
 app.get('/exhibits/:exhibitID/edit', authorizationInternal, exhibitEdit);
 app.post('/exhibits/:exhibittID/edit', authorizationInternal, parseData, exhibitUpdate);
 
@@ -127,6 +125,8 @@ app.post('/users/:userID', authorizationInternal, parseData, userUpdate);
 app.post("/new-account", parseData, userCreate);
 app.post("/login", parseData, sessionCreate);
 
+app.post("/new-artifact", authorizationInternal, parseData, artifactCreate);
+app.post("/new-exhibit", authorizationInternal, parseData, exhibitCreate);
 
 // LOGOUT DESTROYS SESSION
 app.get("/logout", sessionDestroy);

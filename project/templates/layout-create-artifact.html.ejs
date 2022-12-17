@@ -17,7 +17,7 @@
             <nav><%- navi %></nav>
             <header>Create Artifact</header>
             <main> 
-                <div id="main-container">
+                <div class="main-container" id="new-artifact-container">
                     <form id="new-artifact-form" method="POST">
         
                         <div>
@@ -36,6 +36,7 @@
         
                         <div>
                         <label for="pathQR">QR&nbsp;Code:</label>
+                        <button>Generate QR Code Here? Or...</button>
                         <input type="text" name="pathQR" placeholder="Path to QR code asset"/>
                         </div>
         
@@ -49,7 +50,7 @@
                             <div style="padding: 15px;"></div>
         
                         <div>
-                        <label for="display">On&nbsp;Displa:y</label>
+                        <label for="display">On&nbsp;Display</label>
                         <input type="radio" name="display" value="1" id="displayYES"> 
                         <label for="displayYES">Yes</label>
                         <input type="radio" name="display" value="0" id:="displayNO"> 
@@ -58,9 +59,7 @@
         
                             <div style="padding: 15px;"></div>
         
-                        <div>
-                            <label>[Future&nbsp;Work:&nbsp;Keywords]</label>
-                        </div>
+                        <div>[FutureWorkKeywords]</div>
         
                             <div style="padding: 15px;"></div>
         

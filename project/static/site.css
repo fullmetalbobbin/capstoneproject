@@ -99,6 +99,14 @@ a {
     justify-content: flex-start; 
 }
 
+#new-artifact-container {
+    margin-top: 10%;
+    margin-left: 10px;
+    display:inline-flex;
+    flex-direction: row;
+    justify-content: flex-start;  
+}
+
 .navi-attribute {
     display:inline-flex;
     flex-direction: row;
@@ -125,7 +133,6 @@ a {
 @media (max-width: 550px){
     
 }
-
 
 
 #page {
