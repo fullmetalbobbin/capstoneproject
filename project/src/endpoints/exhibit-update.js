@@ -40,6 +40,7 @@ function exhibitUpdate(req, res) {
     var pathPhoto = sanitize(req.body.pathPhoto);
     var current = sanitize(req.body.current);
     var travel = sanitize(req.body.travel);
+    //var gallery = sanitize(req.body.gallery);
 
     if (name == '') name = currentExhibit.name;
     if (describe == '') describe = currentExhibit.describe;
@@ -57,6 +58,17 @@ function exhibitUpdate(req, res) {
     else {
         travel = 0;
     }// close else
+
+    /*
+    if (gallery == 1) {
+        gallery = 1;
+    }// close if
+    else {
+        allery = 0;
+    }// close else
+    */
+
+    //Will need to refactor to UPDATE gallery display column
     
     var update = database.prepare("UPDATE Exhibits SET ExhibitName = ?, ExhibitDescription = ?, PathToQRAsset = ?, PathToPhotoAsset = ?, IsCurrentExhibit = ?, IsTravelingExhibit = ? WHERE ExhibitID = ?").run(name, describe, pathQR, pathPhoto, current, travel, currentExhibitID);
 

@@ -41,15 +41,15 @@ function artifactList(req, res) {
     var errorMessage = "";
 
     var navigationSide = templates['navigation-side.html']({
-        userAdmin: req.session.UserID,
-        roleAdmin: req.session.UserRole,
-        handleAdmin: req.session.UserHandle
+        user: req.session.user,
+        role: req.session.role,
+        handle: req.session.handle
     });
 
     var html = templates['layout-manage-all-artifacts.html']({
         error: errorMessage,
         navi: navigationSide,
-        artifacts: allArtifacts
+        artifacts: allArtifacts //double check if bugs
     });
 
     res.setHeader("Content-Type", "text/html");

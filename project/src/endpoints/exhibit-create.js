@@ -42,6 +42,7 @@ function exhibitCreate(req, res) {
     var pathPhoto = sanitize(req.body.pathPhoto);
     var current = sanitize(req.body.current);
     var travel = sanitize(req.body.travel);
+    //var gallery = sanitize(req.body.gallery);
 
     if (!name) return serveError(req, res, 422, "Exhibits must be given a name.");
     if (!describe) describe = "No description provided.";
@@ -49,6 +50,9 @@ function exhibitCreate(req, res) {
     if (!pathPhoto) pathPhoto = "No path to exhibit photo provided.";
     if (!current) current = 0;
     if (!travel) travel = 0;
+    //if (!gallery) gallery = 0;
+
+    //will need to insert IsDisplayedInGallery column and INSERT
 
     var nameTaken = database.prepare("SELECT * FROM Exhibits WHERE ExhibitName = ?").get(name);
     if (nameTaken) return serveError(req, res, `Exhibits must be given a unique name. An exhibit called "${name}" already exists.`);

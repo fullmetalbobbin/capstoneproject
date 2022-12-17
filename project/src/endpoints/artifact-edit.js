@@ -34,20 +34,20 @@ function artifactEdit(req, res) {
     var errorMessage = "";
 
     var navigationSide = templates['navigation-side.html']({
-        userAdmin: req.session.UserID,
-        roleAdmin: req.session.UserRole,
-        handleAdmin: req.session.UserHandle
+        user: req.session.user,
+        role: req.session.role,
+        handle: req.session.handle
     });
 
     var html = templates['layout-manage-single-artifact.html']({
         error: errorMessage,
         navi: navigationSide,
-        id: artifactToEdit.ArtifactID,
-        name: artifactToEdit.ArtifactName,
-        describe: artifactToEdit.ArtifactDescription,
-        pathQR: artifactToEdit.PathToQRAsset,
-        pathPhoto: artifactToEdit.PathToPhotoAsset,
-        display: artifactToEdit.IsOnPhysicalDisplay
+        id: artifactToEdit.ArtifactID, //id
+        name: artifactToEdit.ArtifactName, //name
+        describe: artifactToEdit.ArtifactDescription, //describe
+        pathQR: artifactToEdit.PathToQRAsset, //pathQR
+        pathPhoto: artifactToEdit.PathToPhotoAsset, //pathPhoto
+        display: artifactToEdit.IsOnPhysicalDisplay //display
     });
       
     res.setHeader('Content-Type', "text/html");

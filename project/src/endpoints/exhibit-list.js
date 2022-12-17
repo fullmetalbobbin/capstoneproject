@@ -38,6 +38,7 @@ function exhibitList(req, res) {
     var pathPhoto = allExhibits.PathToPhotoAsset;
     var current = allExhibits.IsCurrentExhibit;
     var travel = allExhibits.IsTravelingExhibit;
+    //var gallery = allExhibits.IsDisplayedInGallery;
 
     var errorMessage = "";
 

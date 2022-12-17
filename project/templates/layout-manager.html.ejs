@@ -18,12 +18,18 @@
             <header>Manager</header>
             <main> 
                 Buttons to redirect to manage artifacts and exhibits.
-                <a href="/"><button class="manager-button"  type="submit">Manage Main Gallery</button></a>
-                <a href="/"><button class="manager-button"  type="submit">Manage Existing Exhibits</button></a>
-                <a href="/"><button class="manager-button"  type="submit">Create New Exhibit</button></a>
-                <a href="/"><button class="manager-button"  type="submit">Manage Exisiting Artifacts</button></a>
-                <a href="/"><button class="manager-button"  type="submit">Create New Artifact</button></a>
-                <a href="/"><button class="manager-button"  type="submit">Manage Users</button></a>
+                <div>
+                <a href="/users/list"><button class="manager-button"  type="submit">Manage Users</button></a>
+                <a href="/gallery/list"><button class="manager-button"  type="submit">Manage Main Gallery</button></a>                
+                </div>
+                <div>
+                <a href="/exhibit/<%= exhibit.id %>"><button class="manager-button"  type="submit">Create New Exhibit</button></a>
+                <a href="/exhibit/<%= exhibit.id %>"><button class="manager-button"  type="submit">Manage Existing Exhibits</button></a>
+                </div>
+                <div>
+                <a href="/artifacts/<%= artifact.id %>"><button class="manager-button"  type="submit">Create New Artifact</button></a>
+                <a href="/artifacts/<%= artifact.id %>"><button class="manager-button"  type="submit">Manage Exisiting Artifacts</button></a>
+                </div>
             </main>
         </section>
 

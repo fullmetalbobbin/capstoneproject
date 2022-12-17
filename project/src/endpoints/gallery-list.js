@@ -1,5 +1,5 @@
 /******************************************** 
- *  exhibit-edit.js                         *
+ *  gallery-list.js                         *
  *                                          *
  *  Capstone Project:  "Context Textiles"   *
  *  Author: Amanda Dreesen                  *
@@ -7,7 +7,7 @@
  *          College of Engineering          *
  *          Computer Science                *
  ********************************************/
-// TODO:Keywords
+// TODO: Double-check needed vars
 
 
 // IMPORT REQUIRED RESOURCES
@@ -18,18 +18,28 @@ const serveError = require('../middleware/serve-error');
 const templates = require('../templates');
 
 
-/** @function exhibitEdit
+/** @function galleryList
  * 
- * Retrieves the information for a particular exhibit from the Exhibits table in the database
- * Serves the html containing data for editing
+ * Retrieves list of all exhibits from the database for export
+ * Only to be used by authorized admin role
+ * Establishes templates to be used then serves the HTML
  * 
  * @param {*} req : request object
  * @param {*} res : response object
  **/
-function exhibitEdit(req, res) {
+function galleryList(req, res) {
 
-    const exhibitID = parseInt(req.params.ExhibitID, 10);
-    var exhibitToEdit = database.prepare("SELECT * FROM Exhibits WHERE ExhibitID = ?").get(exhibitID);
+    var allExhibitsForGallery = database.prepare("SELECT * FROM Exhibits").all();
+
+    var id = allExhibitsForGallery.ExhibitID;
+    var name =allExhibitsForGallery.ExhibitName;
+    var describe = allExhibitsForGallery.ExhibitDescription;
+    var pathQR = allExhibitsForGallery.PathToQRAsset;
+    var pathPhoto = allExhibitsForGallery.PathToPhotoAsset;
+    var current = allExhibitsForGallery.IsCurrentExhibit;
+    var travel = allExhibitsForGallery.IsTravelingExhibit;
+    //var gallery = allExhibitsForGallery.IsDisplayedInGallery;
+    //need to add a column if it is included in gallery or not
 
     var errorMessage = "";
 
@@ -39,25 +49,18 @@ function exhibitEdit(req, res) {
         handle: req.session.handle
     });
 
-    var html = templates['layout-manage-single-exhibit.html']({
+    var html = templates['layout-manage-gallery.html']({
         error: errorMessage,
         navi: navigationSide,
-        id: exhibitToEdit.ExhibitID,
-        name: exhibitToEdit.ExhibitName,
-        describe: exhibitToEdit.ExhibitDescription,
-        pathQR: exhibitToEdit.PathToQRAsset,
-        pathPhoto: exhibitToEdit.PathToPhotoAsset,
-        current: exhibitToEdit.IsCurrentExhibit,
-        travel: exhibitToEdit.IsTravelingExhibit //,
-        //gallery: exhibitToEdit.IsDisplayedInGallery
+        exhibits: allExhibitsForGallery
     });
 
     res.setHeader('Content-Type', "text/html");
     res.setHeader('Content-Length', html.length);
     res.end(html);
 
-}// close exhibitEdit
+}// close exhibitList
 
 
 // EXPORT
-module.exports = exhibitEdit;
+module.exports = galleryList;

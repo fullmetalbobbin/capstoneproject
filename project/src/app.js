@@ -25,6 +25,9 @@ var exhibitCreate = require('./endpoints/exhibit-create');
 var exhibitEdit = require('./endpoints/exhibit-edit');
 var exhibitList = require('./endpoints/exhibit-list');
 var exhibitUpdate = require('./endpoints/exhibit-update');
+var galleryEdit = require('./endpoints/gallery-list');
+var galleryList = require('./endpoints/gallery-list');
+var galleryUpdate = require('./endpoints/gallery-update');
 var qrCreate = require('./endpoints/qr-create');
 var qrEdit = require('./endpoints/qr-edit');
 var qrUpdate = require('./endpoints/qr-update');
@@ -85,16 +88,20 @@ app.get('/manager', authorizationInternal, serveAdminPage);
 
 
 // ADMIN ONLY - ARTIFACT CREATE/EDIT/UPDATE
-app.get('/artifacts', artifactList);
-app.get('/artifacts/new-artifact', artifactCreate);
-app.get('/artifacts/:artifactID', authorizationInternal, artifactEdit);
-app.post('/artifacts/:artifactID', authorizationInternal, parseData, artifactUpdate);
+app.get('/artifacts/list', authorizationInternal, artifactList);
+app.get('/artifacts/new-artifact', authorizationInternal, artifactCreate);
+app.get('/artifacts/:artifactID/edit', authorizationInternal, artifactEdit);
+app.post('/artifacts/:artifactID/edit', authorizationInternal, parseData, artifactUpdate);
 
 //  ADMIN ONLY - EXHIBIT CREATE/EDIT/UPDATE
-app.get('/exhibits', authorizationInternal, exhibitList);
+app.get('/exhibits/list', authorizationInternal, exhibitList);
 app.get('/exhibits/new-exhibit', authorizationInternal, exhibitCreate);
-app.get('/exhibits/:exhibitID', authorizationInternal, exhibitEdit);
-app.post('/exhibits/:exhibittID', authorizationInternal, parseData, exhibitUpdate);
+app.get('/exhibits/:exhibitID/edit', authorizationInternal, exhibitEdit);
+app.post('/exhibits/:exhibittID/edit', authorizationInternal, parseData, exhibitUpdate);
+
+app.get('/gallery/list', authorizationInternal, galleryList);
+app.get('/gallery/:exhibitID/edit', authorizationInternal, galleryEdit);
+app.post('/gallery/:exhibitID/edit', authorizationInternal, parseData, galleryUpdate);
 
 // ADMIN ONLY - QR CODE  TODO - FIX QR CODE STUFF
 //app.get('/qr-codes', authorizationInternal, qrCodeList);
@@ -103,7 +110,7 @@ app.get('/qr-codes/new-qr-code', authorizationInternal, qrCreate);
 //app.post('/qr-codes/:artifactID', authorizationInternal, parseBody, artifactUpdate);
 
 // ADMIN ONLY - USER EDIT/UPDATE
-app.get('/users', authorizationInternal, userList);
+app.get('/users/list', authorizationInternal, userList);
 app.get('/users/:userID', authorizationInternal, userEdit);
 app.post('/users/:userID', authorizationInternal, parseData, userUpdate);
 
