@@ -3,7 +3,7 @@
     <ul class="side-menu">
        
         <% if(handle == "Guest") { %> 
-        <div style="padding: 5px;"></div>
+        <div style="padding:8%;"></div>
         <li>
             <a class="navi-attribute" href="/login">
                 <img class="navi-icon" src="../assets/icons/48x48_baseline_login_black_48dp.png" type="image/png" />
@@ -13,7 +13,7 @@
         <% } %>
        
         <% if(handle == "Guest") { %> 
-        <div style="padding: 5px;"></div>
+        <div style="padding: 8%;"></div>
         <li>
             <a class="navi-attribute" href="/new-account">
                 <img class="navi-icon" src="../assets/icons/48x48_baseline_person_add_black_48dp.png" type="image/png" />
@@ -23,7 +23,7 @@
         <% } %>
        
         <% if(handle !== "Guest") { %> 
-        <div style="padding: 5px;"></div>
+        <div style="padding: 8%;"></div>
         <li>
             <a class="navi-attribute" >
                 <img class="navi-icon" src="../assets/icons/48x48_baseline_account_circle_black_48dp.png" type="image/png" />
@@ -32,7 +32,7 @@
         </li>
         <% } %>
 
-        <div style="padding: 5px;"></div>       
+        <div style="padding: 8%;"></div>       
         <li>
             <a class="navi-attribute" href="/">
                 <img class="navi-icon" src="../assets/icons/48x48_baseline_home_black_48dp.png" type="image/png" />
@@ -41,7 +41,7 @@
         </li>    
        
         <% if(role == 1){ %>
-            <div style="padding: 5px;"></div>
+            <div style="padding: 8%;"></div>
             <li>               
                 <a class="navi-attribute" href="/manager">
                     <img class="navi-icon" src="../assets/icons/48x48_baseline_verified_user_black_48dp.png" type="image/png" />
@@ -50,15 +50,15 @@
             </li> 
         <% } %>
 
-        <div style="padding: 5px;"></div>
+        <div style="padding: 8%;"></div>
         <li>
-            <a class="navi-attribute" >
+            <a class="navi-attribute"  href="/search">
                 <img class="navi-icon" src="../assets/icons/48x48_baseline_search_black_48dp.png" type="image/png" />
                 <div class="menu-text">Search</div>
             </a>                           
         </li>
 
-        <div style="padding: 5px;"></div>
+        <div style="padding: 8%;"></div>
         <li>
             <a class="navi-attribute" href="/gallery">
                 <img class="navi-icon" src="../assets/icons/48x48_baseline_web_stories_black_48dp.png" type="image/png" />
@@ -66,7 +66,7 @@
             </a>
         </li>
 
-        <div style="padding: 5px;"></div>
+        <div style="padding: 8%;"></div>
         <li>
             <a class="navi-attribute" href="/favorites">
                 <img class="navi-icon" src="../assets/icons/48x48_baseline_favorite_black_48dp.png" type="image/png" />
@@ -75,7 +75,7 @@
         </li>
 
         <% if(handle !== "Guest") { %> 
-        <div style="padding: 5px;"></div>
+        <div style="padding: 8%;"></div>
         <li>
             <a class="navi-attribute" href="/logout">
                 <img class="navi-icon" src="../assets/icons/48x48_baseline_logout_black_48dp.png" type="image/png" />               
@@ -83,7 +83,7 @@
             </a>
         </li>
         <% } %>
-        
+
     </ul>
 </nav>
 </div>

@@ -12,13 +12,15 @@
 body {
     margin: 0 auto 0 auto;
     font-family: 'Times New Roman', Times, serif !important;
-    font-size: larger;
+    font-size: x-large;
     background-image: url("./assets/backgrounds/pexels-agnese-lunecka-6561508.png");
+    background-color: rgba(255,255,255,0);
+    background-blend-mode: lighten;
     background-size: cover;
     background-attachment:local;
-    opacity: .9;
 
 }
+
 
 a {
     color: black;
@@ -29,23 +31,17 @@ a {
     list-style-type: none;
 }
 
-.navi-banner {
-    background-color: blueviolet;
-    opacity: .4;
-}
-
 .navi-container {
     background-color: rgb(134, 133, 131);
     opacity: .9;
-    width: 100px;
+    width: 25%;
     height: 100vh;
-    display: grid ;
-    grid-template-columns: repeat(4, 0);
+    display: grid ;   
     list-style-type: none;
 }
 
 .navi-container .menu-text {
-    font-size: larger;
+
     visibility: hidden;
     width: 200px;
     text-decoration: none;
@@ -56,7 +52,7 @@ a {
 
 .navi-container:hover{
     transition: width 0.7s ease; 
-    width: 250px;
+    width: 75%;
     cursor: pointer;
 }
 
@@ -90,13 +86,13 @@ a {
 
 #login-container {
     margin-top: 50px;
-    margin-left: 320px;
+    margin-left: 50px;
     text-align: center;
 }
 
 #new-account-container {
     margin-top: 50px;
-    margin-left: 320px;
+    margin-left: 50px;
     text-align: center; 
 }
 
@@ -108,8 +104,8 @@ a {
 }
 
 .navi-icon {
-    max-width: 25px;
-    max-height: 25px;
+    max-width: 30px;
+    max-height: 30px;
 }
 
 
@@ -147,6 +143,8 @@ a {
 
 #page > header {
     grid-area: head;
+    font-size: 200%;
+    align-self: center;
 }
 
 #page > main {

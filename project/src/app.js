@@ -35,6 +35,7 @@ var serveExhibit = require('./endpoints/serve-exhibit');
 var serveFavorites = require('./endpoints/serve-favorites');
 var serveGallery = require('./endpoints/serve-gallery');
 var serveHomepage = require('./endpoints/serve-homepage');
+var serveSearch = require('./endpoints/serve-search');
 var serveSignIn = require('./endpoints/serve-sign-in');
 var serveSignUp = require('./endpoints/serve-sign-up');
 var sessionCreate = require('./endpoints/session-create');
@@ -75,6 +76,7 @@ app.get('/gallery', serveGallery);
 app.get('/exhibits', serveExhibit);
 app.get('/artifacts', serveArtifact);
 app.get('/favorites', serveFavorites);
+app.get('/search', serveSearch);
 
 app.get('/login', serveSignIn);
 app.get('/new-account', serveSignUp);
