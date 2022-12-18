@@ -29,23 +29,39 @@ function userEdit(req, res) {
 
     const userID = parseInt(req.params.UserID, 10);
     var userToEdit = database.prepare("SELECT * FROM Users WHERE UserID = ?").get(userID);
+
+    //var id = userToEdit.id;
+    //var handle = userToEdit.handle;
+    //var email = userToEdit.UserEmail;
+    //var firstName = userToEdit.UserFirstName;
+    //var lastName = userToEdit.UserLastName;
+    //var role = userToEdit.UserRole;
+
+    console.log("Should give userID from user-edit.js"+userID);
+    //console.log("Should give userToEdit.UserHandle from user-edit.js"+userToEdit.UserHandle);
+    //console.log("Should give userToEdit.email from user-edit.js"+userToEdit.email);
+    //console.log("Should give firstName from user-edit.js"+firstName);
+    //console.log("Should give UserLastName from user-edit.js"+UserLastName);
+    console.log("Should give req.session.user from user-edit.js"+req.session.user.handle);
+
     var errorMessage = ";"
 
     var navigationSide = templates['navigation-side.html']({
         user: req.session.user,
-        role: req.session.role,
-        handle: req.session.handle
+        handle: req.session.user.handle,
+        role: req.session.user.role,
     });
 
     var html = templates['layout-manage-single-user.html']({
         error: errorMessage,
         navi: navigationSide,
-        id: userToEdit.UserID,
-        handle: userToEdit.UserHandle,
-        email: userToEdit.UserEmail,
-        firstName: userToEdit.UserFirstName,
-        lastName: userToEdit.UserLastName,
-        role: userToEdit.UserRole
+        user: userToEdit//,
+        //id: userToEdit.id,
+        //handle: userToEdit.handle,
+        //email: userToEdit.email,
+        //firstName: userToEdit.firstName,
+        //lastName: userToEdit.lastName,
+        //role: userToEdit.role
     });
 
     res.setHeader('Content-Type', "text/html");

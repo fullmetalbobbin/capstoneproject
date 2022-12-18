@@ -16,7 +16,40 @@
         <section id="page">       
             <nav><%- navi %></nav>
             <header>Manage User</header>
-            <main> Edit/Update single user.</main>
+            <main> 
+                Edit/Update single user.
+                <div class="main-container" id="edit-user-container" >
+                <form class="edit-user-form" method="POST">
+
+                    <div>
+                        <label for="error" style="display:inline-flex; flex-direction:row; align-content: center;"><%= error %></label></span>                   
+                    </div>
+                
+                    <label for="handle">User&nbsp;Handle:</label>
+                    <input type="text" name="handle" placeholder="<%= handle %>"/>
+                    <div style="padding:10px"/>
+                    <label for="email">E-mail:</label>
+                    <input type="text" name="email" placeholder="<%= email %>"/>
+                    <div style="padding:10px"/>
+                    <label for="firstName">First&nbsp;Name:</label>
+                    <input type="text" name="firstName" placeholder="<%= firstName %>"/>
+                    <div style="padding:10px"/>
+                    <label for="lastName">Last&nbsp;Name:</label>
+                    <input type="text" name="lastName" placeholder="<%= lastName %>"/>
+                    <div style="padding:10px"/>
+                    <% if(role == 1) { %> 
+                    <label for="role">Admin&nbsp;Role:</label>
+                    <input type="checkbox" checked name="role" />
+                    <% } else { %>
+            `       <label for="role">Admin&nbsp;Role:</label>
+                    <input type="checkbox" name="role"/>
+                    <% } %>
+                    <div style="padding:10px"/>
+                    <input type="submit" value="Update User"/>
+          
+                </form>
+                </div>
+            </main>
         </section>
 
         <link rel="stylesheet" href="site.css" type="text/css"/>

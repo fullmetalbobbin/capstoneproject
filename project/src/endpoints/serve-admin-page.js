@@ -50,11 +50,15 @@ function serveAdminPage(req, res) {
 
     var error = "";
 
+    console.log("Should give req.session.user from serve-admin-page.js"+req.session.user);
+
     var navigationSide = templates['navigation-side.html']({
         user: req.session.user,
         handle: handle,
         role: role
     });
+    console.log("Should give handle from serve-admin.js"+handle);
+
 
     if (role == 1) {
         var html = templates['layout-manager.html']({

@@ -31,25 +31,44 @@ function userList(req, res) {
 
     var allUsers = database.prepare("SELECT * FROM Users").all();
 
+    /*
     var id = allUsers.UserID;
     var handle = allUsers.UserHandle;
     var email = allUsers.UserEmail;
     var firstName = allUsers.UserFirstName;
     var lastName = allUsers.UserLastName;
     var role = allUsers.UserRole;
+    */
+
+    //console.log("Should give role from user-list.js"+user.role);
+    //console.log("Should give user.UserEmail from user-list.js"+user.UserEmail);
+    //console.log("Should give req.session.UserHandle from user-list.js"+req.session.UserHandle);
+    //console.log("Should give req.session.handle from user-list.js"+req.session.handle);
+    //console.log("Should give req.session.user.UserHandle from user-list.js"+req.session.user.UserHandle);
+    //console.log("Should give req.session.user.handle from user-list.js"+req.session.user.handle);
 
     var errorMessage = "";
 
     var navigationSide = templates['navigation-side.html']({
         user: req.session.user,
-        role: req.session.role,
-        handle: req.session.handle
+        handle: req.session.user.handle,
+        role: req.session.user.role
     });
+
+    //console.log("Should give handle assigned from req.session.handle in user-list.js"+handle);
+    //console.log("Should give handle assigned from req.session.handle in user-list.js"+allUsers.UserLastName);
+
 
     var html = templates['layout-manage-all-users.html']({
         error: errorMessage,
         navi: navigationSide,
-        users: allUsers
+        users: allUsers,
+        id: allUsers.UserID,
+        handle: allUsers.UserHandle,
+        email: allUsers.UserEmail,
+        firstName: allUsers.UserFirstName,
+        lastName: allUsers.UserLastName,
+        role: allUsers.UserRole
     });
 
     res.setHeader("Content-Type", "text/html");

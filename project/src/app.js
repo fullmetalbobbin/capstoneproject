@@ -113,7 +113,7 @@ app.get('/qr-codes/new-qr-code', authorizationInternal, qrCreate);
 //app.post('/qr-codes/:artifactID', authorizationInternal, parseBody, artifactUpdate);
 
 // ADMIN ONLY - USER EDIT/UPDATE
-app.get('/users-list', authorizationInternal, userList);
+app.get('/users', authorizationInternal, userList);
 app.get('/users/:userID', authorizationInternal, userEdit);
 app.post('/users/:userID', authorizationInternal, parseData, userUpdate);
 
