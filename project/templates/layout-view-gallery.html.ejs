@@ -17,20 +17,23 @@
             <nav><%- navi %></nav>
             <header>Gallery</header>
             <main> 
+                
                 Show exhibits with redirects here.
                 <ul>
                     <% galleryExhibits.forEach((exhibit) => { %>
                     <% if(exhibit.IsDisplayedInGallery == 1) { %>
                     <li>
-                        <a href="/../exhibits/<% exhibit.ExhibitID %>">
+                        <a href="/../exhibit/<%- exhibit.ExhibitID %>">
                             <div><%= exhibit.ExhibitID %></div>
                         </a>
                     </li>
                     <% } %>
                     <% }); %>
                 </ul>
+                
             </main>
         </section>
+       
 
         <link rel="stylesheet" href="site.css" type="text/css"/>
         <script src="site.js"></script>

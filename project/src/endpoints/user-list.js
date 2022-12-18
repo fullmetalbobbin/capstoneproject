@@ -61,7 +61,7 @@ function userList(req, res) {
     var html = templates['layout-manage-all-users.html']({
         error: errorMessage,
         navi: navigationSide,
-        users: allUsers,
+        user: allUsers,
         id: allUsers.UserID,
         handle: allUsers.UserHandle,
         email: allUsers.UserEmail,

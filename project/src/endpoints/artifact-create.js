@@ -57,7 +57,7 @@ function artifactCreate(req, res) {
 
     var newArtifact = database.prepare("SELECT * FROM Artifacts WHERE ArtifactName = ?").get(name);
 
-    res.writeHead(302, { "Location": `/artifacts/${newArtifact.ArtifactID}` }).end(); //TODO - check ArtifactName vs id
+    res.writeHead(302, { "Location": `/artifact/${newArtifact.ArtifactID}` }).end(); //TODO - check ArtifactName vs id
     // maybe use id instead
     //otherwise encode
     //they do have both

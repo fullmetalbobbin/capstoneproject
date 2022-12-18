@@ -78,8 +78,8 @@ app.use(seesionLoad);
 //serve
 app.get('/', serveHomepage);
 app.get('/gallery', serveGallery);
-app.get('/exhibits', serveExhibit);
-app.get('/artifacts', serveArtifact);
+app.get('/exhibit', serveExhibit);
+app.get('/artifact', serveArtifact);
 app.get('/favorites', serveFavorites);
 app.get('/search', serveSearch);
 
@@ -92,14 +92,14 @@ app.get('/manager', authorizationInternal, serveAdminPage);
 // ADMIN ONLY - ARTIFACT CREATE/EDIT/UPDATE
 app.get('/new-artifact', authorizationInternal, serveNewArtifact);
 app.get('/artifacts', authorizationInternal, artifactList);
-app.get('/artifacts/:artifactID/edit', authorizationInternal, artifactEdit);
-app.post('/artifacts/:artifactID/edit', authorizationInternal, parseData, artifactUpdate);
+app.get('/artifact/:artifactID/edit', authorizationInternal, artifactEdit);
+app.post('/artifact/:artifactID/edit', authorizationInternal, parseData, artifactUpdate);
 
 //  ADMIN ONLY - EXHIBIT CREATE/EDIT/UPDATE
 app.get('/new-exhibit', authorizationInternal, serveNewExhibit);
 app.get('/exhibits', authorizationInternal, exhibitList);
-app.get('/exhibits/:exhibitID/edit', authorizationInternal, exhibitEdit);
-app.post('/exhibits/:exhibittID/edit', authorizationInternal, parseData, exhibitUpdate);
+app.get('/exhibit/:exhibitID/edit', authorizationInternal, exhibitEdit);
+app.post('/exhibit/:exhibittID/edit', authorizationInternal, parseData, exhibitUpdate);
 
 //  ADMIN ONLY - GALLERY EDIT/UPDATE
 app.get('/gallery', authorizationInternal, galleryList);
@@ -114,8 +114,8 @@ app.get('/qr-codes/new-qr-code', authorizationInternal, qrCreate);
 
 // ADMIN ONLY - USER EDIT/UPDATE
 app.get('/users', authorizationInternal, userList);
-app.get('/users/:userID', authorizationInternal, userEdit);
-app.post('/users/:userID', authorizationInternal, parseData, userUpdate);
+app.get('/user/:userID', authorizationInternal, userEdit);
+app.post('/user/:userID', authorizationInternal, parseData, userUpdate);
 
 // ADMIN ONLY - MANAGER/ADMIN PAGE
 

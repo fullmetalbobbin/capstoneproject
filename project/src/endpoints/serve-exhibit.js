@@ -29,7 +29,7 @@ const serveError = require('../middleware/serve-error');
  **/
 function serveExhibit(req, res) {
 
-    var exhibitArtifacts = database.prepare("SELECT * FROM Users").all();
+    var exhibitArtifacts = database.prepare("SELECT * FROM Artifacts").all();
     //refactor for join using linking table and USE ARTIFACTS
 
     if(req.session.user) {
@@ -37,12 +37,13 @@ function serveExhibit(req, res) {
         var role = req.session.user.role;      
     }// close
     else {
-        var handle = "Guest"
+        var handle = "Guest";
         var role = 0;
     }// close else
 
     var error = "";
 
+    console.log("Should show handle from serve-exhibit.js"+handle);
     var navigationSide = templates['navigation-side.html']({
         user: req.session.user,
         handle: handle,
@@ -52,10 +53,12 @@ function serveExhibit(req, res) {
     var html = templates['layout-view-exhibit.html']({
         navi: navigationSide,
         error: error,
-        exhibitArtifacts: exhibitArtifacts
+        exhibitArtifacts: exhibitArtifacts,
+        artifactID: exhibitArtifacts.ArtifactID
     });
 
     res.setHeader("Content-Type", "text/html");
+    //res.statusCode=302;
     res.setHeader("Content-Length", html.length);
     res.end(html);
 

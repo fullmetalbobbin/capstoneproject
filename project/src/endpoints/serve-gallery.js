@@ -37,7 +37,7 @@ function serveGallery(req, res) {
         var role = req.session.user.role;      
     }// close
     else {
-        var handle = "Guest"
+        var handle = "Guest";
         var role = 0;
     }// close else
 
@@ -57,6 +57,7 @@ function serveGallery(req, res) {
     });
 
     res.setHeader("Content-Type", "text/html");
+    res.statusCode=302;
     res.setHeader("Content-Length", html.length);
     res.end(html);
 

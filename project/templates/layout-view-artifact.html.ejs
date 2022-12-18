@@ -17,13 +17,13 @@
             <nav><%- navi %></nav>
             <header>Artifacts</header>
             <main> 
+                <div class="main-container" id="view-artifact-container" >
                 List of artifacts from the directing exhibit
 
-                <div id="main-container">
                     <ul>              
                     <% artifacts.forEach((artifact) => { %>
                         <li>
-                            <a href="/artifacts/"+<%= artifact.ArtifactID %> 
+                            <a href="../../artifact/+<%= artifact.artifactID %>" > 
                                 <img src="../static/assets/buttons/logo-draft.png">
                             </a>
                         </li>
@@ -38,5 +38,4 @@
         <script src="site.js"></script>
 
     </body>
-
 </html>

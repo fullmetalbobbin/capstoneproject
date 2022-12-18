@@ -30,12 +30,15 @@ const serveError = require('../middleware/serve-error');
  **/
 function serveArtifact (req, res) {
 
+    const artifactID = parseInt(req.params.ArtifactID, 10);
+    var artifacts = database.prepare("SELECT * FROM Artifacts WHERE ArtifactID = ?").all(artifactID);
+
     if(req.session.user) {
-        var handle = req.session.user.UserHandle; 
-        var role = req.session.user.Role;      
+        var handle = req.session.user.handle; 
+        var role = req.session.user.role;      
     }// close
     else {
-        var handle = "Guest"
+        var handle = "Guest";
         var role = 0;
     }// close else
     
@@ -49,7 +52,8 @@ function serveArtifact (req, res) {
 
     var html = templates['layout-view-artifact.html']({
         navi: navigationSide,
-        error: error
+        error: error,
+        artifacts: artifacts
     });
 
     res.setHeader("Content-Type", "text/html");
