@@ -97,7 +97,7 @@ app.post('/artifacts/:artifactID/edit', authorizationInternal, parseData, artifa
 
 //  ADMIN ONLY - EXHIBIT CREATE/EDIT/UPDATE
 app.get('/new-exhibit', authorizationInternal, serveNewExhibit);
-app.get('/exhibits/list', authorizationInternal, exhibitList);
+app.get('/exhibits-list', authorizationInternal, exhibitList);
 app.get('/exhibits/:exhibitID/edit', authorizationInternal, exhibitEdit);
 app.post('/exhibits/:exhibittID/edit', authorizationInternal, parseData, exhibitUpdate);
 

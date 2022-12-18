@@ -1,5 +1,5 @@
 /******************************************** 
- *  serve-exhibit.js                        *
+ *  serve-artifacts-list.js                  *
  *                                          *
  *  Capstone Project:  "Context Textiles"   *
  *  Author: Amanda Dreesen                  *
@@ -10,24 +10,27 @@
 
 
 // IMPORT REQUIRED RESOURCES
+const authentication = require('../middleware/authentication.js');
+const authorization = require('../middleware/authorization');
 const database = require('../database');
 const templates = require('../templates');
 const serveError = require('../middleware/serve-error');
 
 
-/** @function serveExhibit
+/** @function serveArtifactsList
  * 
- * Serves the template layout for viewing an exhibit with the necessary information
- *  - Checks for registered user to supply handle or supplies a blank
- *  - Checks role for admin authorization for redundancy
- *  - Supplies the navigation sidebar with the user information (user, handle, and role)
+ * Serves the template layout for artifacts list page with the necessary information
+ *  - Supplies the navigation sidebar with the user information
+ *  - Check for authorization
+ *      - Admin role == 1 is redirected to artifacts list
+ *      - Non-admin role == 0 is redirected to the homepage
  *  - Supplies the main layout with navigation component and error
  *  - Serves the html
  * 
  * @param {*} req : request object
  * @param {*} res : response object
  **/
-function serveExhibit(req, res) {
+function serveArtifactsList(req, res) {
 
     if(req.session.user) {
         var handle = req.session.user.handle; 
@@ -41,22 +44,32 @@ function serveExhibit(req, res) {
     var error = "";
 
     var navigationSide = templates['navigation-side.html']({
-        user: req.session.user,
         handle: handle,
         role: role
     });
+    console.log(handle);
 
-    var html = templates['layout-view-exhibit.html']({
-        navi: navigationSide,
-        error: error
-    });
+    if(role == 1) {
+        var html = templates['layout-manage-all-artifacts.html']({
+            navi: navigationSide,
+            error: error
+        });
+    }// close if
+    else {
+        error = "Whoops! Staff only!";
+        var html = templates['layout-homepage.html']({
+            navi: navigationSide,
+            error: error
+        });
+    }// close else
+
 
     res.setHeader("Content-Type", "text/html");
     res.setHeader("Content-Length", html.length);
     res.end(html);
 
-}// close serveExhibit
+}// close serveNewArtifact
 
 
 // EXPORT
-module.exports = serveExhibit;
+module.exports = serveArtifactsList;
