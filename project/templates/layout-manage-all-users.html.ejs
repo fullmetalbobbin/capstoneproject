@@ -20,6 +20,33 @@
                 List of users - redirects to single user?
                 forach needed here  - will be the link to users/list?
 
+                <table class="table">
+
+                    <thead>
+                      <tr>
+                        <th scope="col">UserID</th>
+                        <th scope="col">UserHandle</th>
+                        <th scope="col">UserFirstName</th>
+                        <th scope="col">UserLastName</th>
+                        <th scope="col">UserEmail</th>
+                        <th scope="col">UserRole</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <% users.forEach((user) => { %>
+                      <tr>
+                        <th scope="row"><%= user.id %></th>
+                        <td><%= user.handle %></td>
+                        <td><%= user.firstName %></td>
+                        <td><%= user.lastName %></td>
+                        <td><%= user.email %></td>
+                        <td><%= user.role %></td>
+                        <td><a href="/users/<%= user.id %>"><button class="btn" type="submit">Edit User</button></a></td>
+                      </tr>
+                    <% }); %>
+                    </tbody>                 
+                 </table>
+
             </main>
         </section>
         

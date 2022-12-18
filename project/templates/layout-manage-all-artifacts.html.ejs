@@ -3,7 +3,7 @@
 
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Manage: Artifacts</title>
+        <title>Manage Artifacts</title>
         <style>
             ul {list-style-type: none;}
         </style>
@@ -16,7 +16,35 @@
         <section id="page">       
             <nav><%- navi %></nav>
             <header>Manage Artifacts</header>
-            <main>List of all artifacts to manage - redirects to single artifact.</main>
+            <main>
+                List of all artifacts to manage - redirects to single artifact.
+                Foreach make div and show
+
+                <table class="table">
+
+                    <thread>
+                        <tr>
+                            <th scope="col">ArtifactID</th>
+                            <th scope="col">ArtifactName</th>
+                            <th scope="col">ArtifactQR</th>
+                            <th scope="col">ArtifactPhoto</th>
+                        </tr>
+                    </thread>
+                    <tbody>
+                        <% artifacts.forEach((artifact) => { %>
+                        <tr>
+                            <th scope="row"><% artifact.id %></th>
+                            <td><%= atifact.name %></td>
+                            <td><%= atifact.describe %></td>
+                            <td><%= atifact.pathQR %></td>
+                            <td><%= atifact.pathPhoto %></td>
+                            <td><a href="/artifacts/<%= artifact.id %>"><button class="btn" type="submit">Edit Artifact</button></a></td>
+                        </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+
+            </main>
         </section>
 
         <link rel="stylesheet" href="site.css" type="text/css"/>
