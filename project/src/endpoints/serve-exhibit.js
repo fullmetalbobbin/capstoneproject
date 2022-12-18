@@ -29,6 +29,9 @@ const serveError = require('../middleware/serve-error');
  **/
 function serveExhibit(req, res) {
 
+    var exhibitArtifacts = database.prepare("SELECT * FROM Users").all();
+    //refactor for join using linking table and USE ARTIFACTS
+
     if(req.session.user) {
         var handle = req.session.user.handle; 
         var role = req.session.user.role;      
@@ -48,7 +51,8 @@ function serveExhibit(req, res) {
 
     var html = templates['layout-view-exhibit.html']({
         navi: navigationSide,
-        error: error
+        error: error,
+        exhibitArtifacts: exhibitArtifacts
     });
 
     res.setHeader("Content-Type", "text/html");

@@ -91,18 +91,18 @@ app.get('/manager', authorizationInternal, serveAdminPage);
 
 // ADMIN ONLY - ARTIFACT CREATE/EDIT/UPDATE
 app.get('/new-artifact', authorizationInternal, serveNewArtifact);
-app.get('/artifacts-list', authorizationInternal, artifactList);
+app.get('/artifacts', authorizationInternal, artifactList);
 app.get('/artifacts/:artifactID/edit', authorizationInternal, artifactEdit);
 app.post('/artifacts/:artifactID/edit', authorizationInternal, parseData, artifactUpdate);
 
 //  ADMIN ONLY - EXHIBIT CREATE/EDIT/UPDATE
 app.get('/new-exhibit', authorizationInternal, serveNewExhibit);
-app.get('/exhibits-list', authorizationInternal, exhibitList);
+app.get('/exhibits', authorizationInternal, exhibitList);
 app.get('/exhibits/:exhibitID/edit', authorizationInternal, exhibitEdit);
 app.post('/exhibits/:exhibittID/edit', authorizationInternal, parseData, exhibitUpdate);
 
 //  ADMIN ONLY - GALLERY EDIT/UPDATE
-app.get('/gallery-list', authorizationInternal, galleryList);
+app.get('/gallery', authorizationInternal, galleryList);
 app.get('/gallery/:exhibitID/edit', authorizationInternal, galleryEdit);
 app.post('/gallery/:exhibitID/edit', authorizationInternal, parseData, galleryUpdate);
 

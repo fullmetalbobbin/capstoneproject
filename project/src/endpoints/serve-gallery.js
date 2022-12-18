@@ -30,6 +30,8 @@ const serveError = require('../middleware/serve-error');
  **/
 function serveGallery(req, res) {
 
+    var galleryExhibits = database.prepare("SELECT * FROM Exhibits WHERE IsDisplayedInGallery = ?").all(1);
+
     if(req.session.user) {
         var handle = req.session.user.handle; 
         var role = req.session.user.role;      
@@ -49,7 +51,9 @@ function serveGallery(req, res) {
 
     var html = templates['layout-view-gallery.html']({
         navi: navigationSide,
-        error: error
+        error: error,
+        galleryExhibits: galleryExhibits,
+        exhibitID: galleryExhibits.ExhibitID
     });
 
     res.setHeader("Content-Type", "text/html");

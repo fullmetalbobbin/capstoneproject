@@ -55,8 +55,7 @@ function userList(req, res) {
         role: req.session.user.role
     });
 
-    //console.log("Should give handle assigned from req.session.handle in user-list.js"+handle);
-    //console.log("Should give handle assigned from req.session.handle in user-list.js"+allUsers.UserLastName);
+
 
 
     var html = templates['layout-manage-all-users.html']({
@@ -70,6 +69,9 @@ function userList(req, res) {
         lastName: allUsers.UserLastName,
         role: allUsers.UserRole
     });
+
+    //console.log("Should give handle assigned from req.session.handle in user-list.js"+handle);
+    //console.log("Should give allUsers.UserLastName assigned from req.session.handle in user-list.js"+allUsers.UserLastName);
 
     res.setHeader("Content-Type", "text/html");
     res.setHeader("Content-Length", html.length);

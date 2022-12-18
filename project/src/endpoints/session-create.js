@@ -52,11 +52,11 @@ function sessionCreate(req, res) {
         return loginDenied(req, res, "Email/Password not found.");
     }// close if
     
-    encryption.compare(cleanPassword, user.EncryptedPassword, (error, match) => {
+    encryption.compare(cleanPassword, user.EncryptedPassword, (error, result) => {
         if (error) { 
             return serveError(req, res, 500, error);
         }// close if
-        if (match) {
+        if (result) {
             loginAccepted(req, res, user);
         }// close if
         else { 
@@ -122,7 +122,7 @@ function loginAccepted(req, res, user) {
  
     res.setHeader("Set-Cookie", `SID=${sessionuuid}; Secure; HTTPOnly`);
     res.statusCode = 302;
-    res.setHeader("Location", "/gallery");
+    res.setHeader("Location", "/");
     res.end();
 
 }//close loginAccepted
