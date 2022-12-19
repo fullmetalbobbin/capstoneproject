@@ -61,13 +61,13 @@ function userList(req, res) {
     var html = templates['layout-manage-all-users.html']({
         error: errorMessage,
         navi: navigationSide,
-        user: allUsers,
-        id: allUsers.UserID,
-        handle: allUsers.UserHandle,
-        email: allUsers.UserEmail,
-        firstName: allUsers.UserFirstName,
-        lastName: allUsers.UserLastName,
-        role: allUsers.UserRole
+        user: allUsers//,
+        //id: allUsers.UserID,
+        //handle: allUsers.UserHandle,
+        //email: allUsers.UserEmail,
+        //firstName: allUsers.UserFirstName,
+        //lastName: allUsers.UserLastName,
+        //role: allUsers.UserRole
     });
 
     //console.log("Should give handle assigned from req.session.handle in user-list.js"+handle);

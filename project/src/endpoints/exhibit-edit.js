@@ -29,7 +29,7 @@ const templates = require('../templates');
 function exhibitEdit(req, res) {
 
     const exhibitID = parseInt(req.params.ExhibitID, 10);
-    var exhibitToEdit = database.prepare("SELECT * FROM Exhibits WHERE ExhibitID = ?").all(exhibitID);
+    var exhibitToEdit = database.prepare("SELECT * FROM Exhibits WHERE ExhibitID = ?").get(exhibitID);
 
     var errorMessage = "";
 

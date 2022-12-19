@@ -27,17 +27,17 @@ const templates = require('../templates');
  **/
 function userEdit(req, res) { 
 
-    const userID = parseInt(req.params.UserID, 10);
+    const userID = parseInt(req.params.user, 10);
     var userToEdit = database.prepare("SELECT * FROM Users WHERE UserID = ?").get(userID);
 
-    //var id = userToEdit.id;
-    //var handle = userToEdit.handle;
-    //var email = userToEdit.UserEmail;
-    //var firstName = userToEdit.UserFirstName;
-    //var lastName = userToEdit.UserLastName;
-    //var role = userToEdit.UserRole;
+    /*var id = userToEdit.id;
+    var handle = userToEdit.UserHandle;
+    var email = userToEdit.UserEmail;
+    var firstName = userToEdit.UserFirstName;
+    var lastName = userToEdit.UserLastName;
+    var role = userToEdit.UserRole;*/
 
-    console.log("Should give userID from user-edit.js"+userID);
+    //console.log("Should give email from user-edit.js"+email);
     //console.log("Should give userToEdit.UserHandle from user-edit.js"+userToEdit.UserHandle);
     //console.log("Should give userToEdit.email from user-edit.js"+userToEdit.email);
     //console.log("Should give firstName from user-edit.js"+firstName);

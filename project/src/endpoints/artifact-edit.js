@@ -29,7 +29,7 @@ const templates = require('../templates');
 function artifactEdit(req, res) {
 
     const artifactID = parseInt(req.params.ArtifactID, 10);
-    var artifactToEdit = database.prepare("SELECT * FROM Artifacts WHERE ArtifactID = ?").all(artifactID);
+    var artifactToEdit = database.prepare("SELECT * FROM Artifacts WHERE ArtifactID = ?").get(artifactID);
     
     var errorMessage = "";
 
