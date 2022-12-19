@@ -56,7 +56,7 @@ function artifactUpdate(req, res) {
 
     if (update.changes !== 1) return serveError(req, res, 500, "Unable to update database");
         
-    res.writeHead(302, { "Location": `/artifact` }).end();
+    res.writeHead(302, { "Location": `/artifacts` }).end();
 
 }// close artifactUpdate
 
