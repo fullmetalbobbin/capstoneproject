@@ -30,12 +30,12 @@ function userEdit(req, res) {
     const userID = parseInt(req.params.userID, 10);
     var userToEdit = database.prepare("SELECT * FROM Users WHERE UserID = ?").get(userID);
 
-    /*var id = userToEdit.id;
+    var id = userToEdit.UserID;
     var handle = userToEdit.UserHandle;
     var email = userToEdit.UserEmail;
     var firstName = userToEdit.UserFirstName;
     var lastName = userToEdit.UserLastName;
-    var role = userToEdit.UserRole;*/
+    var role = userToEdit.UserRole;
 
     //console.log("Should give email from user-edit.js"+email);
     //console.log("Should give userToEdit.UserHandle from user-edit.js"+userToEdit.UserHandle);
@@ -56,12 +56,12 @@ function userEdit(req, res) {
         error: errorMessage,
         navi: navigationSide,
         user: userToEdit,
-        id: userToEdit.UserID,
-        handle: userToEdit.UserHandle,
-        email: userToEdit.UserEmail,
-        firstName: userToEdit.UserFirstName,
-        lastName: userToEdit.UserLastName,
-        role: userToEdit.UserRole
+        id: id,
+        handle: handle,
+        email: email,
+        firstName: firstName,
+        lastName: lastName,
+        role: role
     });
 
     res.setHeader('Content-Type', "text/html");

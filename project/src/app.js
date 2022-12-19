@@ -102,7 +102,7 @@ app.get('/exhibit/:exhibitID/edit', authorizationInternal, exhibitEdit);
 app.post('/exhibit/:exhibitID/edit', authorizationInternal, parseData, exhibitUpdate);
 
 //  ADMIN ONLY - GALLERY EDIT/UPDATE
-app.get('/gallery', authorizationInternal, galleryList);
+app.get('/gallery-list', authorizationInternal, galleryList);
 app.get('/gallery/:exhibitID/edit', authorizationInternal, galleryEdit);
 app.post('/gallery/:exhibitID/edit', authorizationInternal, parseData, galleryUpdate);
 

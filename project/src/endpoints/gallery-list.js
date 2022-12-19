@@ -29,16 +29,11 @@ const templates = require('../templates');
  **/
 function galleryList(req, res) {
 
-    var allExhibitsForGallery = database.prepare("SELECT * FROM Exhibits").all();
+    var allExhibits = database.prepare("SELECT * FROM Exhibits").all();
 
-    var id = allExhibitsForGallery.ExhibitID;
-    var name =allExhibitsForGallery.ExhibitName;
-    var describe = allExhibitsForGallery.ExhibitDescription;
-    var pathQR = allExhibitsForGallery.PathToQRAsset;
-    var pathPhoto = allExhibitsForGallery.PathToPhotoAsset;
-    var current = allExhibitsForGallery.IsCurrentExhibit;
-    var travel = allExhibitsForGallery.IsTravelingExhibit;
-    var gallery = allExhibitsForGallery.IsDisplayedInGallery;
+    //var id = exhibits.ExhibitID;
+    var name = allExhibits.ExhibitName;
+    var gallery = allExhibits.IsDisplayedInGallery;
 
     var errorMessage = "";
 
@@ -51,7 +46,9 @@ function galleryList(req, res) {
     var html = templates['layout-manage-gallery.html']({
         error: errorMessage,
         navi: navigationSide,
-        exhibits: allExhibitsForGallery
+        exhibits: allExhibits,
+        name: name,
+        gallery: gallery
     });
 
     res.setHeader('Content-Type', "text/html");

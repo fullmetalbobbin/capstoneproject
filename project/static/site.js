@@ -10,16 +10,4 @@
 
 //TODO
 
-function displayGallery(data){
-
-
-}
-
-function displayExhibits(data){
-
-}
-
-function displayArtifacts(data){
-
-}
 

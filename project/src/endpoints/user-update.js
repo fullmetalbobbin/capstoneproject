@@ -31,7 +31,7 @@ const templates = require('../templates');
  **/
 function userUpdate(req, res) {
 
-    const currentUserID = parseInt(req.params.user, 10); //UserID?
+    const currentUserID = parseInt(req.params.userID, 10); //UserID?
 
     var currentUser = database.prepare("SELECT * FROM Users WHERE UserID = ?").get(currentUserID);
 

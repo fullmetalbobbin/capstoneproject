@@ -18,15 +18,15 @@
             <header>Artifact</header>
             <main> 
                 <div class="main-container" id="view-artifact-container" >
-                List of artifacts from the directing exhibit
+                The artifact
 
                     <ul>              
                     <% artifacts.forEach((artifact) => { %>
                         <li>
                             <div><%= artifact.ArtifactName %></div>
                             <div><%= artifact.ArtifactDescription %></div>
-                            
-                            <img src="../static/assets/buttons/logo-draft.png" type="image/png" alt="Button Logo">
+
+                            <img src="../assets/buttons/logo-draft.png" type="image/png" alt="Button Logo">
                             
                         </li>
                     <% }); %>
@@ -36,8 +36,8 @@
             </main>
         </section>
 
-        <link rel="stylesheet" href="site.css" type="text/css"/>
-        <script src="site.js"></script>
+        <link rel="stylesheet" href="/site.css" type="text/css"/>
+        <script src="/site.js"></script>
 
     </body>
 </html>
