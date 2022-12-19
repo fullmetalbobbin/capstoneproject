@@ -44,7 +44,7 @@ function userEdit(req, res) {
     //console.log("Should give UserLastName from user-edit.js"+UserLastName);
     console.log("Should give req.session.user from user-edit.js"+req.session.user.handle);
 
-    var errorMessage = ";"
+    var errorMessage = ""
 
     var navigationSide = templates['navigation-side.html']({
         user: req.session.user,

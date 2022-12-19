@@ -33,12 +33,12 @@
                     <tbody>
                         <% artifacts.forEach((artifact) => { %>
                         <tr>
-                            <th scope="row"><% artifact.id %></th>
-                            <td><%= atifact.name %></td>
-                            <td><%= atifact.describe %></td>
-                            <td><%= atifact.pathQR %></td>
-                            <td><%= atifact.pathPhoto %></td>
-                            <td><a href="/artifacts/<%= artifact.id %>"><button class="btn" type="submit">Edit Artifact</button></a></td>
+                            <th scope="row"><% artifact.ArtifactID %></th>
+                            <td><%= atifact.ArtifactID %></td>
+                            <td><%= atifact.ArtifactName %></td>
+                            <td><img src="<%= artifact.PathToQRAsset %>" type="image/png" alt="QR Code"></td>
+                            <td><img src="<%= artifact.PathToPhotoAsset%>" type="image.png" alt="Photo"></td>
+                            <td><a href="/artifact/<%= artifact.id %>"><button class="btn" type="submit">Edit Artifact</button></a></td>
                         </tr>
                         <% }); %>
                     </tbody>

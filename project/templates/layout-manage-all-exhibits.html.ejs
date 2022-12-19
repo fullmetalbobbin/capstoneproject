@@ -33,12 +33,12 @@
                     <tbody>
                         <% exhibits.forEach((exhibit) => { %>
                         <tr>
-                            <th scope="row"><% exhibit.id %></th>
-                            <td><%= exhibit.name %></td>
-                            <td><%= exhibit.describe %></td>
-                            <td><%= exhibit.pathQR %></td>
-                            <td><%= exhibit.pathPhoto %></td>
-                            <td><a href="/exhibits/<%= exhibit.id %>"><button class="btn" type="submit">Edit Exhibit</button></a></td>
+                            <th scope="row"><% exhibit.ExhibitID %></th>
+                            <td><%= exhibit.ExhibitID %></td>
+                            <td><%= exhibit.ExhibitName %></td>
+                            <td><img src="<%= exhibit.PathToQRAsset %>" type="image/png" alt="QR Code"></td>
+                            <td><img src="<%= exhibit.PathToPhotoAsset %>" type="image/png" alt="Photo"></td>
+                            <td><a href="/exhibit/<%= exhibit.id %>"><button class="btn" type="submit">Edit Exhibit</button></a></td>
                         </tr>
                         <% }); %>
                     </tbody>

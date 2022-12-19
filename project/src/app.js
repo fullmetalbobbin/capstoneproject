@@ -114,8 +114,8 @@ app.get('/qr-codes/new-qr-code', authorizationInternal, qrCreate);
 
 // ADMIN ONLY - USER EDIT/UPDATE
 app.get('/users', authorizationInternal, userList);
-app.get('/user/:userID', authorizationInternal, userEdit);
-app.post('/user/:userID', authorizationInternal, parseData, userUpdate);
+app.get('/users/:userID', authorizationInternal, userEdit);
+app.post('/users/:userID', authorizationInternal, parseData, userUpdate);
 
 // ADMIN ONLY - MANAGER/ADMIN PAGE
 
