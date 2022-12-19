@@ -6,6 +6,7 @@
         <title>Manage Artifacts</title>
         <style>
             ul {list-style-type: none;}
+            img{max-height: 80px; max-width: auto;}
         </style>
         <link href="site.css" rel="stylesheet" type="text/css" />
         <link rel="icon" href="../assets/buttons/icons8-button7-64.png" type="image/png" />
@@ -34,8 +35,8 @@
                         <% artifacts.forEach((artifact) => { %>
                         <tr>
                             <th scope="row"><% artifact.ArtifactID %></th>
-                            <td><%= atifact.ArtifactID %></td>
-                            <td><%= atifact.ArtifactName %></td>
+                            <td><%= artifact.ArtifactID %></td>
+                            <td><%= artifact.ArtifactName %></td>
                             <td><img src="<%= artifact.PathToQRAsset %>" type="image/png" alt="QR Code"></td>
                             <td><img src="<%= artifact.PathToPhotoAsset%>" type="image.png" alt="Photo"></td>
                             <td><a href="/artifact/<%= artifact.id %>"><button class="btn" type="submit">Edit Artifact</button></a></td>

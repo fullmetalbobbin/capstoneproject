@@ -42,14 +42,20 @@ function artifactList(req, res) {
 
     var navigationSide = templates['navigation-side.html']({
         user: req.session.user,
-        role: req.session.role,
-        handle: req.session.handle
+        role: req.session.user.role,
+        handle: req.session.user.handle
     });
 
     var html = templates['layout-manage-all-artifacts.html']({
         error: errorMessage,
         navi: navigationSide,
-        artifacts: allArtifacts //double check if bugs
+        artifacts: allArtifacts, //double check if bugs
+        id: id,
+        name: name,
+        describe: describe,
+        pathQR: pathQR,
+        pathPhoto:pathPhoto,
+        display:display
     });
 
     res.setHeader("Content-Type", "text/html");
