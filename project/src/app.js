@@ -78,8 +78,8 @@ app.use(seesionLoad);
 //serve
 app.get('/', serveHomepage);
 app.get('/gallery', serveGallery);
-app.get('/exhibit', serveExhibit);
-app.get('/artifact', serveArtifact);
+app.get('/exhibit/:exhibitID', serveExhibit);
+app.get('/artifact/:artifactID', serveArtifact);
 app.get('/favorites', serveFavorites);
 app.get('/search', serveSearch);
 
@@ -91,15 +91,15 @@ app.get('/manager', authorizationInternal, serveAdminPage);
 
 // ADMIN ONLY - ARTIFACT CREATE/EDIT/UPDATE
 app.get('/new-artifact', authorizationInternal, serveNewArtifact);
-app.get('/artifacts', authorizationInternal, artifactList);
+app.get('/artifact-list', authorizationInternal, artifactList);
 app.get('/artifact/:artifactID/edit', authorizationInternal, artifactEdit);
 app.post('/artifact/:artifactID/edit', authorizationInternal, parseData, artifactUpdate);
 
 //  ADMIN ONLY - EXHIBIT CREATE/EDIT/UPDATE
 app.get('/new-exhibit', authorizationInternal, serveNewExhibit);
-app.get('/exhibits', authorizationInternal, exhibitList);
+app.get('/exhibit-list', authorizationInternal, exhibitList);
 app.get('/exhibit/:exhibitID/edit', authorizationInternal, exhibitEdit);
-app.post('/exhibit/:exhibittID/edit', authorizationInternal, parseData, exhibitUpdate);
+app.post('/exhibit/:exhibitID/edit', authorizationInternal, parseData, exhibitUpdate);
 
 //  ADMIN ONLY - GALLERY EDIT/UPDATE
 app.get('/gallery', authorizationInternal, galleryList);
@@ -113,9 +113,9 @@ app.get('/qr-codes/new-qr-code', authorizationInternal, qrCreate);
 //app.post('/qr-codes/:artifactID', authorizationInternal, parseBody, artifactUpdate);
 
 // ADMIN ONLY - USER EDIT/UPDATE
-app.get('/users', authorizationInternal, userList);
-app.get('/users/:userID', authorizationInternal, userEdit);
-app.post('/users/:userID', authorizationInternal, parseData, userUpdate);
+app.get('/user-list', authorizationInternal, userList);
+app.get('/user/:userID/edit', authorizationInternal, userEdit);
+app.post('/user/:userID/edit', authorizationInternal, parseData, userUpdate);
 
 // ADMIN ONLY - MANAGER/ADMIN PAGE
 

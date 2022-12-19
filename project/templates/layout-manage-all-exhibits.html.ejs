@@ -38,7 +38,7 @@
                             <td><%= exhibit.ExhibitName %></td>
                             <td><img src="<%= exhibit.PathToQRAsset %>" type="image/png" alt="QR Code"></td>
                             <td><img src="<%= exhibit.PathToPhotoAsset %>" type="image/png" alt="Photo"></td>
-                            <td><a href="/exhibit/<%= exhibit.id %>"><button class="btn" type="submit">Edit Exhibit</button></a></td>
+                            <td><a href="/exhibit/<%- exhibit.ExhibitID %>/edit"><button class="btn" type="submit">Edit Exhibit</button></a></td>
                         </tr>
                         <% }); %>
                     </tbody>

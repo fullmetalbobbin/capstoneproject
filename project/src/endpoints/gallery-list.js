@@ -44,8 +44,8 @@ function galleryList(req, res) {
 
     var navigationSide = templates['navigation-side.html']({
         user: req.session.user,
-        role: req.session.role,
-        handle: req.session.handle
+        handle: req.session.user.handle,
+        role: req.session.user.role
     });
 
     var html = templates['layout-manage-gallery.html']({

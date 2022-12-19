@@ -39,7 +39,7 @@
                             <td><%= artifact.ArtifactName %></td>
                             <td><img src="<%= artifact.PathToQRAsset %>" type="image/png" alt="QR Code"></td>
                             <td><img src="<%= artifact.PathToPhotoAsset%>" type="image.png" alt="Photo"></td>
-                            <td><a href="/artifact/<%= artifact.id %>"><button class="btn" type="submit">Edit Artifact</button></a></td>
+                            <td><a href="/artifact/<%= artifact.ArtifactID %>/edit"><button class="btn" type="submit">Edit Artifact</button></a></td>
                         </tr>
                         <% }); %>
                     </tbody>

@@ -29,19 +29,20 @@ const templates = require('../templates');
 function exhibitEdit(req, res) {
 
     const exhibitID = parseInt(req.params.ExhibitID, 10);
-    var exhibitToEdit = database.prepare("SELECT * FROM Exhibits WHERE ExhibitID = ?").get(exhibitID);
+    var exhibitToEdit = database.prepare("SELECT * FROM Exhibits WHERE ExhibitID = ?").all(exhibitID);
 
     var errorMessage = "";
 
     var navigationSide = templates['navigation-side.html']({
         user: req.session.user,
-        role: req.session.role,
-        handle: req.session.handle
+        handle: req.session.user.handle,
+        role: req.session.user.role
     });
 
     var html = templates['layout-manage-single-exhibit.html']({
         error: errorMessage,
         navi: navigationSide,
+        exhibit: exhibitToEdit,
         id: exhibitToEdit.ExhibitID,
         name: exhibitToEdit.ExhibitName,
         describe: exhibitToEdit.ExhibitDescription,

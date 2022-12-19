@@ -29,20 +29,21 @@ const templates = require('../templates');
 function artifactEdit(req, res) {
 
     const artifactID = parseInt(req.params.ArtifactID, 10);
-    var artifactToEdit = database.prepare("SELECT * FROM Artifacts WHERE ArtifactID = ?").get(artifactID);
+    var artifactToEdit = database.prepare("SELECT * FROM Artifacts WHERE ArtifactID = ?").all(artifactID);
     
     var errorMessage = "";
 
     var navigationSide = templates['navigation-side.html']({
         user: req.session.user,
-        role: req.session.role,
-        handle: req.session.handle
+        handle: req.session.user.handle,
+        role: req.session.user.role
     });
 
     var html = templates['layout-manage-single-artifact.html']({
         error: errorMessage,
         navi: navigationSide,
-        id: artifactToEdit.ArtifactID, //id
+        artifact: artifactToEdit,
+        id: artifactToEdit.Artifact, //id
         name: artifactToEdit.ArtifactName, //name
         describe: artifactToEdit.ArtifactDescription, //describe
         pathQR: artifactToEdit.PathToQRAsset, //pathQR

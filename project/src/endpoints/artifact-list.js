@@ -42,8 +42,8 @@ function artifactList(req, res) {
 
     var navigationSide = templates['navigation-side.html']({
         user: req.session.user,
-        role: req.session.user.role,
-        handle: req.session.user.handle
+        handle: req.session.user.handle,
+        role: req.session.user.role
     });
 
     var html = templates['layout-manage-all-artifacts.html']({
