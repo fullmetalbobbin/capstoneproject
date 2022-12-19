@@ -27,7 +27,7 @@ const templates = require('../templates');
  **/
 function userEdit(req, res) { 
 
-    const userID = parseInt(req.params.user, 10);
+    const userID = parseInt(req.params.userID, 10);
     var userToEdit = database.prepare("SELECT * FROM Users WHERE UserID = ?").get(userID);
 
     /*var id = userToEdit.id;
@@ -55,13 +55,13 @@ function userEdit(req, res) {
     var html = templates['layout-manage-single-user.html']({
         error: errorMessage,
         navi: navigationSide,
-        user: userToEdit//,
-        //id: userToEdit.id,
-        //handle: userToEdit.handle,
-        //email: userToEdit.email,
-        //firstName: userToEdit.firstName,
-        //lastName: userToEdit.lastName,
-        //role: userToEdit.role
+        user: userToEdit,
+        id: userToEdit.UserID,
+        handle: userToEdit.UserHandle,
+        email: userToEdit.UserEmail,
+        firstName: userToEdit.UserFirstName,
+        lastName: userToEdit.UserLastName,
+        role: userToEdit.UserRole
     });
 
     res.setHeader('Content-Type', "text/html");

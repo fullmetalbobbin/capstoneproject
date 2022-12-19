@@ -32,7 +32,7 @@ const templates = require('../templates');
  **/
 function galleryEdit(req, res) {
 
-    const exhibitID = parseInt(req.params.ExhibitID, 10);
+    const exhibitID = parseInt(req.params.exhibitID, 10); //ExhibitID?
     var galleryDisplayExhibit = database.prepare("SELECT * FROM Exhibits").all();
 
     var errorMessage = "";
@@ -48,11 +48,11 @@ function galleryEdit(req, res) {
         navi: navigationSide,
         id: galleryDisplayExhibit.ExhibitID,
         name: galleryDisplayExhibit.ExhibitName,
-        //describe: exhibitToEdit.ExhibitDescription,
-        //pathQR: exhibitToEdit.PathToQRAsset,
-        //pathPhoto: exhibitToEdit.PathToPhotoAsset,
-        //current: exhibitToEdit.IsCurrentExhibit,
-        //travel: exhibitToEdit.IsTravelingExhibit
+        describe: exhibitToEdit.ExhibitDescription,
+        pathQR: exhibitToEdit.PathToQRAsset,
+        pathPhoto: exhibitToEdit.PathToPhotoAsset,
+        current: exhibitToEdit.IsCurrentExhibit,
+        travel: exhibitToEdit.IsTravelingExhibit,
         display: galleryDisplayExhibit.IsDisplayedInGallery
     });
 

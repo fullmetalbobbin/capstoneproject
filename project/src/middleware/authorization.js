@@ -36,7 +36,7 @@ function authorization(req, res, next) {
     var session = req.session;
 
     if (!req.session.user) { 
-        return res.WriteHead(302, { Location: "/login" }).end();
+        return res.writeHead(302, { Location: "/login" }).end();
     }// close if
     if (req.session.user.role == 1) {
         next();

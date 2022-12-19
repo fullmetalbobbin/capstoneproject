@@ -28,7 +28,7 @@ const templates = require('../templates');
  **/
 function artifactEdit(req, res) {
 
-    const artifactID = parseInt(req.params.ArtifactID, 10);
+    const artifactID = parseInt(req.params.artifactID, 10);
     var artifactToEdit = database.prepare("SELECT * FROM Artifacts WHERE ArtifactID = ?").get(artifactID);
     
     var errorMessage = "";
@@ -43,7 +43,7 @@ function artifactEdit(req, res) {
         error: errorMessage,
         navi: navigationSide,
         artifact: artifactToEdit,
-        id: artifactToEdit.Artifact, //id
+        id: artifactToEdit.ArtifactID, //id
         name: artifactToEdit.ArtifactName, //name
         describe: artifactToEdit.ArtifactDescription, //describe
         pathQR: artifactToEdit.PathToQRAsset, //pathQR

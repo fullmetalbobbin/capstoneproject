@@ -30,7 +30,7 @@ const templates = require('../templates');
  **/
 function exhibitUpdate(req, res) {
 
-    const currentExhibitID = parseInt(req.params.ExhibitID, 10);
+    const currentExhibitID = parseInt(req.params.exhibitID, 10);  
 
     var currentExhibit = database.prepare("SELECT * FROM Exhibits WHERE ExhibitID = ?").get(currentExhibitID);
 

@@ -31,7 +31,7 @@ const templates = require('../templates');
  **/
 function artifactUpdate(req, res) {
 
-    const currentArtifactID = parseInt(req.params.ArtifactID, 10);
+    const currentArtifactID = parseInt(req.params.artifactID, 10); //ArtifactID?
 
     var currentArtifact = database.prepare("SELECT * FROM Artifacts WHERE ArtifactID = ?").get(currentArtifactID);
 

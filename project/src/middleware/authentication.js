@@ -50,7 +50,7 @@ function authentication(req, res, next) {
         var user = database.prepare("SELECT * FROM Users WHERE UserHandle = ?").get(userHandle);
 
         if (!user) { 
-            return res.WriteHead(403, { Location: "/new-user" }).end();
+            return res.writeHead(403, { Location: "/new-user" }).end();
         }// close if
 
         encryption.compare(userPassword, user.encryptedPassword, function (error, result) {
@@ -61,8 +61,9 @@ function authentication(req, res, next) {
                 next();
             }// close if
             else { 
-                res.WriteHead(403, { Location: "/new-user" }).end();
+                res.writeHead(403, { Location: "/new-user" }).end();
             }// close else
+
         }); 
 
     }// close else

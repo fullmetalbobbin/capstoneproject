@@ -31,7 +31,7 @@ const templates = require('../templates');
  **/
 function galleryUpdate(req, res) {
 
-    const currentExhibitID = parseInt(req.params.ExhibitID, 10);
+    const currentExhibitID = parseInt(req.params.exhibitID, 10); //ExhibitID?
 
     var currentExhibit = database.prepare("SELECT * FROM Exhibits").all();
 

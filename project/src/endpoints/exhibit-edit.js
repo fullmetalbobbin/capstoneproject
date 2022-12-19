@@ -28,7 +28,7 @@ const templates = require('../templates');
  **/
 function exhibitEdit(req, res) {
 
-    const exhibitID = parseInt(req.params.ExhibitID, 10);
+    const exhibitID = parseInt(req.params.exhibitID, 10);
     var exhibitToEdit = database.prepare("SELECT * FROM Exhibits WHERE ExhibitID = ?").get(exhibitID);
 
     console.log("Shoould give parsed exhibitID from exhibit-edit.js"+exhibitID); //"NaN"
