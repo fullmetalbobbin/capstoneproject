@@ -41,10 +41,10 @@ function userUpdate(req, res) {
     var lastName = sanitize(req.body.lastName);
     var role = sanitize(req.body.role);
 
-    if (handle == '') handle = currentUser.handle;
-    if (email == '') email = currentUser.email;
-    if (firstName == '') firstName = currentUser.firstName;
-    if (lastName == '') lastName = currentUser.lastName;
+    if (handle == '') handle = currentUser.UserHandle;
+    if (email == '') email = currentUser.UserEmail;
+    if (firstName == '') firstName = currentUser.UserFirstName;
+    if (lastName == '') lastName = currentUser.UserLastName;
     if (role == 1 || role == '1' || role == 'A' || role == 'a' || role == 'Y' || role == 'y') {
         role = 1;
     }// close if
@@ -52,7 +52,7 @@ function userUpdate(req, res) {
         role = 0;
     }// close else
 
-    var update = database.prepare("UPDATE Users SET UserHandle = ?, UserEmail = ?, UserFirstName = ?, UserLastName = ?, Role = ? WHERE UserID = ? ").run(handle, email, firstName, lastName, role, currentUserID);
+    var update = database.prepare("UPDATE Users SET UserHandle = ?, UserEmail = ?, UserFirstName = ?, UserLastName = ?, UserRole = ? WHERE UserID = ? ").run(handle, email, firstName, lastName, role, currentUserID);
 
     if (update.changes !== 1) return serveError(req, res, 500, "Unable to update database");
 
