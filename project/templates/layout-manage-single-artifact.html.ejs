@@ -16,7 +16,47 @@
         <section id="page">       
             <nav><%- navi %></nav>
             <header>Manage Artifact</header>
-            <main> Manage single artifact</main>
+            <main> 
+                Edit/Update Artifact
+                <div class="main-container" id="edit-user-container" >
+                    <form class="edit-user-form" method="POST">
+    
+                        <div>
+                            <label for="error" style="display:inline-flex; flex-direction:row; align-content: center;"><%= error %></label></span>                   
+                        </div>
+                    
+                        <label for="name">Artifact&nbsp;Name:</label>
+                        <input type="text" name="name" placeholder="<%= name %>"/>
+                        <div style="padding:10px"></div>
+                        <label for="describe">Description:</label>
+                        <input type="text" name="describe" placeholder="<%= describe %>"/>
+                        <div style="padding:10px"></div>
+                        <label for="pathQR">QR&nbsp;Path:</label>
+                        <input type="text" name="pathQR" placeholder="<%= pathQR %>"/>
+                        <div style="padding:10px"></div>
+                        <label for="pathPhoto">Photo&nbsp;Path:</label>
+                        <input type="text" name="pathPhoto" placeholder="<%= pathPhoto %>"/>
+                        <div style="padding:10px"></div>
+                        
+                        <% if(display == 1) { %> 
+                            <label for="display">On&nbsp;Display:</label>
+                            <input type="radio" name="display" value="1" checked/>
+                            <label for="display">In&nbsp;Storage:</label>
+                            <input type="radio" name="display"/>
+                            <% } else { %>
+                            <label for="display">On&nbsp;Display:</label>
+                            <input type="radio" name="display"/>
+                            <label for="display">In&nbsp;Storage:</label>
+                            <input type="radio" name="display" value="0" checked/>
+                        <% } %>
+                        
+                        <div style="padding:10px"></div>
+                        <input type="submit" value="Update Artifact"/>
+              
+                    </form>
+                    </div>
+
+            </main>
         </section>
 
         <link rel="stylesheet" href="/site.css" type="text/css"/>

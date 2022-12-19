@@ -17,7 +17,67 @@
             <nav><%- navi %></nav>
             <header>Manage Exhibit</header>
             <main> 
-                Edit/Update single exhibit.
+                Edit/Update Exhibit.
+                <div class="main-container" id="edit-exhibit-container" >
+                    <form class="edit-exhibit-form" method="POST">
+    
+                        <div>
+                            <label for="error" style="display:inline-flex; flex-direction:row; align-content: center;"><%= error %></label></span>                   
+                        </div>
+                    
+                        <label for="name">Exhibit&nbsp;Name:</label>
+                        <input type="text" name="name" placeholder="<%= name %>"/>
+                        <div style="padding:10px"></div>
+                        <label for="describe">Description:</label>
+                        <input type="text" name="describe" placeholder="<%= describe %>"/>
+                        <div style="padding:10px"></div>
+                        <label for="pathQR">QR&nbsp;Path:</label>
+                        <input type="text" name="pathQR" placeholder="<%= pathQR %>"/>
+                        <div style="padding:10px"></div>
+                        <label for="pathPhoto">Photo&nbsp;Path:</label>
+                        <input type="text" name="pathPhoto" placeholder="<%= pathPhoto %>"/>
+                        <div style="padding:10px"></div>
+                        <% if(current == 1) { %> 
+                            <label for="current">Current&nbsp;Exhibit:</label>
+                            <input type="radio" name="current" value="1" checked/>
+                            <label for="current">Past&nbsp;Exhibit:</label>
+                            <input type="radio" name="current"/>
+                            <% } else { %>
+                            <label for="current">Current&nbsp;Exhibit:</label>
+                            <input type="radio" name="current"/>
+                            <label for="current">Past&nbsp;Exhibit:</label>
+                            <input type="radio" name="current" value="0" checked/>
+                        <% } %>
+                        <div style="padding:10px"></div>
+                        <% if(travel == 1) { %> 
+                            <label for="travel">Traveling&nbsp;Exhibit:</label>
+                            <input type="radio" name="travel" value="1" checked/>
+                            <label for="travel">Home&nbsp;Exhibit:</label>
+                            <input type="radio" name="travel"/>
+                            <% } else { %>
+                            <label for="travel">Traveling&nbsp;Exhibit:</label>
+                            <input type="radio" name="travel"/>
+                            <label for="travel">Home&nbsp;Exhibit:</label>
+                            <input type="radio" name="travel" value="0" checked/>
+                        <% } %>
+                        <div style="padding:10px"></div>                       
+                        <% if(gallery == 1) { %> 
+                            <label for="gallery">Include:</label>
+                            <input type="radio" name="gallery" value="1" checked/>
+                            <label for="gallery">Exclude:</label>
+                            <input type="radio" name="gallery"/>
+                            <% } else { %>
+                            <label for="gallery">Include:</label>
+                            <input type="radio" name="gallery"/>
+                            <label for="gallery">Exclude:</label>
+                            <input type="radio" name="gallery" value="0" checked/>
+                        <% } %>
+                        
+                        <div style="padding:10px"></div>
+                        <input type="submit" value="Update Exhibit"/>
+              
+                    </form>
+                    </div>
             </main>
         </section>
 

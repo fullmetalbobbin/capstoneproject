@@ -56,7 +56,7 @@ function userUpdate(req, res) {
 
     if (update.changes !== 1) return serveError(req, res, 500, "Unable to update database");
 
-    res.writeHead(302, { "Location": `/user` }).end();
+    res.writeHead(302, { "Location": `/user/${currentUserID}` }).end();
 
 }// close userUpdate
 
